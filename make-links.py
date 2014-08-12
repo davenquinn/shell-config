@@ -4,12 +4,13 @@ from os.path import dirname, expanduser
 from pathlib import Path
 from click import style, echo, confirm
 from functools import partial
+from subprocess import call
 
 home = Path(expanduser("~"))
 dotfiles = Path(dirname(__file__)).resolve()/"dotfiles"
 
-green = lambda s: style(str(s),fg="cyan")
-red = lambda s: style(str(s),fg="red")
+cyan = lambda s: style(str(s),fg="cyan")
+magenta = lambda s: style(str(s),fg="magenta")
 dotted = lambda p: "."+p.name
 
 linkfile = lambda p: home/dotted(p)
@@ -18,7 +19,7 @@ def symlink_path(p):
     loc = linkfile(p)
     if loc.is_symlink(): loc.unlink()
     if loc.exists(): return p
-    s = "Symlinking "+green(loc)+" → "+green(p)
+    s = "Symlinking "+cyan(loc)+" → "+cyan(p)
     echo(s)
     loc.symlink_to(p)
 
@@ -26,13 +27,18 @@ def make_symlinks(files):
     results = map(symlink_path, files)
     remainders = list(filter(lambda x: x is not None, results))
     if len(remainders) == 0: return
-    linkfiles = map(linkfile, remainders)
+    linkfiles = list(map(linkfile, remainders))
+    echo("")
     echo("Some unmanaged dotfiles remain:")
     for loc in linkfiles:
         type = "folder" if loc.is_dir() else "file  "
-        echo("    {0} ".format(type)+red(loc))
-    if confirm("Do you want to overwrite these unmanaged dotfiles?"):
-        map(lambda i: i.unlink(), linkfiles)
+        echo("    {0} {1}".format(type,magenta(loc)))
+    s = ["Do you want to overwrite these unmanaged files?",
+         "You'll lose any changes you've made."]
+    if confirm("\n".join(s)):
+        for loc in linkfiles:
+            echo("Removing {0}".format(loc))
+            call(["rm","-rf",str(loc)])
         make_symlinks(remainders)
 
 if __name__ == "__main__":
