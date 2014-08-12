@@ -11,4 +11,4 @@
 .pip
 .npmrc
 .pypirc
-.ipython
+.ipython/profile_default
