@@ -1,0 +1,14 @@
+# This file contains a list of dotfiles (and folders)
+# that are symlinked to the home directory
+.zshrc
+.gitconfig
+.gitignore
+.gitattributes
+.hushlogin
+.wgetrc
+.curlrc
+.editorconfig
+.pip
+.npmrc
+.pypirc
+.ipython

@@ -8,11 +8,15 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+## iTunes ##
+
+defaults write com.apple.iTunes allow-half-stars -bool TRUE
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
-NAME="Daven Quinn"
+NAME="Daven-Quinn"
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName $NAME
@@ -30,7 +34,6 @@ sudo nvram SystemAudioVolume=" "
 # Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
 	defaults write "${domain}" dontAutoLoad -array \
-		#"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
 		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
 		"/System/Library/CoreServices/Menu Extras/User.menu"
 done
@@ -387,9 +390,9 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-delay -float 0.1
 # Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.8
 
 # Enable the 2D Dock
 #defaults write com.apple.dock no-glass -bool true

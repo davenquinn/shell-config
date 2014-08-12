@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/Development/zsh-config
+export ZSH=$HOME/Environment/zsh-config
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+DEFAULT_USER="Daven"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +46,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git atom)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
 
-export PATH="$COREUTILS/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/usr/local/bin:$COREUTILS:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -82,11 +83,32 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# PostgreSQL
+export PGDATA=$HOME/Library/Databases/PostgreSQL/
+
+# Python Virtualenv
+
+export WORKON_HOME="$HOME/Environment/virtualenvs"
+export PROJECT_HOME="$HOME/Development"
+source /usr/local/bin/virtualenvwrapper.sh
+
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+
+export PYTHONDONTWRITEBYTECODE=True
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+# Mactex
+
+#eval `/usr/libexec/path_helper -s` # Helps with zsh
+# This is kind of ridiculous
+
+archey --color

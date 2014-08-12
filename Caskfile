@@ -1,20 +1,19 @@
 # Install native apps
 # Usage: `brew bundle Caskfile`
 
-install caskroom/cask/brew-cask
 tap caskroom/versions
 
-cask install dropbox
-cask install alfred2
+cask install alfred
 cask install google-chrome
 cask install imagealpha
 cask install imageoptim
 cask install iterm2
-cask install the-unarchiver
+#cask install the-unarchiver
 cask install transmission
 cask install virtualbox
 cask install vlc
 cask install deathtodsstore
+cask install mendeley-desktop
 cask install basictex
 cask install flash-player
 cask install lastpass-universal

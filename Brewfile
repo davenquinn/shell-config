@@ -7,6 +7,12 @@ update
 # Upgrade any already-installed formulae
 upgrade
 
+tap homebrew/dupes
+
+install caskroom/cask/brew-cask
+cask install xquartz
+
+
 # Install GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 install coreutils
@@ -42,6 +48,9 @@ install tree
 install webkit2png
 install xpdf
 install zopfli # Super-performant zlib compressor
+
+install postgresql
+install gdal --with-postgresql --with-python
 
 # Remove outdated versions from the cellar
 cleanup
