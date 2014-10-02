@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+
+import click
+import json
+from pathlib import Path
+from os.path import expanduser
+from subprocess import call
+
+def run(cmd):
+    click.echo("» "+click.style(cmd, fg="cyan"))
+    call(cmd, shell=True)
+
+mountpoint = Path("/Volumes")
+configfile = Path(expanduser("~"))/".sshfs-volumes"
+
+with configfile.open("r") as f:
+    endpoints = json.load(f)
+
+def get_volumes(volumes):
+    for v in volumes:
+        config = endpoints[v]
+        try:
+            config["name"]
+            yield config
+        except TypeError:
+            for i in get_volumes(config):
+                yield i
+
+def mount(config):
+    click.echo("Mounting volume "+click.style(config["name"], fg="green")+"...", nl=False)
+    loc = mountpoint/config["name"]
+    try:
+        loc.mkdir()
+        click.echo("")
+    except FileExistsError:
+        click.echo("already mounted")
+        return
+    cmd = [
+        "sshfs",
+        config["address"],
+        str(loc)+"/",
+        "-onolocalcaches",
+        "-ovolname="+config["name"]]
+    cmd = " ".join(cmd)
+    run(cmd)
+
+def unmount(config=None):
+    click.echo("Ejecting volume "+click.style(config["name"], fg="green")+"...", nl=False)
+    loc = mountpoint/config["name"]
+    cmd = "diskutil unmountDisk {0}/".format(str(loc))
+    run(cmd)
+
+def unmount_all():
+    for volume in endpoints:
+        pass
+
+@click.command()
+@click.option("--eject","-e", multiple=True)
+@click.argument("volumes", nargs=-1)
+def command(eject, volumes):
+    volumes = list(get_volumes(volumes))
+    if eject:
+        return unmount_all()
+    if len(volumes) == 0:
+        click.secho("Please specify one or more volumes to connect to.", fg="magenta")
+    for i in volumes:
+        mount(i)
+
+if __name__ == "__main__":
+    command()
