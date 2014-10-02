@@ -1,2 +1,4 @@
 *.log
 *.sqlite
+
+dotfiles/ipython/profile_default/security/notebook_secret

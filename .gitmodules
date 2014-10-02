@@ -1,0 +1,3 @@
+[submodule "dotfiles/janus/vim-gitgutter"]
+	path = dotfiles/janus/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
