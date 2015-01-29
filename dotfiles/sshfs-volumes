@@ -1,0 +1,23 @@
+{
+    "lewis": ["lewis-data1","lewis-data2","lewis-data3","lewis-home"],
+    "lewis-data1": {
+        "address": "lewis:/export/data1/",
+        "name": "data1"
+    },
+    "lewis-data2": {
+        "address": "lewis:/export/data2/",
+        "name": "data2"
+    },
+    "lewis-data3": {
+        "address": "lewis:/export/data3/",
+        "name": "data3"
+    },
+    "lewis-home" : {
+        "address": "lewis:/home/dquinn/",
+        "name": "dquinn"
+    },
+    "patrin" : {
+        "address": "patrin:.",
+        "name": "Patrin"
+    }
+}

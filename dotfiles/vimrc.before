@@ -1,0 +1,9 @@
+let mapleader = ","
+set mouse=a
+
+" Remaps search highlighting to clear with escape
+nnoremap <esc> :noh<return><esc>
+
+" Adds some files to NerdTreeIgnore
+let NerdTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '\.DS_Store','egg-info/','sass-cache','egg']
+let g:pandoc#modules#disabled = ["folding"]

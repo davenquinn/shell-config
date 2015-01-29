@@ -48,6 +48,7 @@ install tree
 install webkit2png
 install xpdf
 install zopfli # Super-performant zlib compressor
+install z
 
 install postgresql
 install gdal --with-postgresql --with-python

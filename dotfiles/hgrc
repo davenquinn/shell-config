@@ -1,3 +1,6 @@
+[ui]
+davenquinn = Daven Quinn <dev@davenquinn.com>
+
 [extensions]
 hgext.bookmarks =
 hggit =
