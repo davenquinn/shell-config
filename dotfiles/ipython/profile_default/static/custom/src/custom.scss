@@ -1,0 +1,252 @@
+/*
+
+    Name:       Base16 Ocean Dark
+    Author:     Chris Kempson (http://chriskempson.com)
+
+    CodeMirror template adapted for IPython Notebook by Nikhil Sonnad (https://github.com/nsonnad/base16-ipython-notebook)
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-chrome-devtools)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+
+$background: #121212;
+$color: #a0a0a0;
+
+div#notebook,
+div.CodeMirror,
+div.output_area pre,
+div.output_wrapper,
+div.prompt {
+  font-family: 'Input Mono', monospace !important;
+  font-weight: 100;
+  font-size: 14px;
+  color: $color;
+}
+
+/* GLOBALS */
+body {
+  background-color: $background;
+}
+a {color: #8fa1b3;}
+
+/* INTRO PAGE */
+.toolbar_info, .list_container {color: #dfe1e8;}
+
+/* NOTEBOOK */
+
+/* comment out this line to bring the toolbar back */
+div#maintoolbar, div#header {display: none !important;}
+
+div#notebook {border-top: none;}
+
+div.input_prompt {color: #ab7967;}
+div.output_prompt {color: #b48ead;}
+div.input_area {
+  border-radius: 0px;
+  border: 1px solid #4f5b66;
+  color: white;
+  background: $background;
+}
+div.output_area pre {font-weight: normal; color: $color;}
+
+div.output_area svg {
+  background-color: $color;
+}
+
+.rendered_html table, .rendered_html th, .rendered_html tr, .rendered_html td {
+  border: 1px $color solid;
+  color: $color;
+}
+div.output_html { font-family: sans-serif; }
+table.dataframe tr {border: 1px $color;}
+
+div.cell.selected {border-radius: 0px;}
+div.cell.edit_mode {border-radius: 0px; border: thin solid #b48ead;}
+div.text_cell_render, div.output_html {color: $color;}
+
+span.ansiblack {color: darken($color,20%);}
+span.ansiblue {color: #469dd3; background: #041c29;}
+span.ansigray {color: $color;}
+span.ansigreen {color: #007b7b; background: #101719;}
+span.ansipurple {color: #767fc7;background: #121536;}
+span.ansired {
+  color:#a23f44;
+  background: darken(#2d0102,2%);}
+span.ansiyellow {color: #92cd8e;}
+
+
+
+div.output_stderr {background-color: #bf616a;}
+div.output_stderr pre {color: #dfe1e8;}
+
+.MathJax_Display {
+  color: #65737e;
+}
+
+.cm-s-ipython, .cm-s.default {
+  &.CodeMirror {background: $background; color: $color;}
+  div.CodeMirror-selected {background: #181818 !important;}
+
+  span.cm- {
+    &variable {color: $color !important;}
+    &comment {color: #333333;}
+    &atom {color: #0e9eb4;}
+    &number {color: #0e9eb4;}
+    &property,
+    &ipython span.cm-attribute {color: #a3be8c;}
+    &keyword {color: #765cad;}
+    &string {
+      color: #007b7b;
+      background-color: #101719;
+    }
+    &operator {
+      color: #888ba5;
+      background-color: #080b26
+    }
+    &builtin, &variable-2 {color: #469dd3; background: #041c29;}
+    &def {color: #4c849f;}
+    &error {color: #a23f44; background: #2d0102;}
+    &bracket {color: #c0c5ce;}#4c849f
+    &tag {color: #bf616a;}
+    &link {color: #b48ead;}
+
+  }
+
+  .cm-header {
+    color: #767fc7;
+    background: #121536;
+  }
+
+
+  .CodeMirror-matchingbracket { text-decoration: underline; color: #dfe1e8 !important;}
+  .CodeMirror-gutters {background: #2b303b; border-right: 0px;}
+  .CodeMirror-linenumber {color: #575757; background: #181818}
+  .CodeMirror-cursor {border-left: 1px solid #a7adba !important;}
+
+
+}
+
+div.text_cell_render {
+    font-family: "Chaparral Pro";
+    font-size: 16pt;
+    width: 80ex;
+    line-height: 160%; /* added for some line spacing of text. */
+}
+
+div.text_cell_render h1,
+div.text_cell_render h2,
+div.text_cell_render h3,
+div.text_cell_render h4,
+div.text_cell_render h5,
+div.text_cell_render h6 {
+    font-family: 'Helvetica Neue';
+    font-weight: 200;
+}
+
+div.text_cell_render h1 {
+    font-size: 24pt;
+}
+
+div.text_cell_render h2 {
+    font-size: 18pt;
+}
+
+div.text_cell_render h3 {
+    font-size: 14pt;
+}
+
+.rendered_html pre,
+.rendered_html code {
+    font-size: medium;
+}
+
+.rendered_html ol {
+    list-style:decimal;
+    margin: 1em 2em;
+}
+
+/* Input prompts */
+
+.prompt.input_prompt {
+    color: lighten($color, 5%);
+}
+
+.cell.command_mode.selected {
+    border-color: darken($color,30%);
+}
+
+.cell.edit_mode.selected {
+    border-color: $color;
+}
+
+div.output_scroll {
+    -webkit-box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 2px;
+}
+
+#menubar .navbar-inner {
+    font-family: Helvetica Neue;
+    background: inherit;
+    color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    font-weight: 200;
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+}
+
+div#notebook_panel {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-top: none;
+}
+
+div#notebook {
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+.navbar .nav>li>a {
+  text-shadow: none;
+  font-size: 1.2em;
+  color: #bbbbbb;
+}
+.navbar .nav>li>a:hover {
+  color: #999999;
+}
+
+#menubar .navbar .navbar-inner,
+.toolbar-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#checkpoint_status,
+#autosave_status {
+    color: rgba(0,0,0,0.5);
+}
+
+#header {
+    font-family: lato;
+}
+
+#notebook_name {
+    font-weight: 200;
+}
+
+/* 
+    This is a lazy fix, we *should* fix the 
+    background for each Bootstrap button type
+*/
+#site * .btn {
+    background: #fafafa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

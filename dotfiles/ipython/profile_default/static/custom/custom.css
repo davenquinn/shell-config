@@ -8,99 +8,168 @@
     Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 
 */
-
-div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt {
+div#notebook,
+div.CodeMirror,
+div.output_area pre,
+div.output_wrapper,
+div.prompt {
   font-family: 'Input Mono', monospace !important;
   font-weight: 100;
   font-size: 14px;
-}
+  color: #a0a0a0; }
 
 /* GLOBALS */
 body {
-  background-color: #2b303b;
-}
-a {color: #8fa1b3;}
+  background-color: #121212; }
+
+a {
+  color: #8fa1b3; }
 
 /* INTRO PAGE */
-.toolbar_info, .list_container {color: #dfe1e8;}
+.toolbar_info, .list_container {
+  color: #dfe1e8; }
 
 /* NOTEBOOK */
-
 /* comment out this line to bring the toolbar back */
-div#maintoolbar, div#header {display: none !important;}
+div#maintoolbar, div#header {
+  display: none !important; }
 
-div#notebook {border-top: none;}
+div#notebook {
+  border-top: none; }
 
-div.input_prompt {color: #ab7967;}
-div.output_prompt {color: #b48ead;}
+div.input_prompt {
+  color: #ab7967; }
+
+div.output_prompt {
+  color: #b48ead; }
+
 div.input_area {
   border-radius: 0px;
   border: 1px solid #4f5b66;
-}
-div.output_area pre {font-weight: normal; color: #c0c5ce;}
+  color: white;
+  background: #121212; }
+
+div.output_area pre {
+  font-weight: normal;
+  color: #a0a0a0; }
 
 div.output_area svg {
-  background-color: white;
-}
+  background-color: #a0a0a0; }
 
 .rendered_html table, .rendered_html th, .rendered_html tr, .rendered_html td {
-  border: 1px  #c0c5ce solid;
-  color: #c0c5ce;
-}
-div.output_html { font-family: sans-serif; }
-table.dataframe tr {border: 1px #c0c5ce;}
+  border: 1px #a0a0a0 solid;
+  color: #a0a0a0; }
 
-div.cell.selected {border-radius: 0px;}
-div.cell.edit_mode {border-radius: 0px; border: thin solid #b48ead;}
-div.text_cell_render, div.output_html {color: #c0c5ce;}
+div.output_html {
+  font-family: sans-serif; }
 
-span.ansiblack {color: #343d46;}
-span.ansiblue {color: #96b5b4;}
-span.ansigray {color: #a7adba;}
-span.ansigreen {color: #a3be8c;}
-span.ansipurple {color: #b48ead;}
-span.ansired {color: #bf616a;}
-span.ansiyellow {color: #ebcb8b;}
+table.dataframe tr {
+  border: 1px #a0a0a0; }
 
-div.output_stderr {background-color: #bf616a;}
-div.output_stderr pre {color: #dfe1e8;}
+div.cell.selected {
+  border-radius: 0px; }
+
+div.cell.edit_mode {
+  border-radius: 0px;
+  border: thin solid #b48ead; }
+
+div.text_cell_render, div.output_html {
+  color: #a0a0a0; }
+
+span.ansiblack {
+  color: #6d6d6d; }
+
+span.ansiblue {
+  color: #469dd3;
+  background: #041c29; }
+
+span.ansigray {
+  color: #a0a0a0; }
+
+span.ansigreen {
+  color: #007b7b;
+  background: #101719; }
+
+span.ansipurple {
+  color: #767fc7;
+  background: #121536; }
+
+span.ansired {
+  color: #a23f44;
+  background: #230102; }
+
+span.ansiyellow {
+  color: #92cd8e; }
+
+div.output_stderr {
+  background-color: #bf616a; }
+
+div.output_stderr pre {
+  color: #dfe1e8; }
 
 .MathJax_Display {
-  color: #65737e;
-}
+  color: #65737e; }
 
-.cm-s-ipython.CodeMirror {background: #2b303b; color: #dfe1e8;}
-.cm-s-ipython div.CodeMirror-selected {background: #343d46 !important;}
-.cm-s-ipython .CodeMirror-gutters {background: #2b303b; border-right: 0px;}
-.cm-s-ipython .CodeMirror-linenumber {color: #65737e;}
-.cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #a7adba !important;}
-
-.cm-s-ipython span.cm-comment {color: #ab7967;}
-.cm-s-ipython span.cm-atom {color: #b48ead;}
-.cm-s-ipython span.cm-number {color: #b48ead;}
-
-.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-attribute {color: #a3be8c;}
-.cm-s-ipython span.cm-keyword {color: #bf616a;}
-.cm-s-ipython span.cm-string {color: #ebcb8b;}
-.cm-s-ipython span.cm-operator {color: #ab7967;}
-.cm-s-ipython span.cm-builtin {color: #b48ead;}
-
-.cm-s-ipython span.cm-variable {color: #a3be8c;}
-.cm-s-ipython span.cm-variable-2 {color: #8fa1b3;}
-.cm-s-ipython span.cm-def {color: #d08770;}
-.cm-s-ipython span.cm-error {background: #bf616a; color: #a7adba;}
-.cm-s-ipython span.cm-bracket {color: #c0c5ce;}
-.cm-s-ipython span.cm-tag {color: #bf616a;}
-.cm-s-ipython span.cm-link {color: #b48ead;}
-
-.cm-s-ipython .CodeMirror-matchingbracket { text-decoration: underline; color: #dfe1e8 !important;}
+.cm-s-ipython.CodeMirror, .cm-s.default.CodeMirror {
+  background: #121212;
+  color: #a0a0a0; }
+.cm-s-ipython div.CodeMirror-selected, .cm-s.default div.CodeMirror-selected {
+  background: #181818 !important; }
+.cm-s-ipython span.cm-variable, .cm-s.default span.cm-variable {
+  color: #a0a0a0 !important; }
+.cm-s-ipython span.cm-comment, .cm-s.default span.cm-comment {
+  color: #333333; }
+.cm-s-ipython span.cm-atom, .cm-s.default span.cm-atom {
+  color: #0e9eb4; }
+.cm-s-ipython span.cm-number, .cm-s.default span.cm-number {
+  color: #0e9eb4; }
+.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-ipython span.cm-attribute, .cm-s.default span.cm-property, .cm-s.default span.cm-ipython span.cm-attribute {
+  color: #a3be8c; }
+.cm-s-ipython span.cm-keyword, .cm-s.default span.cm-keyword {
+  color: #765cad; }
+.cm-s-ipython span.cm-string, .cm-s.default span.cm-string {
+  color: #007b7b;
+  background-color: #101719; }
+.cm-s-ipython span.cm-operator, .cm-s.default span.cm-operator {
+  color: #888ba5;
+  background-color: #080b26; }
+.cm-s-ipython span.cm-builtin, .cm-s-ipython span.cm-variable-2, .cm-s.default span.cm-builtin, .cm-s.default span.cm-variable-2 {
+  color: #469dd3;
+  background: #041c29; }
+.cm-s-ipython span.cm-def, .cm-s.default span.cm-def {
+  color: #4c849f; }
+.cm-s-ipython span.cm-error, .cm-s.default span.cm-error {
+  color: #a23f44;
+  background: #2d0102; }
+.cm-s-ipython span.cm-bracket, .cm-s.default span.cm-bracket {
+  color: #c0c5ce; }
+#4c849f
+.cm-s-ipython span.cm-tag, #4c849f
+.cm-s.default span.cm-tag {
+  color: #bf616a; }
+.cm-s-ipython span.cm-link, .cm-s.default span.cm-link {
+  color: #b48ead; }
+.cm-s-ipython .cm-header, .cm-s.default .cm-header {
+  color: #767fc7;
+  background: #121536; }
+.cm-s-ipython .CodeMirror-matchingbracket, .cm-s.default .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: #dfe1e8 !important; }
+.cm-s-ipython .CodeMirror-gutters, .cm-s.default .CodeMirror-gutters {
+  background: #2b303b;
+  border-right: 0px; }
+.cm-s-ipython .CodeMirror-linenumber, .cm-s.default .CodeMirror-linenumber {
+  color: #575757;
+  background: #181818; }
+.cm-s-ipython .CodeMirror-cursor, .cm-s.default .CodeMirror-cursor {
+  border-left: 1px solid #a7adba !important; }
 
 div.text_cell_render {
-    font-family: "Chaparral Pro";
-    font-size: 16pt;
-    width: 80ex;
-    line-height: 160%; /* added for some line spacing of text. */
-}
+  font-family: "Chaparral Pro";
+  font-size: 16pt;
+  width: 80ex;
+  line-height: 160%;
+  /* added for some line spacing of text. */ }
 
 div.text_cell_render h1,
 div.text_cell_render h2,
@@ -108,114 +177,95 @@ div.text_cell_render h3,
 div.text_cell_render h4,
 div.text_cell_render h5,
 div.text_cell_render h6 {
-    font-family: 'Helvetica Neue';
-    font-weight: 200;
-}
+  font-family: 'Helvetica Neue';
+  font-weight: 200; }
 
 div.text_cell_render h1 {
-    font-size: 24pt;
-}
+  font-size: 24pt; }
 
 div.text_cell_render h2 {
-    font-size: 18pt;
-}
+  font-size: 18pt; }
 
 div.text_cell_render h3 {
-    font-size: 14pt;
-}
+  font-size: 14pt; }
 
 .rendered_html pre,
 .rendered_html code {
-    font-size: medium;
-}
+  font-size: medium; }
 
 .rendered_html ol {
-    list-style:decimal;
-    margin: 1em 2em;
-}
+  list-style: decimal;
+  margin: 1em 2em; }
 
 /* Input prompts */
-
 .prompt.input_prompt {
-    color: rgba(0,0,0,0.5);
-}
+  color: #adadad; }
 
 .cell.command_mode.selected {
-    border-color: rgba(0,0,0,0.1);
-}
+  border-color: #535353; }
 
 .cell.edit_mode.selected {
-    border-color: rgba(255,255,255,0.15);
-}
+  border-color: #a0a0a0; }
 
 div.output_scroll {
-    -webkit-box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
-    border-radious: 2px;
-}
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2px; }
 
 #menubar .navbar-inner {
-    font-family: Helvetica Neue;
-    background: inherit;
-    color: white;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-    border: none;
-    font-weight: 200;
-}
+  font-family: Helvetica Neue;
+  background: inherit;
+  color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  font-weight: 200; }
 
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    border: none;
-}
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none; }
 
 div#notebook_panel {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    border-top: none;
-}
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-top: none; }
 
 div#notebook {
-    border-top: 1px solid rgba(0,0,0,0.15);
-}
+  border-top: 1px solid rgba(0, 0, 0, 0.15); }
 
-.navbar .nav>li>a {
+.navbar .nav > li > a {
   text-shadow: none;
   font-size: 1.2em;
-  color: #bbbbbb;
-}
-.navbar .nav>li>a:hover {
-  color: #999999;
-}
+  color: #bbbbbb; }
+
+.navbar .nav > li > a:hover {
+  color: #999999; }
 
 #menubar .navbar .navbar-inner,
 .toolbar-inner {
-    padding-left: 0;
-    padding-right: 0;
-}
+  padding-left: 0;
+  padding-right: 0; }
 
 #checkpoint_status,
 #autosave_status {
-    color: rgba(0,0,0,0.5);
-}
+  color: rgba(0, 0, 0, 0.5); }
 
 #header {
-    font-family: lato;
-}
+  font-family: lato; }
 
 #notebook_name {
-    font-weight: 200;
-}
+  font-weight: 200; }
 
 /* 
     This is a lazy fix, we *should* fix the 
     background for each Bootstrap button type
 */
 #site * .btn {
-    background: #fafafa;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+  background: #fafafa;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/*# sourceMappingURL=custom.css.map */
