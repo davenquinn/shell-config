@@ -1,7 +1,10 @@
 set statusline+=%{fugitive\#statusline()}
 "set guifont=DroidSansMonoDotted:h14
-set guifont=InputMono-Light:h14
+set guifont=InputMono-ExtraLight:h14
 set background=dark
-colorscheme base16-monokai-daven
+set linespace=2
 set go-=L
 set guioptions-=r
+
+colorscheme davenquinn "base16-monokai-daven
+

@@ -5,5 +5,6 @@ set mouse=a
 nnoremap <esc> :noh<return><esc>
 
 " Adds some files to NerdTreeIgnore
-let NerdTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '\.DS_Store','egg-info/','sass-cache','egg']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
 let g:pandoc#modules#disabled = ["folding"]
