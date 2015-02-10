@@ -7,3 +7,12 @@
 [submodule "dotfiles/janus/vim-pandoc"]
 	path = dotfiles/janus/vim-pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "dotfiles/janus/csapprox"]
+	path = dotfiles/janus/csapprox
+	url = https://github.com/godlygeek/csapprox.git
+[submodule "dotfiles/janus/nginx-vim-syntax"]
+	path = dotfiles/janus/nginx-vim-syntax
+	url = git@github.com:evanmiller/nginx-vim-syntax.git
+[submodule "dotfiles/janus/nvim"]
+	path = dotfiles/janus/nvim
+	url = git://github.com/cwoac/nvim.git
