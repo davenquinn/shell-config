@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
 from os.path import dirname, expanduser
 from pathlib import Path
 from click import style, echo, confirm
