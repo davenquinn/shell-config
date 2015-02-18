@@ -1,8 +1,18 @@
 let mapleader = ","
-set mouse=a
 
-" Remaps search highlighting to clear with escape
-nnoremap <esc> :noh<return><esc>
+if has('mouse')
+  set mouse=a
+  if &term =~ "xterm" || &term =~ "screen"
+    set ttymouse=xterm2
+    " For older versions of vim, remap mouse periodically
+    autocmd VimEnter,FocusGained,BufEnter * set ttymouse=xterm2
+  endif
+endif
+
+" Remaps search highlighting to clear with backslash
+nnoremap \ :noh<return><esc>
+" Remaps space to the command leader
+noremap <space> :
 
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
