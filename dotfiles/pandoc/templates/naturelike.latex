@@ -1,0 +1,138 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage[paper=letterpaper, margin=0.75in, nohead, pdftex]{geometry}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage[small,compact]{titlesec}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{ifthen}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{paralist}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage[font={footnotesize}]{caption}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\newfontfamily\HNLight
+  [Ligatures=TeX,
+   Scale=0.8,
+   BoldFont={Helvetica Neue},
+   UprightFont={Helvetica Neue Light},
+   ItalicFont={Helvetica Neue Light Italic}
+  ]{Helvetica Neue Light}
+
+\newfontfamily\HN
+  [Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Helvetica Neue Medium},
+   UprightFont={Helvetica Neue},
+   ItalicFont={Helvetica Neue Italic}
+  ]{Helvetica Neue}
+
+\newfontfamily\Gotham
+  [Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Gotham Bold},
+   UprightFont={Gotham Book},
+   ItalicFont={Gotham Light Italic}
+  ]{Gotham Book}
+
+\newfontfamily\GothamLight
+  [Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Gotham Book},
+   UprightFont={Gotham Light},
+   ItalicFont={Gotham Light Italic}
+  ]{Gotham Light}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+
+% use with biber backend
+
+\usepackage[
+  backend=biber,
+  style=nature,
+  autocite=superscript,
+  url=false,
+  isbn=false,
+  doi=false,
+  firstinits=true
+  ]{biblatex}
+
+\setlength\bibitemsep{0pt}
+
+\AtEveryBibitem{%
+  \clearfield{day}%
+  \clearfield{month}%
+  \clearfield{endday}%
+  \clearfield{endmonth}%
+}
+
+\bibliography{$biblio-files$}
+
+%\renewcommand{\bibfont}{\small}	% Change the font size of the bibliography
+%\renewcommand{\bibsection}{\subsubsection*{\refname}}
+\newcommand{\tild}{\texttildelow}
+\newcommand{\figp}[1]{[Figure \ref{fig:#1}]}
+\newcommand{\figt}[1]{Figure \ref{fig:#1}}
+\newcommand{\tabref}[1]{[Table \ref{tab:#1}]}
+\newcommand{\appref}[1]{[see Appendix \ref{app:#1}]}
+\newcommand{\km}[1]{\SI{#1}{\kilo\meter}}
+
+\setcounter{secnumdepth}{-1}
+
+\titleformat{\section}{\Gotham\large\bfseries}{\thesection}{0.9em}{}
+\titleformat{\subsection}[runin]{\Gotham\normalsize\bfseries}{\thesubsection}{3pt}{}
+\titleformat{\subsubsection}[runin]{\Gotham\small\bfseries}{\thesubsubsection}{3pt}{}
+
+
+\renewcommand{\bibfont}{\GothamLight\footnotesize}
+\setcounter{secnumdepth}{-1}
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{-5pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+\setlength\bibitemsep{0pt}
+
+%\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+\begin{document}
+
+$if(title)$
+\noindent{\Gotham\Large\textbf{$title$}\hfill{}{\GothamLight\textbf{$author$}
+$if(affiliation)$~~~{\footnotesize{$affiliation$}}$endif$}}
+\vspace{-15pt}
+$endif$
+\begin{multicols}{2}
+
+$body$
+
+\begingroup
+\setlength\bibitemsep{0pt}
+\printbibliography
+\endgroup
+\end{multicols}
+
+\end{document}
