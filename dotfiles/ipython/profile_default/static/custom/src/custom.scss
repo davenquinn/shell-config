@@ -83,7 +83,7 @@ div.output_stderr pre {color: #dfe1e8;}
   color: #65737e;
 }
 
-.cm-s-ipython, .cm-s.default {
+.cm-s-ipython, .cm-s-default {
   &.CodeMirror {background: $background; color: $color;}
   div.CodeMirror-selected {background: #181818 !important;}
 
@@ -109,12 +109,10 @@ div.output_stderr pre {color: #dfe1e8;}
     &bracket {color: #c0c5ce;}#4c849f
     &tag {color: #bf616a;}
     &link {color: #b48ead;}
-
-  }
-
-  .cm-header {
-    color: #767fc7;
-    background: #121536;
+    &header {
+      color: #767fc7;
+      background: #121536;
+    }
   }
 
 
