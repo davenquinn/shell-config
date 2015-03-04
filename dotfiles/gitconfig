@@ -4,6 +4,9 @@
 
 [alias]
 
+  # Makes a pretty chart
+  graph = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -110,6 +113,11 @@
 
 	# Detect copies as well as renames
 	renames = copies
+  tool = mvimdiff
+
+[difftool "mvimdiff"]
+  cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
+
 
 [help]
 
