@@ -18,3 +18,7 @@ noremap <space> :
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
 let g:pandoc#modules#disabled = ["folding"]
+
+if v:version < 740
+  let g:pandoc#modules#disabled += ["bibliographies","command"]
+endif
