@@ -16,3 +16,7 @@
 [submodule "dotfiles/janus/nvim"]
 	path = dotfiles/janus/nvim
 	url = git://github.com/cwoac/nvim.git
+
+[submodule "dotfiles/zprezto"]
+	path = dotfiles/zprezto
+	url = git@github.com:davenquinn/prezto.git
