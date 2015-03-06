@@ -9,5 +9,4 @@ set guioptions-=r
 " Use vertical splits for fugitive diffs
 set diffopt+=vertical
 
-colorscheme davenquinn "base16-monokai-daven
-
+colorscheme davenquinn
