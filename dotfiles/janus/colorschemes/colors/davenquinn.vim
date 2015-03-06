@@ -72,7 +72,7 @@ if &background == "light"
 elseif &background == "dark"
     hi Boolean gui=NONE guifg=#737373 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717
-    hi Comment gui=NONE guifg=#464646: guibg=NONE
+    hi Comment gui=NONE guifg=#464646 guibg=NONE
     hi Conceal gui=NONE guifg=#737373 guibg=NONE
     hi Constant gui=NONE guifg=#737373 guibg=NONE
     hi Cursor gui=reverse guifg=NONE guibg=NONE
