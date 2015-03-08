@@ -5,7 +5,7 @@ let g:colors_name = "davenquinn"
 if &background == "light"
     hi Boolean gui=NONE guifg=#707070 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#f5f5f5
-    hi Comment gui=NONE guifg=#e8e8e8 guibg=NONE
+    hi Comment gui=NONE guifg=#c0c0c0 guibg=NONE
     hi Conceal gui=NONE guifg=#707070 guibg=NONE
     hi Conditional gui=NONE guifg=#4a4a4a guibg=NONE
     hi Constant gui=NONE guifg=#707070 guibg=NONE
@@ -17,19 +17,19 @@ if &background == "light"
     hi DiffChange gui=NONE guifg=NONE guibg=#f5f5f5
     hi DiffDelete gui=NONE guifg=NONE guibg=#fff0f0
     hi DiffText gui=NONE guifg=NONE guibg=#e3e3e3
-    hi Directory gui=bold guifg=#4a4a4a guibg=NONE
+    hi Directory gui=italic guifg=#19b880 guibg=#f1fef9:
     hi Error gui=NONE guifg=NONE guibg=#fff0f0
     hi ErrorMsg gui=NONE guifg=NONE guibg=#fff0f0
     hi FoldColumn gui=NONE guifg=#c2c2c2 guibg=NONE
     hi Folded gui=NONE guifg=#969696 guibg=NONE
     hi Ignore gui=NONE guifg=NONE guibg=NONE
     hi IncSearch gui=NONE guifg=NONE guibg=#e3e3e3
-    hi LineNr gui=NONE guifg=#c2c2c2 guibg=NONE
+    hi LineNr gui=NONE guifg=#c2c2c2 guibg=#fafafa
     hi MatchParen gui=NONE guifg=NONE guibg=#e3e3e3
     hi ModeMsg gui=NONE guifg=NONE guibg=NONE
     hi MoreMsg gui=NONE guifg=NONE guibg=NONE
     hi NonText gui=NONE guifg=#c2c2c2 guibg=NONE
-    hi Normal gui=NONE guifg=#000000 guibg=#ffffff
+    hi Normal gui=NONE guifg=#4a4a4a guibg=#ffffff
     hi Number gui=NONE guifg=#5fbedd guibg=NONE
     hi Pmenu gui=NONE guifg=NONE guibg=#f5f5f5
     hi PmenuSbar gui=NONE guifg=NONE guibg=#ededed
@@ -40,35 +40,46 @@ if &background == "light"
     hi SignColumn gui=NONE guifg=#c2c2c2 guibg=NONE
     hi Special gui=NONE guifg=#707070 guibg=NONE
     hi SpecialKey gui=NONE guifg=#c2c2c2 guibg=NONE
-    hi SpellBad gui=undercurl guisp=NONE guifg=NONE guibg=#fff0f0
-    hi SpellCap gui=undercurl guisp=NONE guifg=NONE guibg=NONE
-    hi SpellLocal gui=undercurl guisp=NONE guifg=NONE guibg=#f0fff0
-    hi SpellRare gui=undercurl guisp=NONE guifg=NONE guibg=#ededed
+    hi SpellBad gui=underline guisp=NONE guifg=NONE guibg=#fff0f0
+    hi SpellCap gui=underline guisp=NONE guifg=NONE guibg=NONE
+    hi SpellLocal gui=underline guisp=NONE guifg=NONE guibg=#f0fff0
+    hi SpellRare gui=underline guisp=NONE guifg=NONE guibg=#ededed
     hi Statement gui=bold guifg=#e06c85 guibg=NONE
     hi StatusLine gui=NONE guifg=#262626 guibg=#ededed
     hi StatusLineNC gui=NONE guifg=#969696 guibg=#ededed
     hi StorageClass gui=NONE guifg=#4a4a4a guibg=NONE
-    hi String gui=NONE guifg=#7eba5e guibg=#ecffe0
+    hi String gui=NONE guifg=#7eba5e guibg=#f0fbea
     hi TabLine gui=NONE guifg=#969696 guibg=#ededed
     hi TabLineFill gui=NONE guifg=NONE guibg=#ededed
     hi TabLineSel gui=NONE guifg=#262626 guibg=#ededed
-    hi Title gui=NONE guifg=#707070 guibg=NONE
+    hi Title gui=bold guifg=#767fc7 guibg=#e9ebf6
     hi Todo gui=standout guifg=NONE guibg=NONE
     hi Type gui=NONE guifg=#4a4a4a guibg=NONE
     hi Underlined gui=NONE guifg=NONE guibg=NONE
-    hi VertSplit gui=NONE guifg=#e3e3e3 guibg=NONE
-    hi Visual gui=NONE guifg=NONE guibg=#e3e3e3
+    hi VertSplit gui=NONE guifg=#e3e3e3 guibg=#e3e3e3
+    hi Visual gui=NONE guifg=NONE guibg=#f2f2f2
     hi VisualNOS gui=NONE guifg=NONE guibg=NONE
     hi WarningMsg gui=NONE guifg=NONE guibg=#fff0f0
     hi WildMenu gui=NONE guifg=NONE guibg=#d1d1d1
     hi lCursor gui=NONE guifg=NONE guibg=NONE
-    hi Include gui=bold guifg=#c37cd0 guibg=NONE
+    hi Include gui=bold guifg=#a087d3 guibg=NONE
     hi Structure gui=bold guifg=#fe818b guibg=NONE
     hi Function gui=NONE guifg=#19b880 guibg=NONE
     hi Repeat gui=bold guifg=#e06c85 guibg=NONE
-    hi Operator gui=NONE guifg=#9b6f77 guibg=NONE
+    hi Operator gui=NONE guifg=#a7d0fc guibg=#ebf4fe
     hi Identifier gui=NONE guifg=NONE guibg=NONE
     hi PreProc gui=NONE guifg=NONE guibg=NONE
+    " Nerdtree
+    hi NERDTreeDirSlash gui=NONE guifg=#f5f5f5 guibg=NONE
+    hi NerdTreeOpenable gui=NONE guifg=#aaaaaa guibg=NONE
+    hi NerdTreeClosable gui=NONE guifg=#19b880 guibg=NONE
+    " Pandoc
+    hi pandocCiteKey gui=italic guifg=#67aef9 guibg=#d3e7fd
+    " GitGutter (same as line numbers)
+    hi SignColumn gui=NONE guifg=NONE guibg=#fafafa
+
+    " #39a6ea
+    " #83afdd
 elseif &background == "dark"
     hi Boolean gui=NONE guifg=#737373 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717
@@ -114,7 +125,6 @@ elseif &background == "dark"
     hi StatusLine gui=NONE guifg=#8f8f8f guibg=#242424
     hi StatusLineNC gui=NONE guifg=#666666 guibg=#242424
     hi StorageClass gui=NONE guifg=#064789 guibg=NONE
-    "hi String gui=NONE guifg=#92cd8e guibg=#011901
     hi String gui=NONE guifg=#007b7b guibg=#101719
     hi TabLine gui=NONE guifg=#666666 guibg=#242424
     hi TabLineFill gui=NONE guifg=NONE guibg=#1a1a1a
@@ -144,9 +154,10 @@ elseif &background == "dark"
     hi NerdTreeOpenable gui=NONE guifg=#444444 guibg=NONE
     hi NerdTreeClosable gui=NONE guifg=#008b8b guibg=NONE
     " Pandoc
-    hi pandocCiteKey gui=italic guifg=#134d8b guibg=#061628
+    hi pandocCiteKey gui=italic guifg=#1968bd guibg=#092543
     " GitGutter (same as line numbers)
     hi SignColumn gui=NONE guifg=#554b58 guibg=#181818
     " Unused colors
     " #a14558
+    " #92cd8e
 endif
