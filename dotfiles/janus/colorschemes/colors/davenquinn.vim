@@ -90,11 +90,11 @@ elseif &background == "dark"
     hi Folded gui=NONE guifg=#666666 guibg=NONE
     hi Ignore gui=NONE guifg=NONE guibg=NONE
     hi IncSearch gui=NONE guifg=NONE guibg=#2e2e2e
-    hi LineNr gui=NONE guifg=#575757 guibg=#181818
+    hi LineNr gui=NONE guifg=#554b58 guibg=#181818
     hi MatchParen gui=NONE guifg=NONE guibg=#2e2e2e
     hi ModeMsg gui=NONE guifg=NONE guibg=NONE
     hi MoreMsg gui=NONE guifg=NONE guibg=NONE
-    hi NonText gui=NONE guifg=#554b58 guibg=NONE
+    hi NonText gui=bold guifg=#2d282f guibg=NONE
     hi Normal gui=NONE guifg=#a0a0a0 guibg=#121212
     hi Number gui=NONE guifg=#0e9eb4 guibg=NONE
     hi Pmenu gui=NONE guifg=NONE guibg=#171717
@@ -145,6 +145,8 @@ elseif &background == "dark"
     hi NerdTreeClosable gui=NONE guifg=#008b8b guibg=NONE
     " Pandoc
     hi pandocCiteKey gui=italic guifg=#134d8b guibg=#061628
+    " GitGutter (same as line numbers)
+    hi SignColumn gui=NONE guifg=#554b58 guibg=#181818
     " Unused colors
     " #a14558
 endif
