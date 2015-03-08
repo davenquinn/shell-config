@@ -17,6 +17,9 @@ noremap <space> :
 " NERDTree
 command Tree NERDTreeToggle
 
+" word whitelist
+set spellfile=$HOME/.words/en.utf-8.add
+
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
