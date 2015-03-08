@@ -15,7 +15,7 @@ nnoremap \ :noh<return><esc>
 noremap <space> :
 
 " NERDTree
-command Tree NERDTreeToggle
+ca Tree NERDTreeToggle
 
 " word whitelist
 set spellfile=$HOME/.words/en.utf-8.add
