@@ -66,7 +66,7 @@ if &background == "light"
     hi Structure gui=bold guifg=#fe818b guibg=NONE
     hi Function gui=NONE guifg=#19b880 guibg=NONE
     hi Repeat gui=bold guifg=#e06c85 guibg=NONE
-    hi Operator gui=NONE guifg=#a7d0fc guibg=#ebf4fe
+    hi Operator gui=NONE guifg=#a7d0fc guibg=#fafcff
     hi Identifier gui=NONE guifg=NONE guibg=NONE
     hi PreProc gui=NONE guifg=NONE guibg=NONE
     " Nerdtree
