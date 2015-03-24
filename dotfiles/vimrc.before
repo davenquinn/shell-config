@@ -14,6 +14,16 @@ nnoremap \ :noh<return><esc>
 " Remaps space to the command leader
 noremap <space> :
 
+" Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Maps gitgutter staging and undo
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterRevertHunk
+
 " NERDTree
 ca Tree NERDTreeToggle
 
