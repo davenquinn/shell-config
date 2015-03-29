@@ -17,3 +17,9 @@
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = git@github.com:davenquinn/prezto.git
+[submodule "dotfiles/janus/vim-notes"]
+	path = dotfiles/janus/vim-notes
+	url = https://github.com/xolox/vim-notes.git
+[submodule "dotfiles/janus/vim-misc"]
+	path = dotfiles/janus/vim-misc
+	url = https://github.com/xolox/vim-misc.git

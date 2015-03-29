@@ -38,3 +38,7 @@ let g:pandoc#modules#disabled = ["folding"]
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
 endif
+
+" Vim-Notes
+:let g:notes_directories = ['~/Documents/Notes']
+:let g:notes_suffix = '.md'
