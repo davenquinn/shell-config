@@ -67,7 +67,7 @@ if &background == "light"
     hi Function gui=NONE guifg=#19b880 guibg=NONE
     hi Repeat gui=bold guifg=#e06c85 guibg=NONE
     hi Operator gui=NONE guifg=#a7d0fc guibg=#fafcff
-    hi Identifier gui=NONE guifg=NONE guibg=NONE
+    hi Identifier gui=NONE guifg=#39a6ea guibg=#f5faff
     hi PreProc gui=NONE guifg=NONE guibg=NONE
     " Nerdtree
     hi NERDTreeDirSlash gui=NONE guifg=#f5f5f5 guibg=NONE
