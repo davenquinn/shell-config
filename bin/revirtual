@@ -1,0 +1,19 @@
+#!/bin/bash
+
+rm -f $VIRTUAL_ENV/bin/pip
+rm -f $VIRTUAL_ENV/bin/pip2
+rm -f $VIRTUAL_ENV/bin/pip2.7
+rm -f $VIRTUAL_ENV/bin/python
+rm -f $VIRTUAL_ENV/bin/python2
+rm -f $VIRTUAL_ENV/bin/python2.7
+rm -rf $VIRTUAL_ENV/include/python2.7
+rm -rf $VIRTUAL_ENV/lib/python2.7/*
+rm -rf $VIRTUAL_ENV/lib/python2.7/distutils
+rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/easy_install.*
+rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/pip
+rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/pip-*.dist-info
+rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/setuptools
+rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/setuptools-*.dist-info
+
+# Need to add flags here
+virtualenv "$@" $VIRTUAL_ENV
