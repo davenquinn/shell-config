@@ -14,6 +14,22 @@ nnoremap \ :noh<return><esc>
 " Remaps space to the command leader
 noremap <space> :
 
+" Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Maps gitgutter staging and undo
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterRevertHunk
+
+" NERDTree
+ca Tree NERDTreeToggle
+
+" word whitelist
+set spellfile=$HOME/.words/en.utf-8.add
+
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']

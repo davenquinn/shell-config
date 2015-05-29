@@ -13,9 +13,6 @@
 [submodule "dotfiles/janus/nginx-vim-syntax"]
 	path = dotfiles/janus/nginx-vim-syntax
 	url = git@github.com:evanmiller/nginx-vim-syntax.git
-[submodule "dotfiles/janus/nvim"]
-	path = dotfiles/janus/nvim
-	url = git://github.com/cwoac/nvim.git
 
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
