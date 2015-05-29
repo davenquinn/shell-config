@@ -123,9 +123,12 @@
 $if(title)$
 \noindent{\Gotham\Large\textbf{$title$}\hfill{}{\GothamLight\textbf{$author$}
 $if(affiliation)$~~~{\footnotesize{$affiliation$}}$endif$}}
-\vspace{-15pt}
 $endif$
+
+$if(twocolumn)$
+\vspace{-15pt}
 \begin{multicols}{2}
+$endif$
 
 $body$
 
@@ -133,6 +136,8 @@ $body$
 \setlength\bibitemsep{0pt}
 \printbibliography
 \endgroup
+$if(twocolumn)$
 \end{multicols}
+$endif$
 
 \end{document}
