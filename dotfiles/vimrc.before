@@ -33,7 +33,7 @@ set spellfile=$HOME/.words/en.utf-8.add
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
-let g:pandoc#modules#disabled = ["folding"]
+"let g:pandoc#modules#disabled = ["folding"]
 
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
