@@ -13,13 +13,11 @@
 [submodule "dotfiles/janus/nginx-vim-syntax"]
 	path = dotfiles/janus/nginx-vim-syntax
 	url = git@github.com:evanmiller/nginx-vim-syntax.git
-
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = git@github.com:davenquinn/prezto.git
-[submodule "dotfiles/janus/vim-notes"]
-	path = dotfiles/janus/vim-notes
-	url = https://github.com/xolox/vim-notes.git
-[submodule "dotfiles/janus/vim-misc"]
-	path = dotfiles/janus/vim-misc
-	url = https://github.com/xolox/vim-misc.git
+
+[submodule "dotfiles/janus/--force"]
+	path = dotfiles/janus/--force
+	url = https://github.com/fmoralesc/vim-pad.git
+	branch = devel
