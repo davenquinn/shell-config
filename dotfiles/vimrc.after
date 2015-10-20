@@ -9,4 +9,7 @@ set guioptions-=r
 " Use vertical splits for fugitive diffs
 set diffopt+=vertical
 
+" Allow cursor to move past EOL for block selections
+set virtualedit+=block
+
 colorscheme davenquinn

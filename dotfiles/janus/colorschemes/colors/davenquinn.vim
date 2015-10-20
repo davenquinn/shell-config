@@ -15,7 +15,7 @@ if &background == "light"
     hi CursorLineNr gui=NONE guifg=#969696 guibg=NONE
     hi DiffAdd gui=NONE guifg=NONE guibg=#f0fff0
     hi DiffChange gui=NONE guifg=NONE guibg=#f5f5f5
-    hi DiffDelete gui=NONE guifg=NONE guibg=#fff0f0
+    hi DiffDelete gui=NONE guifg=#f6f0f0 guibg=#f6f0f0
     hi DiffText gui=NONE guifg=NONE guibg=#e3e3e3
     hi Directory gui=italic guifg=#19b880 guibg=#f1fef9:
     hi Error gui=NONE guifg=NONE guibg=#fff0f0
@@ -90,9 +90,10 @@ elseif &background == "dark"
     hi CursorColumn gui=NONE guifg=NONE guibg=#171717
     hi CursorLine gui=NONE guifg=NONE guibg=#171717
     hi CursorLineNr gui=NONE guifg=#666666 guibg=NONE
-    hi DiffAdd gui=NONE guifg=NONE guibg=#1a4736
+    hi DiffAdd gui=NONE guifg=NONE guibg=#002205
     hi DiffChange gui=NONE guifg=NONE guibg=#171717
-    hi DiffDelete gui=NONE guifg=#4b0000 guibg=#7d4547
+    hi DiffDelete gui=NONE guifg=#080808 guibg=#080808
+    "hi DiffDelete gui=NONE guifg=#260003 guibg=#180006
     hi DiffText gui=NONE guifg=NONE guibg=#0a283d
     hi Directory gui=italic guifg=#008b8b guibg=#01220c
     hi Error gui=NONE guifg=NONE guibg=#230606

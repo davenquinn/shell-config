@@ -1,19 +1,78 @@
 #!/bin/bash
 
-rm -f $VIRTUAL_ENV/bin/pip
-rm -f $VIRTUAL_ENV/bin/pip2
-rm -f $VIRTUAL_ENV/bin/pip2.7
-rm -f $VIRTUAL_ENV/bin/python
-rm -f $VIRTUAL_ENV/bin/python2
-rm -f $VIRTUAL_ENV/bin/python2.7
-rm -rf $VIRTUAL_ENV/include/python2.7
-rm -rf $VIRTUAL_ENV/lib/python2.7/*
-rm -rf $VIRTUAL_ENV/lib/python2.7/distutils
-rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/easy_install.*
-rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/pip
-rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/pip-*.dist-info
-rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/setuptools
-rm -rf $VIRTUAL_ENV/lib/python2.7/site-packages/setuptools-*.dist-info
+usage="$(basename "$0") [-hd] [-v #] [-n #]
+Reinitializes a virtual environment that is improperly
+linked or needs to be upgraded to a new Python version.
+where:
+    -h  show this help text
+    -d  do a dry run (print commands instead of executing)
+    -v  set python version
+    -n  set a new python version (same as the old by default)"
+# A POSIX variable
+OPTIND=1
 
-# Need to add flags here
-virtualenv "$@" $VIRTUAL_ENV
+# Initialize our own variables:
+VERSION=2.7
+should_run=true
+
+while getopts "hdv:n:" opt; do
+    case "$opt" in
+    h)  echo "$usage"
+        exit 0
+        ;;
+    v)  VERSION=$OPTARG
+        ;;
+    n)  new_version=$OPTARG
+        ;;
+    d)  should_run=false
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "$1" = "--" ] && shift
+
+if [ -z "$VIRTUAL_ENV" ]; then
+  echo "Not inside a virtualenv! So we can't do much..."
+  exit 1
+fi
+
+MAJOR=${VERSION%.*}
+
+runcmd() {
+  echo "$@"
+  if [ "$should_run" = true ] ; then
+    eval "$@"
+  fi
+}
+
+remove() {
+  runcmd "rm -rf $@"
+}
+
+BIN=$VIRTUAL_ENV/bin
+LIB=$VIRTUAL_ENV/lib/python${VERSION}
+
+remove $BIN/pip
+remove $BIN/pip${MAJOR}
+remove $BIN/pip${VERSION}
+remove $BIN/python
+remove $BIN/python${MAJOR}
+remove $BIN/python${VERSION}
+remove $VIRTUAL_ENV/.Python
+remove $VIRTUAL_ENV/include/python${VERSION}
+
+remove $LIB/*
+remove $LIB/distutils
+remove $LIB/site-packages/easy_install.*
+remove $LIB/site-packages/pip
+remove $LIB/site-packages/pip-*.dist-info
+remove $LIB/site-packages/setuptools
+remove $LIB/site-packages/setuptools-*.dist-info
+
+new_version=${new_version:-$VERSION}
+runcmd "virtualenv --python=python${new_version} $VIRTUAL_ENV"
+
+if [ "$should_run" = true ] ; then
+  echo "Successfully revirtualized!"
+fi

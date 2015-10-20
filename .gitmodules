@@ -16,8 +16,10 @@
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = git@github.com:davenquinn/prezto.git
-
-[submodule "dotfiles/janus/--force"]
-	path = dotfiles/janus/--force
+[submodule "dotfiles/janus/vim-pad"]
+	path = dotfiles/janus/vim-pad
 	url = https://github.com/fmoralesc/vim-pad.git
 	branch = devel
+[submodule "bin/prm"]
+	path = bin/prm
+	url = https://github.com/eivind88/prm
