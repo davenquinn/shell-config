@@ -23,3 +23,6 @@
 [submodule "bin/prm"]
 	path = bin/prm
 	url = https://github.com/eivind88/prm
+[submodule "dotfiles/vim"]
+	path = dotfiles/vim
+	url = https://github.com/carlhuda/janus.git
