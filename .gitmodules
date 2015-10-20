@@ -26,3 +26,6 @@
 [submodule "dotfiles/vim"]
 	path = dotfiles/vim
 	url = https://github.com/carlhuda/janus.git
+[submodule "dotfiles/janus/vim-cjsx"]
+	path = dotfiles/janus/vim-cjsx
+	url = https://github.com/mtscout6/vim-cjsx.git
