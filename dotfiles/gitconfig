@@ -1,6 +1,6 @@
 [user]
-        name = Daven Quinn
-        email = dev@davenquinn.com
+	name = Daven Quinn
+	email = dev@davenquinn.com
 
 [alias]
 
@@ -40,6 +40,15 @@
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
+  changes = diff --color-words --no-prefix --unified=10000
+
+  clean-all = submodule foreach git clean -df
+
+  # Tools for removing files totally from repository
+  remove-file = "!f() { CMD=\"rm -f $1\"; git filter-branch --tree-filter \"$CMD\" HEAD; }; f"
+  remove-backup = "!f() { git update-ref -d refs/original/refs/heads/$1; }; f"
+  remove-empty-commits = "!f() { git filter-branch --commit-filter 'if [ z$1 = z`git rev-parse $3^{tree}` ]; then skip_commit \"$@\"; else git commit-tree \"$@\"; fi' "$@" }; f"
+
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
@@ -73,7 +82,7 @@
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/Daven/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -164,3 +173,9 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.5/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
