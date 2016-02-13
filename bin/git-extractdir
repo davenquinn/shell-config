@@ -1,0 +1,45 @@
+#!/bin/bash
+OPTIND=1
+delete=0
+
+while getopts "h?d" opt; do
+    case "$opt" in
+    h|\?)
+        show_help
+        exit 0
+        ;;
+    d)  delete=1
+        ;;
+    esac
+done
+shift $((OPTIND-1))
+[ "$1" = "--" ] && shift
+
+START=$(pwd)
+REPO=$(git rev-parse --show-toplevel)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+SUBDIR=$1
+NEWREPO=$2
+
+echo "Extracting $SUBDIR from $REPO:$BRANCH to $NEWREPO";
+
+git clone $REPO $NEWREPO
+
+cd $NEWREPO
+
+git status
+
+echo "Breaking link with parent repository"
+git remote rm origin
+
+echo "Extracting directory"
+git filter-branch --prune-empty --subdirectory-filter $SUBDIR $BRANCH
+git remove-backup $BRANCH
+
+cd $START
+
+if [[ $delete = 1 ]]; then
+  echo "Deleting $SUBDIR from original repository";
+  git rm -r $SUBDIR
+fi
+
