@@ -29,3 +29,15 @@
 [submodule "dotfiles/janus/vim-cjsx"]
 	path = dotfiles/janus/vim-cjsx
 	url = https://github.com/mtscout6/vim-cjsx.git
+[submodule "dotfiles/janus/vim-braceless"]
+	path = dotfiles/janus/vim-braceless
+	url = https://github.com/tweekmonster/braceless.vim.git
+[submodule "bin/gitwatch"]
+	path = bin/gitwatch
+	url = git://github.com/davenquinn/gitwatch.git
+[submodule "dotfiles/janus/unite.vim"]
+	path = dotfiles/janus/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "dotfiles/janus/python-syntax"]
+	path = dotfiles/janus/python-syntax
+	url = https://github.com/hdima/python-syntax.git
