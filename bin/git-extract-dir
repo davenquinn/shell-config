@@ -2,6 +2,9 @@
 function show_help {
   echo "Usage: $(basename "$0") [-h] [-d] [--] <subdir> <new-repo-dir>"
   echo "Extracts a subdirectory to a new repository, preserving history."
+  echo "Options:
+  h: show this message
+  d: delete the subdirectory after extraction"
 }
 
 OPTIND=1
