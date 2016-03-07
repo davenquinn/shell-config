@@ -1,4 +1,9 @@
 #!/bin/bash
+function show_help {
+  echo "Usage: $(basename "$0") [-h] [-d] [--] <subdir> <new-repo-dir>"
+  echo "Extracts a subdirectory to a new repository, preserving history."
+}
+
 OPTIND=1
 delete=0
 
