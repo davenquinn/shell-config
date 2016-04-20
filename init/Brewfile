@@ -51,6 +51,7 @@ install zopfli # Super-performant zlib compressor
 install z
 
 install librsvg
+install sleepwatcher
 
 install postgresql
 install gdal --with-postgresql --with-python
