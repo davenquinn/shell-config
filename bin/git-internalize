@@ -1,0 +1,45 @@
+#!/bin/bash
+function show_help {
+  echo "Usage: $(basename "$0") [-h] [--] <dir-to-copy> <subdir>"
+  echo "Brings a git repository into a subdirectory as a subtree."
+  echo "Options:
+  h) show this message"
+}
+
+OPTIND=1
+
+while getopts "h?" opt; do
+    case "$opt" in
+    h|\?)
+        show_help
+        exit 0
+        ;;
+    esac
+done
+shift $((OPTIND-1))
+[ "$1" = "--" ] && shift
+
+OLDREPO=$1
+SUBDIR=${2%/}
+
+toexit=1
+[ -z "$OLDREPO" ] && echo "No source repository supplied" && toexit=0
+[ -z "$SUBDIR" ] && echo "No subdirectory supplied" && toexit=0
+if [ $toexit -eq 0 ]; then
+  echo "Exiting";
+  exit;
+fi
+
+REMOTE="__temp_remote"
+REMOTE_BRANCH="${REMOTE}/master"
+
+echo "Fetching from ${OLDREPO}"
+git remote add "$REMOTE" "${1}"
+git fetch "$REMOTE"
+git merge -s ours --no-commit "$REMOTE_BRANCH"
+git read-tree --prefix="${SUBDIR}/" -u "$REMOTE_BRANCH"
+msg="Imported ${OLDREPO} as a subtree."
+git commit -m "$msg"
+echo "$msg"
+echo "Deleting temporary remote"
+git remote rm "${REMOTE}"
