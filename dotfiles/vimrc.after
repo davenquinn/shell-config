@@ -1,6 +1,7 @@
 set statusline+=%{fugitive\#statusline()}
 "set guifont=DroidSansMonoDotted:h14
-set guifont=InputMono-ExtraLight:h14
+set guifont=Hasklig-Regular:h14
+set macligatures
 set background=dark
 set linespace=2
 set go-=L
