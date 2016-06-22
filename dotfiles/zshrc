@@ -143,3 +143,8 @@ fi
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+# Alias to get bundle id
+function bundle-id() {
+  osascript -e "id of app \"${1}\""
+}

@@ -1,0 +1,4 @@
+# Config file for `duti`, which manages assigned applications for files
+
+org.vim.MacVim  .py  editor
+org.vim.MacVim  .md  editor
