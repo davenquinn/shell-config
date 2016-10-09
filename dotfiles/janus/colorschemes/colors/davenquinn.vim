@@ -95,7 +95,7 @@ elseif &background == "dark"
     hi DiffDelete gui=NONE guifg=#080808 guibg=#080808
     "hi DiffDelete gui=NONE guifg=#260003 guibg=#180006
     hi DiffText gui=NONE guifg=NONE guibg=#0a283d
-    hi Directory gui=italic guifg=#008b8b guibg=#01220c
+    hi Directory gui=italic guifg=#05b192 guibg=#011f19
     hi Error gui=NONE guifg=NONE guibg=#230606
     hi ErrorMsg gui=NONE guifg=NONE guibg=#230505
     hi FoldColumn gui=NONE guifg=#575757 guibg=NONE
@@ -107,7 +107,7 @@ elseif &background == "dark"
     hi ModeMsg gui=NONE guifg=NONE guibg=NONE
     hi MoreMsg gui=NONE guifg=NONE guibg=NONE
     hi NonText gui=bold guifg=#2d282f guibg=NONE
-    hi Normal gui=NONE guifg=#a0a0a0 guibg=#121212
+    hi Normal gui=NONE guifg=#a0a0a0 guibg=#020202
     hi Number gui=NONE guifg=#0e9eb4 guibg=NONE
     hi Pmenu gui=NONE guifg=NONE guibg=#171717
     hi PmenuSbar gui=NONE guifg=NONE guibg=#242424
@@ -126,7 +126,7 @@ elseif &background == "dark"
     hi StatusLine gui=NONE guifg=#8f8f8f guibg=#242424
     hi StatusLineNC gui=NONE guifg=#666666 guibg=#242424
     hi StorageClass gui=NONE guifg=#064789 guibg=NONE
-    hi String gui=NONE guifg=#007b7b guibg=#101719
+    hi String gui=NONE guifg=#007a61 guibg=#101719
     hi TabLine gui=NONE guifg=#666666 guibg=#242424
     hi TabLineFill gui=NONE guifg=NONE guibg=#1a1a1a
     hi TabLineSel gui=NONE guifg=#8f8f8f guibg=#242424
@@ -144,11 +144,11 @@ elseif &background == "dark"
     hi Exception gui=bold guifg=#a23f44 guibg=#2d0102
     hi Function gui=NONE guifg=#4c849f guibg=NONE
     hi Structure gui=bold guifg=#8b80a3 guibg=#05293d
-    hi Conditional gui=NONE guifg=#767fc7 guibg=#121536
+    hi Conditional gui=NONE guifg=#a193c8 guibg=#121536
     hi Repeat gui=NONE guifg=#767fc7 guibg=#121536
     hi Operator gui=NONE guifg=#888ba5 guibg=#080b26
     hi Identifier gui=NONE guifg=#469dd3 guibg=#041c29
-    hi PreProc gui=NONE guifg=NONE guibg=NONE
+    hi PreProc gui=NONE guifg=#8B5E75 guibg=#080000
 
     " Nerdtree
     hi NERDTreeDirSlash gui=NONE guifg=#171717 guibg=NONE
@@ -161,4 +161,6 @@ elseif &background == "dark"
     " Unused colors
     " #a14558
     " #92cd8e
+    hi BracelessIndent gui=NONE guifg=NONE guibg=#061d3d
+    hi coffeeInterp gui=NONE guifg=#A0898F guibg=#100000
 endif

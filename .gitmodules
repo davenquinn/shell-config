@@ -41,3 +41,12 @@
 [submodule "dotfiles/janus/python-syntax"]
 	path = dotfiles/janus/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+[submodule "dotfiles/janus/vim-alphamelts-syntax"]
+	path = dotfiles/janus/vim-alphamelts-syntax
+	url = git://github.com/davenquinn/vim-alphamelts-syntax.git
+[submodule "dotfiles/janus/vim-stylus"]
+	path = dotfiles/janus/vim-stylus
+	url = git://github.com/wavded/vim-stylus.git
+[submodule "dotfiles/janus/vim-pug"]
+	path = dotfiles/janus/vim-pug
+	url = git://github.com/digitaltoad/vim-pug.git
