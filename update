@@ -1,0 +1,10 @@
+#!/bin/bash
+# Script to update environment
+
+make-links.py
+
+# Reset file associations
+duti ~/.duti
+
+# Link spelling wordfile to mac local dictionary
+ln -s dotfiles/words/en.utf-8.add ~/Library/Spelling/LocalDictionary

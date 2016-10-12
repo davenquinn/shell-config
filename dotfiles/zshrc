@@ -22,6 +22,8 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 
 autoload -U zmv
+# Use vim key bindings
+bindkey -v
 
 COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
 
@@ -74,9 +76,6 @@ function killport () {
   kill -9 `lsof -t -i :$1`
 }
 
-# Use vim key bindings
-bindkey -v
-
 function pyview() {
   mvim -R `python -c "import os, $1; print os.path.dirname($1.__file__)"`
 }
@@ -85,6 +84,7 @@ function diff() {
   git diff --color=always $1 $2 | less -r
 }
 
+# Add a newline before commands
 precmd() { print "" }
 
 #function env() {
@@ -135,7 +135,6 @@ export PYENV_ROOT="$(brew --prefix)/var/pyenv"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
-echo "Initializing pyenv..."
 # Add pyenv root to PATH
 # and initialize pyenv
 if [[ -d $PYENV_ROOT ]];then

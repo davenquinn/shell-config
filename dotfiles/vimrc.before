@@ -1,9 +1,10 @@
 let mapleader = ","
 
-" Swap file location
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backup 
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set backupskip=/tmp/*,/private/tmp/* 
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set writebackup
 
 if has('mouse')
   set mouse=a
@@ -32,20 +33,40 @@ nmap <Leader>hr <Plug>GitGutterRevertHunk
 " NERDTree
 ca Tree NERDTreeToggle
 
+" Git status
+ca Wow Gstatus
+
 " word whitelist
 set spellfile=$HOME/.words/en.utf-8.add
 
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
-"let g:pandoc#modules#disabled = ["folding"]
 
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
 endif
+let g:pandoc#biblio#sources = ['~/Resources/Papers/BibTeX/library.bib']
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#completion#bib#mode = 'fallback'
 
 " VimPad
-let g:pad#dir = "~/Documents/vim-notes"
+let g:pad#dir = "~/Documents/Notes"
 let g:pad#open_in_split = 0
 let g:pad#search_backend = "ack"
 let g:pad#position = {'list': "full"}
+let g:pad#default_file_extension = "md"
+
+autocmd FileType python BracelessEnable +indent +highlight
+autocmd FileType haml,yaml,coffee BracelessEnable +indent +highlight
+
+" commands for adding python breakpoints
+au FileType python map <silent> <leader>d oimport pdb; pdb.set_trace()<esc>
+au FileType python map <silent> <leader>D Oimport pdb; pdb.set_trace()<esc>
+
+let python_highlight_all = 1
+
+" Add syntax for alphamelts config
+autocmd BufNewFile,BufRead *.melts-env setfiletype melts
+autocmd BufNewFile,BufRead *.melts setfiletype melts
+

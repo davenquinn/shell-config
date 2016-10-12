@@ -8,6 +8,7 @@ update
 upgrade
 
 tap homebrew/dupes
+tap osgeo/osgeo4mac
 
 install caskroom/cask/brew-cask
 cask install xquartz
@@ -53,8 +54,9 @@ install z
 install librsvg
 install sleepwatcher
 
+install pyqt --with-python3
 install postgresql
-install gdal --with-postgresql --with-python
+install gdal --with-postgresql --with-opencl --with-unsupported --with-complete --with-python3
 
 # Remove outdated versions from the cellar
 cleanup

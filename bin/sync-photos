@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+MOUNTPOINT="/Volumes/Amazon Cloud Drive"
+
+mkdir "$MOUNTPOINT"
+acd_cli mount "$MOUNTPOINT"
+
+rsync -azvr /Volumes/Lilienthal/Photos/Masters/ /Volumes/Amazon\ Cloud\ Drive/Photos/Masters
+
+# fusermount 

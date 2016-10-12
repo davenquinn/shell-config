@@ -1,1 +1,3 @@
-osascript ~/Environment/dotfiles/scripts/itunes-switch-airplay Pyrolusite
+#!/bin/sh
+osascript -e 'set volume 0'
+osascript ~/Environment/dotfiles/scripts/itunes-switch-airplay.applescript Pyrolusite

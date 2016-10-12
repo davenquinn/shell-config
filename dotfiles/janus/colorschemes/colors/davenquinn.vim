@@ -126,7 +126,8 @@ elseif &background == "dark"
     hi StatusLine gui=NONE guifg=#8f8f8f guibg=#242424
     hi StatusLineNC gui=NONE guifg=#666666 guibg=#242424
     hi StorageClass gui=NONE guifg=#064789 guibg=NONE
-    hi String gui=NONE guifg=#007a61 guibg=#101719
+    hi String gui=NONE guifg=#007a61 guibg=NONE
+    "#101719
     hi TabLine gui=NONE guifg=#666666 guibg=#242424
     hi TabLineFill gui=NONE guifg=NONE guibg=#1a1a1a
     hi TabLineSel gui=NONE guifg=#8f8f8f guibg=#242424

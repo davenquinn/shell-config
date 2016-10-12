@@ -72,7 +72,9 @@
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 	# List contributors with number of commits
-	contributors = shortlog --summary --numbered
+  contributors = shortlog --summary --numbered
+
+  mvim = "!f() { git show ${@} | mvim -R }; f"
 
 [apply]
 
@@ -144,7 +146,10 @@
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
 	# installations. To use `simple` instead, add this to your `~/.extra` file:
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+  default = matching
+
+  # Always push ancestor tags
+  followTags = 1
 
 # URL shorthands
 

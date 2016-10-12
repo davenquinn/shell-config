@@ -12,6 +12,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 defaults write com.apple.iTunes allow-half-stars -bool TRUE
 
+## Photos ##
+# Don't open Photos on insert
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
