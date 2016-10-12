@@ -13,13 +13,20 @@ fi
 . $(brew --prefix)/etc/profile.d/z.sh
 # Customize to your needs...
 
-if [[ $(uname) == 'Linux' ]]; then
-  screenfetch
+if (($SHLVL == 1 )); then
+
+  if [[ $(uname) == 'Linux' ]]; then
+    screenfetch
+  fi
+
+  if [[ $(uname) == 'Darwin' ]]; then
+    archey -c
+  fi
+
+else
+  echo "Starting subshell (level ${SHLVL})"
 fi
 
-if [[ $(uname) == 'Darwin' ]]; then
-  archey -c
-fi
 
 autoload -U zmv
 # Use vim key bindings
@@ -130,6 +137,7 @@ if [[ $(uname) == 'Darwin' ]]; then
 
 fi
 
+### SOMETHING below this line causes subshells to not work ####
 # pyenv
 export PYENV_ROOT="$(brew --prefix)/var/pyenv"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -143,7 +151,7 @@ if [[ -d $PYENV_ROOT ]];then
     eval "$(pyenv init -)"
     # initialize pyenv virtualenv
     eval "$(pyenv virtualenv-init -)"
-    #eval "$(pyenv virtualenvwrapper -)"
+    # We're not using virtualenvwrapper
 fi
 
 # nodenv
@@ -168,9 +176,6 @@ function install-gdal() {
   eval $c
 }
 
-alias calc="PYENV_VERSION=3.5.0 pyenv exec ipython --profile=calculator"
-unalias py
-
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -179,3 +184,4 @@ fi
 function bundle-id() {
   osascript -e "id of app \"${1}\""
 }
+
