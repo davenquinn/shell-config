@@ -18,7 +18,7 @@ if [[ $(uname) == 'Linux' ]]; then
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
-  archey --color
+  archey -c
 fi
 
 autoload -U zmv
@@ -54,9 +54,14 @@ else
   export EDITOR='vim'
 fi
 
+# Support `fuck` command for correcting screw-ups
+eval $(thefuck --alias)
+
+alias git='hub'
+
 alias wow='git status'
-alias such='git'
-alias very='git'
+alias such='git add'
+alias very='git commit -m'
 alias text-changes='git diff --color-words'
 alias grr='git graph'
 
@@ -94,6 +99,8 @@ alias env.print='printenv'
 
 # Project management
 alias prm='. ~/Environment/dotfiles/bin/prm/prm.sh'
+# AlphaMELTS
+alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias env.edit='vim ~/Environment/dotfiles'
@@ -124,11 +131,11 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-
-export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
+export PYENV_ROOT="$(brew --prefix)/var/pyenv"
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
+echo "Initializing pyenv..."
 # Add pyenv root to PATH
 # and initialize pyenv
 if [[ -d $PYENV_ROOT ]];then
@@ -137,8 +144,33 @@ if [[ -d $PYENV_ROOT ]];then
     eval "$(pyenv init -)"
     # initialize pyenv virtualenv
     eval "$(pyenv virtualenv-init -)"
-    eval "$(pyenv virtualenvwrapper -)"
+    #eval "$(pyenv virtualenvwrapper -)"
 fi
+
+# nodenv
+export NODENV_ROOT="$(brew --prefix)/var/nodenv"
+if [[ -d $NODENV_ROOT ]];then
+    PATH="$NODENV_ROOT/bin:$PATH"
+    # initialize nodeenv
+    eval "$(nodenv init -)"
+fi
+
+function install-gdal() {
+  # Function to install GDAL from source including build shims
+  v=$1
+  if [ -z $v ]; then
+    v=$(gdal-config --version)
+  fi
+  c="pip install "
+  c+="--global-option build_ext "
+  c+="--global-option \"-I$(brew --prefix)/include/gdal\" "\
+  c+="gdal==$v"
+  echo $c
+  eval $c
+}
+
+alias calc="PYENV_VERSION=3.5.0 pyenv exec ipython --profile=calculator"
+unalias py
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
