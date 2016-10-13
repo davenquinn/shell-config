@@ -1,3 +1,5 @@
 #!/bin/sh
-osascript -e 'set volume 0'
+
+# Try to switch airplay source if available, otherwise fall back to computer
+sleep 5 # give time for wifi to connect
 osascript ~/Environment/dotfiles/scripts/itunes-switch-airplay.applescript Pyrolusite
