@@ -140,7 +140,7 @@ fi
 ### SOMETHING below this line causes subshells to not work ####
 # pyenv
 export PYENV_ROOT="$(brew --prefix)/var/pyenv"
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
+export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 # Add pyenv root to PATH
