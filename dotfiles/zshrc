@@ -32,13 +32,10 @@ autoload -U zmv
 # Use vim key bindings
 bindkey -v
 
-COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
-
 export DOTFILES="$HOME/Environment/dotfiles"
 export LOCALBIN="$HOME/bin:$DOTFILES/bin"
-export TEX_BIN="/usr/local/texlive/2014/bin/x86_64-darwin"
 
-export PATH="$LOCALBIN:$TEX_BIN:$COREUTILS:$PATH"
+export PATH="$LOCALBIN:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -46,12 +43,6 @@ export PATH="$LOCALBIN:$TEX_BIN:$COREUTILS:$PATH"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
-
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications";
-
-# Sometimes needed for installing things
-export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
@@ -63,11 +54,6 @@ else
   export EDITOR='vim'
 fi
 
-# Support `fuck` command for correcting screw-ups
-eval $(thefuck --alias)
-
-alias git='hub'
-
 alias wow='git status'
 alias such='git add'
 alias very='git commit -m'
@@ -76,7 +62,6 @@ alias grr='git graph'
 
 alias du='du -h'
 
-export PYTHONDONTWRITEBYTECODE=True
 export PIP_RESPECT_VIRTUALENV=true
 
 function killport () {
@@ -114,78 +99,12 @@ if [[ $(uname) == 'Linux' ]]; then
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
-  # PostgreSQL
-  export PGDATA=$HOME/Library/Databases/PostgreSQL/
-
-  # GIS
-  export GDAL_DRIVER_PATH="$(brew --prefix)/lib/gdalplugins"
-
-  # Python virtualenvs
-  export WORKON_HOME="$HOME/Environment/virtualenvs"
-  export PROJECT_HOME="$HOME/Development"
-
-  alias env.edit='mvim ~/Environment/dotfiles'
-
-  alias pad='mvim -c "Pad ls"'
-
-  #export CLICOLOR=1
-  #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-  alias ls='ls --color'
-
-  # Set up environment for ENVI and modify the IDL path:
-  export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
-
 fi
 
-### SOMETHING below this line causes subshells to not work ####
-# pyenv
-export PYENV_ROOT="$(brew --prefix)/var/pyenv"
-export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
-# Add pyenv root to PATH
-# and initialize pyenv
-if [[ -d $PYENV_ROOT ]];then
-    # initialize pyenv
-    if which pyenv > /dev/null; then
-      PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)";
-      # initialize pyenv virtualenv
-      eval "$(pyenv virtualenv-init -)"
-    fi
-    # We're not using virtualenvwrapper
-fi
-
-# nodenv
-export NODENV_ROOT="$(brew --prefix)/var/nodenv"
-if [[ -d $NODENV_ROOT ]];then
-    if which nodenv > /dev/null; then
-      PATH="$NODENV_ROOT/bin:$PATH"
-      # initialize nodeenv
-      eval "$(nodenv init -)"
-    fi
-fi
-
-function install-gdal() {
-  # Function to install GDAL from source including build shims
-  v=$1
-  if [ -z $v ]; then
-    v=$(gdal-config --version)
-  fi
-  c="pip install "
-  c+="--global-option build_ext "
-  c+="--global-option \"-I$(brew --prefix)/include/gdal\" "\
-  c+="gdal==$v"
-  echo $c
-  eval $c
-}
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
-# Alias to get bundle id
-function bundle-id() {
-  osascript -e "id of app \"${1}\""
-}
+
 

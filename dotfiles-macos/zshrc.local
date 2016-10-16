@@ -1,5 +1,99 @@
-# File for local edits to zshrc config
-alias nw='/opt/homebrew-cask/Caskroom/nwjs/0.12.1/nwjs-v0.12.1-osx-x64/nwjs.app/Contents/MacOS/nwjs'
+. $(brew --prefix)/etc/profile.d/z.sh
+
+COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
+
+export TEX_BIN="/usr/local/texlive/2014/bin/x86_64-darwin"
+export PATH="$TEX_BIN:$COREUTILS:$PATH"
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+
+# Sometimes needed for installing things
+export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
+
+alias git='hub'
+
+# Support `fuck` command for correcting screw-ups
+eval $(thefuck --alias)
+
+export PYTHONDONTWRITEBYTECODE=True
 
 export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.4.0
-#export IDL_PATH=/Applications/exelis/CAT_ENVI
+export IDL_PATH=/Applications/exelis/CAT_ENVI
+
+# PostgreSQL
+export PGDATA=$HOME/Library/Databases/PostgreSQL/
+
+# GIS
+export GDAL_DRIVER_PATH="$(brew --prefix)/lib/gdalplugins"
+
+# Python virtualenvs
+export WORKON_HOME="$HOME/Environment/virtualenvs"
+export PROJECT_HOME="$HOME/Development"
+
+alias env.edit='mvim ~/Environment/dotfiles'
+
+alias pad='mvim -c "Pad ls"'
+
+#export CLICOLOR=1
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+alias ls='ls --color'
+
+# Set up environment for ENVI and modify the IDL path:
+export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
+
+
+### SOMETHING below this line causes subshells to not work ####
+# pyenv
+export PYENV_ROOT="$(brew --prefix)/var/pyenv"
+export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# Add pyenv root to PATH
+# and initialize pyenv
+if [[ -d $PYENV_ROOT ]];then
+    # initialize pyenv
+    if which pyenv > /dev/null; then
+      PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init -)";
+      # initialize pyenv virtualenv
+      eval "$(pyenv virtualenv-init -)"
+    fi
+    # We're not using virtualenvwrapper
+fi
+
+# nodenv
+export NODENV_ROOT="$(brew --prefix)/var/nodenv"
+if [[ -d $NODENV_ROOT ]];then
+    if which nodenv > /dev/null; then
+      PATH="$NODENV_ROOT/bin:$PATH"
+      # initialize nodeenv
+      eval "$(nodenv init -)"
+    fi
+fi
+
+function install-gdal() {
+  # Function to install GDAL from source including build shims
+  v=$1
+  if [ -z $v ]; then
+    v=$(gdal-config --version)
+  fi
+  c="pip install "
+  c+="--global-option build_ext "
+  c+="--global-option \"-I$(brew --prefix)/include/gdal\" "\
+  c+="gdal==$v"
+  echo $c
+  eval $c
+}
+
+# Alias to get bundle id
+function bundle-id() {
+  osascript -e "id of app \"${1}\""
+}
+
+## Random software
+# Project management
+alias prm='. ~/Environment/dotfiles/bin/prm/prm.sh'
+# AlphaMELTS
+alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
+
