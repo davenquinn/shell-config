@@ -1,6 +1,6 @@
 *.log
 *.sqlite
 
-dotfiles/karibiner.d/log/*.txt
+dotfiles/karabiner.d/log/*.txt
 dotfiles/ipython/profile_default/security
 dotfiles/ipython/profile_basic/security
