@@ -8,6 +8,9 @@ internally).
 
 ## Installation
 
+Run `git submodule update --init --recursive` to grab all the
+software.
+
 Install some python modules (you will need `click` and `pathlib` (for Python < 3.0)
 
 Run `./make-links.py` with an optional `-p` switch for profile.
