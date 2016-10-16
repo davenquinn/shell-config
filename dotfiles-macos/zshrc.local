@@ -1,0 +1,5 @@
+# File for local edits to zshrc config
+alias nw='/opt/homebrew-cask/Caskroom/nwjs/0.12.1/nwjs-v0.12.1-osx-x64/nwjs.app/Contents/MacOS/nwjs'
+
+export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.4.0
+#export IDL_PATH=/Applications/exelis/CAT_ENVI

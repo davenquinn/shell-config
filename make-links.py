@@ -2,18 +2,24 @@
 # -*- coding: utf8 -*-
 from os.path import dirname, expanduser
 from pathlib import Path
+import click
 from click import style, echo, confirm
 from functools import partial
 from subprocess import call
 
 home = Path(expanduser("~"))
-dotfiles = Path(dirname(__file__)).resolve()/"dotfiles"
+here = Path(dirname(__file__)).resolve()
+dotfiles = here/"dotfiles"
 
 cyan = lambda s: style(str(s),fg="cyan")
 magenta = lambda s: style(str(s),fg="magenta")
 dotted = lambda p: "."+p.name
 
 linkfile = lambda p: home/dotted(p)
+
+profiles = [
+    'macos',
+    'server']
 
 def symlink_path(p):
     loc = linkfile(p)
@@ -41,5 +47,33 @@ def make_symlinks(files):
             call(["rm","-rf",str(loc)])
         make_symlinks(remainders)
 
-if __name__ == "__main__":
+@click.command()
+@click.option('--profile','-p',
+              help='Profile of dotfiles to link',
+              type=str)
+@click.option('--list','-l',help="Show names of profiles",
+              is_flag=True)
+def dotfile_cmd(profile,list):
+    """
+    Command to make dotfiles for each directory
+    """
+    if list:
+        echo("Below are the profiles that can be used"
+             " for setup")
+        for i in profiles:
+            magenta(i)
+        return
+
     make_symlinks(dotfiles.iterdir())
+
+    if profile is None:
+        echo("No profile-specific dotfiles were linked. "
+             "Specify `-p/--p <a-profile>` to link these. "
+             "`-l/--list` shows the possible profiles.")
+        return
+    dn = here/"dotfiles-{}".format(profile)
+    make_symlinks(dn.iterdir())
+
+
+if __name__ == "__main__":
+    dotfile_cmd()
