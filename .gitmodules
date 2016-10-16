@@ -12,10 +12,10 @@
 	url = https://github.com/godlygeek/csapprox.git
 [submodule "dotfiles/janus/nginx-vim-syntax"]
 	path = dotfiles/janus/nginx-vim-syntax
-	url = git@github.com:evanmiller/nginx-vim-syntax.git
+	url = https://github.com/evanmiller/nginx-vim-syntax.git
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
-	url = git@github.com:davenquinn/prezto.git
+	url = https://github.com/davenquinn/prezto.git
 [submodule "dotfiles/janus/vim-pad"]
 	path = dotfiles/janus/vim-pad
 	url = https://github.com/fmoralesc/vim-pad.git
