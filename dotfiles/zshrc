@@ -10,7 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-. $(brew --prefix)/etc/profile.d/z.sh
 # Customize to your needs...
 
 if (($SHLVL == 1 )); then
@@ -88,11 +87,6 @@ precmd() { print "" }
      #"}
 alias env.reload='source ~/.zshrc'
 alias env.print='printenv'
-
-# Project management
-alias prm='. ~/Environment/dotfiles/bin/prm/prm.sh'
-# AlphaMELTS
-alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias env.edit='vim ~/Environment/dotfiles'
