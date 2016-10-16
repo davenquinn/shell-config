@@ -47,3 +47,6 @@
 [submodule "dotfiles/janus/vim-pug"]
 	path = dotfiles/janus/vim-pug
 	url = https://github.com/digitaltoad/vim-pug.git
+[submodule "dotfiles/zprezto"]
+	path = dotfiles/zprezto
+	url = https://github.com/sorin-ionescu/prezto
