@@ -15,7 +15,7 @@ fi
 if (($SHLVL == 1 )); then
 
   if [[ $(uname) == 'Linux' ]]; then
-    screenfetch
+    neofetch --image "$HOME/Environment/startup-image.jpg"
   fi
 
   if [[ $(uname) == 'Darwin' ]]; then
