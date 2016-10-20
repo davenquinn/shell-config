@@ -52,6 +52,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim'
 fi
+VISUAL=EDITOR
 
 alias wow='git status'
 alias such='git add'
