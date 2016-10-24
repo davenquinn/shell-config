@@ -19,7 +19,7 @@ if (($SHLVL == 1 )); then
   fi
 
   if [[ $(uname) == 'Darwin' ]]; then
-    archey -c
+    neofetch --image-backend iterm --image "$HOME/Environment/prompt-images"
   fi
 
 else
@@ -103,3 +103,5 @@ fi
 
 
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
