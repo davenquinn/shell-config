@@ -1,7 +1,5 @@
 [distutils]
-index-servers =
-    pypi
+index-servers=pypi
 
 [pypi]
 username:davenquinn
-password:Forlorn2202
