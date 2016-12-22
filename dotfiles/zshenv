@@ -1,0 +1,21 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+
+if [[ "$SHLVL" -eq 1 ]]; then
+  export DOTFILES="$HOME/Environment/dotfiles"
+  export LOCALBIN="$HOME/bin:$DOTFILES/bin"
+  export PATH="$LOCALBIN:$PATH"
+fi
+
+_local="${ZDOTDIR:-$HOME}/.zshenv.local"
+if [ -f $_local ]; then
+  source $_local
+fi
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi

@@ -19,7 +19,7 @@ if (($SHLVL == 1 )); then
   fi
 
   if [[ $(uname) == 'Darwin' ]]; then
-    neofetch --image-backend iterm --image "$HOME/Environment/prompt-images"
+    neofetch #--image-backend iterm --image "$HOME/Environment/prompt-images"
   fi
 
 else
@@ -31,10 +31,6 @@ autoload -U zmv
 # Use vim key bindings
 bindkey -v
 
-export DOTFILES="$HOME/Environment/dotfiles"
-export LOCALBIN="$HOME/bin:$DOTFILES/bin"
-
-export PATH="$LOCALBIN:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -46,13 +42,8 @@ export MANPAGER="less -X";
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
-VISUAL=$EDITOR
+# Environment setup
+export DESK_DESKS_DIR="$HOME/Environment/desks"
 
 alias wow='git status'
 alias such='git add'
@@ -96,12 +87,12 @@ fi
 if [[ $(uname) == 'Darwin' ]]; then
 fi
 
-
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
+_local="${ZDOTDIR:-$HOME}/.zshrc.local"
+if [ -s $_local ]; then
+  source $_local
 fi
 
-
-
+# Desk environment setup
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

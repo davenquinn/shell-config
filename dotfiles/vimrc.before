@@ -43,6 +43,9 @@ inoremap <2-MiddleMouse> <Nop>
 inoremap <3-MiddleMouse> <Nop>
 inoremap <4-MiddleMouse> <Nop>
 
+"Remap esc to shift+enter
+inoremap <S-CR> <esc>
+
 " NERDTree
 ca Tree NERDTreeToggle
 

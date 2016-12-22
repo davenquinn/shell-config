@@ -50,3 +50,6 @@
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = https://github.com/sorin-ionescu/prezto
+[submodule "dotfiles/pandoc/templates/pandoc-letter"]
+	path = dotfiles/pandoc/templates/pandoc-letter
+	url = git://github.com/aaronwolen/pandoc-letter.git

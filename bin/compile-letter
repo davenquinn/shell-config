@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# Usage:
+#   compile-letter input.md output.pdf
+#
+pandoc -s \
+  -V geometry:margin=1in -t latex \
+  --template=letter.tex \
+  --latex-engine=xelatex  -o $2 $1
+
