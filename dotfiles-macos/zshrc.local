@@ -103,9 +103,6 @@ function bundle-id() {
   osascript -e "id of app \"${1}\""
 }
 
-## Random software
-# Project management
-alias prm='. ~/Environment/dotfiles/bin/prm/prm.sh'
 # AlphaMELTS
 alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
 
