@@ -53,3 +53,6 @@
 [submodule "dotfiles/pandoc/templates/pandoc-letter"]
 	path = dotfiles/pandoc/templates/pandoc-letter
 	url = git://github.com/aaronwolen/pandoc-letter.git
+[submodule "dotfiles/janus/vim-zsh"]
+	path = dotfiles/janus/vim-zsh
+	url = git://github.com/chrisbra/vim-zsh.git

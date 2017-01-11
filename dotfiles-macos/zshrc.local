@@ -48,7 +48,7 @@ alias env.edit='mvim ~/Environment/dotfiles'
 
 #export CLICOLOR=1
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-alias ls='ls --color'
+alias ls='ls -G'
 
 # Set up environment for ENVI and modify the IDL path:
 export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
