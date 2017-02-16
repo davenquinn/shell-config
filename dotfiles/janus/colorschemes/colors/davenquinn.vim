@@ -77,7 +77,7 @@ if &background == "light"
     hi pandocCiteKey gui=italic guifg=#67aef9 guibg=#d3e7fd
     " GitGutter (same as line numbers)
     hi SignColumn gui=NONE guifg=NONE guibg=#fafafa
-
+    hi BracelessIndent gui=NONE guifg=NONE guibg=#eaeaff
     " #39a6ea
     " #83afdd
 elseif &background == "dark"
@@ -95,21 +95,21 @@ elseif &background == "dark"
     hi DiffDelete gui=NONE guifg=#080808 guibg=#080808
     "hi DiffDelete gui=NONE guifg=#260003 guibg=#180006
     hi DiffText gui=NONE guifg=NONE guibg=#0a283d
-    hi Directory gui=italic guifg=#05b192 guibg=#011f19
     hi Error gui=NONE guifg=NONE guibg=#230606
     hi ErrorMsg gui=NONE guifg=NONE guibg=#230505
     hi FoldColumn gui=NONE guifg=#575757 guibg=NONE
     hi Folded gui=NONE guifg=#666666 guibg=NONE
     hi Ignore gui=NONE guifg=NONE guibg=NONE
     hi IncSearch gui=NONE guifg=NONE guibg=#2e2e2e
-    hi LineNr gui=NONE guifg=#554b58 guibg=#181818
+    hi LineNr gui=NONE guifg=#333333 guibg=#080808
     hi MatchParen gui=NONE guifg=NONE guibg=#2e2e2e
     hi ModeMsg gui=NONE guifg=NONE guibg=NONE
     hi MoreMsg gui=NONE guifg=NONE guibg=NONE
-    hi NonText gui=bold guifg=#2d282f guibg=NONE
-    hi Normal gui=NONE guifg=#a0a0a0 guibg=#020202
+    hi NonText gui=bold guifg=#101010 guibg=NONE
+    """ Normal text
+    hi Normal gui=NONE guifg=#a0a0a0 guibg=#010101
     hi Number gui=NONE guifg=#0e9eb4 guibg=NONE
-    hi Pmenu gui=NONE guifg=NONE guibg=#171717
+    hi Pmenu gui=NONE guifg=NONE guibg=#151515
     hi PmenuSbar gui=NONE guifg=NONE guibg=#242424
     hi PmenuSel gui=NONE guifg=NONE guibg=#2e2e2e
     hi PmenuThumb gui=NONE guifg=NONE guibg=#3b3b3b
@@ -123,8 +123,8 @@ elseif &background == "dark"
     hi SpellLocal gui=underline guisp=NONE guifg=NONE guibg=#052305
     hi SpellRare gui=underline guisp=NONE guifg=NONE guibg=#242424
     hi Statement gui=bold guifg=#469dd3 guibg=#041c29
-    hi StatusLine gui=NONE guifg=#8f8f8f guibg=#242424
-    hi StatusLineNC gui=NONE guifg=#666666 guibg=#242424
+    hi StatusLine gui=NONE guifg=#303030 guibg=#111111
+    hi StatusLineNC gui=NONE guifg=#242424 guibg=#111111
     hi StorageClass gui=NONE guifg=#064789 guibg=NONE
     hi String gui=NONE guifg=#007a61 guibg=NONE
     "#101719
@@ -135,8 +135,8 @@ elseif &background == "dark"
     hi Todo gui=standout guifg=NONE guibg=NONE
     hi Type gui=NONE guifg=#7d64aa guibg=NONE
     hi Underlined gui=NONE guifg=NONE guibg=NONE
-    hi VertSplit gui=NONE guifg=#2e2e2e guibg=#2e2e2e
-    hi Visual gui=NONE guifg=NONE guibg=#2e2e2e
+    hi VertSplit gui=NONE guifg=#111111 guibg=#111111
+    hi Visual gui=NONE guifg=NONE guibg=#202020
     hi VisualNOS gui=NONE guifg=NONE guibg=NONE
     hi WarningMsg gui=NONE guifg=NONE guibg=#230505
     hi WildMenu gui=NONE guifg=NONE guibg=#4a4a4a
@@ -152,16 +152,34 @@ elseif &background == "dark"
     hi PreProc gui=NONE guifg=#8B5E75 guibg=#080000
 
     " Nerdtree
-    hi NERDTreeDirSlash gui=NONE guifg=#171717 guibg=NONE
-    hi NerdTreeOpenable gui=NONE guifg=#444444 guibg=NONE
+    hi NERDTreeDirSlash gui=bold guifg=#051917 guibg=NONE
+    hi NerdTreeOpenable gui=NONE guifg=#222222 guibg=NONE
     hi NerdTreeClosable gui=NONE guifg=#008b8b guibg=NONE
     " Pandoc
+    " pandocLaTeXInlineMath
     hi pandocCiteKey gui=italic guifg=#1968bd guibg=#092543
+    hi pandocLaTeXMath gui=NONE guifg=#555555 guibg=NONE
+    hi Delimiter gui=NONE guifg=#383838 guibg=NONE
+
     " GitGutter (same as line numbers)
-    hi SignColumn gui=NONE guifg=#554b58 guibg=#181818
+    hi SignColumn gui=NONE guifg=#554b58 guibg=#080808
     " Unused colors
     " #a14558
     " #92cd8e
     hi BracelessIndent gui=NONE guifg=NONE guibg=#061d3d
     hi coffeeInterp gui=NONE guifg=#A0898F guibg=#100000
+
+    " Newline escapes
+    hi NewlineEscape gui=bold guifg=#151515
+
+    " Files etc
+    hi Directory gui=NONE guifg=#008b8b guibg=#051917
+
+    hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
+    hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE
+    hi NerdTreeFileImage gui=italic guifg=#8B5E75 guibg=NONE "#ba8184
+    hi NerdTreeDirCommon gui=italic guifg=#005959 guibg=#051917
+    hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
+    hi NerdTreeFileDoc gui=NONE guifg=#a193c8 guibg=NONE
+    hi NerdTreeDirUnimportant gui=italic guifg=#003030 guibg=#021009
 endif

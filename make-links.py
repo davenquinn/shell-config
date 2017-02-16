@@ -24,13 +24,15 @@ profiles = [
 def symlink_path(p):
     loc = linkfile(p)
     if loc.is_symlink(): loc.unlink()
-    if loc.exists(): return p
+    if loc.exists():
+        # We return the path if the file already exists
+        return p
     s = "Symlinking "+cyan(loc)+" → "+cyan(p)
     echo(s)
     loc.symlink_to(p)
 
 def make_symlinks(files):
-    results = map(symlink_path, files)
+    results = (symlink_path(i) for i in  files)
     remainders = list(filter(lambda x: x is not None, results))
     if len(remainders) == 0: return
     linkfiles = list(map(linkfile, remainders))

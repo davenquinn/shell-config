@@ -1,7 +1,14 @@
 set statusline+=%{fugitive\#statusline()}
 "set guifont=DroidSansMonoDotted:h14
+colorscheme davenquinn
+
+if has("gui_macvim")
+  set macligatures
+  " Always open in fullscreen if we can
+  set fu
+endif
+
 set guifont=Hasklig-Regular:h14
-set macligatures
 set background=dark
 set linespace=2
 set go-=L
@@ -13,4 +20,7 @@ set diffopt+=vertical
 " Allow cursor to move past EOL for block selections
 set virtualedit+=block
 
-colorscheme davenquinn
+if has("gui_vimr")
+  set background=light
+endif
+

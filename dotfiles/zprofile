@@ -17,8 +17,15 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='vim'
+
+if [[ $(uname) == 'Darwin' ]]; then
+  # Use GUI vim but don't fork shell
+  export EDITOR='mvim -f'
+else
+  export EDITOR='vim'
+fi
+
+export VISUAL=$EDITOR
 export PAGER='less'
 
 #

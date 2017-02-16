@@ -18,10 +18,9 @@ if (($SHLVL == 1 )); then
   fi
 
   if [[ $(uname) == 'Darwin' ]]; then
-    neofetch neofetch --ascii "$HOME/.zsh-prompt-theme/mac-ascii-art.txt"
+    neofetch --ascii "$HOME/.zsh-prompt-theme/mac-ascii-art.txt"
   fi
 fi
-
 
 autoload -U zmv
 # Use vim key bindings
@@ -46,6 +45,7 @@ alias such='git add'
 alias very='git commit -m'
 alias text-changes='git diff --color-words'
 alias grr='git graph'
+alias protect='chmod -R -w'
 
 alias du='du -h'
 
@@ -63,6 +63,26 @@ function diff() {
   git diff --color=always $1 $2 | less -r
 }
 
+function reload() {
+  source ~/.zshrc
+}
+
+function edit-env() {
+  mvim ~/Environment/dotfiles/dotfiles
+}
+
+function fed() {
+  (
+  if [[ ! -z "$PROJECT_DIR" ]]; then
+    cd $PROJECT_DIR
+  fi
+  if [[ ! -z "$1" ]]; then
+    cd $1
+  fi
+  open -a MacVim $(fzf --height 60%)
+  )
+}
+
 # Add a newline before commands
 precmd() { print "" }
 
@@ -73,5 +93,8 @@ fi
 
 # Desk environment setup
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+alias to='desk .'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

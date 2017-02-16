@@ -46,6 +46,7 @@
 
   # Tools for removing files totally from repository
   remove-file = "!f() { CMD=\"rm -f $1\"; git filter-branch --tree-filter \"$CMD\" HEAD; }; f"
+  remove-directory = "!f() { CMD=\"rm -rf $1\"; git filter-branch --tree-filter \"$CMD\" HEAD; }; f"
   remove-backup = "!f() { git update-ref -d refs/original/refs/heads/$1; }; f"
   remove-empty-commits = "!f() { git filter-branch --commit-filter 'if [ z$1 = z`git rev-parse $3^{tree}` ]; then skip_commit \"$@\"; else git commit-tree \"$@\"; fi' "$@" }; f"
 

@@ -20,6 +20,8 @@ nnoremap \ :noh<return><esc>
 " Remaps space to the command leader
 noremap <space> :
 
+" Vertical splits by default
+set splitright
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -59,12 +61,18 @@ set spellfile=$HOME/.words/en.utf-8.add
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
 
+let NERDTreeSortOrder = [ '\/$','\.do$',"Makefile$",'']
+
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
 endif
-let g:pandoc#biblio#sources = ['~/Resources/Papers/BibTeX/library.bib']
+let g:pandoc#biblio#sources = ['/Users/Daven/Resources/Papers/BibTeX/library.bib']
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#completion#bib#mode = 'fallback'
+" This might be making everything slow
+let g:pandoc#syntax#conceal#use = 0
+
+autocmd Filetype pandoc hi link texStatement pandocLaTeXMath
 
 " VimPad
 let g:pad#dir = "~/Documents/Notes"
@@ -77,6 +85,7 @@ autocmd FileType python BracelessEnable +indent +highlight
 autocmd FileType haml,yaml,coffee BracelessEnable +indent +highlight
 
 " commands for adding python breakpoints
+au FileType python map <silent> <leader>I oimport IPython; IPython.embed()<esc>
 au FileType python map <silent> <leader>d oimport pdb; pdb.set_trace()<esc>
 au FileType python map <silent> <leader>D Oimport pdb; pdb.set_trace()<esc>
 
@@ -86,3 +95,90 @@ let python_highlight_all = 1
 autocmd BufNewFile,BufRead *.melts-env setfiletype melts
 autocmd BufNewFile,BufRead *.melts setfiletype melts
 
+autocmd BufNewFile,BufRead *.do setfiletype zsh
+
+" Add syntax highlighting for newline escapes in shell files
+autocmd Filetype zsh,bash,sh syn match NewlineEscape /\\$/
+hi link NewlineEscape Comment
+hi link vimContinue NewlineEscape
+
+" Show syntax groups under cursor
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+nmap <leader>sy :call SynGroup()<CR>
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+
+let g:thematic#themes = {
+\ 'default'  : {
+\   'colorscheme': 'davenquinn',
+\   'background': 'dark',
+\   'typeface': 'Hasklig',
+\   'font-size': 14,
+\   'linespace': 2
+\ },
+\ 'writer'  : {
+\   'colorscheme': 'davenquinn',
+\   'background': 'dark',
+\   'typeface': 'Hasklig',
+\   'font-size': 18,
+\ },
+\ 'thin' :{
+\   'colorscheme': 'davenquinn',
+\   'background': 'dark',
+\   'typeface': 'Hasklig Light'
+\ },
+\ 'narrow': {
+\   'typeface': 'M+ 1mn light',
+\   'background': 'dark'
+\ }
+\ }
+
+let g:thematic#theme_name = 'default'
+
+"""" WRITING MODE ( from vim goyo config)
+
+let g:limelight_conceal_guibg = '#010101'
+let g:goyo_width = 82
+
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  Limelight 0.75
+  Thematic writer
+  GitGutterDisable
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  set showmode
+  set showcmd
+  Limelight!
+  Thematic default
+  GitGutterEnable
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Filetypes
+autocmd FileType nerdtree syn match NerdTreeFileBuild #^\s\+\(Makefile\|Rakefile\)$#
+autocmd FileType nerdtree syn match NerdTreeFileBuild #^\s\+.*\(do\)$#
+
+autocmd FileType nerdtree syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)$#
+autocmd FileType nerdtree syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)$#
+autocmd FileType nerdtree syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|\(doc\|xls\)x\=\)$#
+autocmd FileType nerdtree syn match NerdTreeFileBoilerplate #^\s\+\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)$#
+autocmd FileType nerdtree syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\)#
+autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|include\|includes\|lib\)#
+
+let NERDTreeHijackNetrw=1
