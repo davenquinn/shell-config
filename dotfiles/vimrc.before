@@ -95,8 +95,6 @@ let python_highlight_all = 1
 autocmd BufNewFile,BufRead *.melts-env setfiletype melts
 autocmd BufNewFile,BufRead *.melts setfiletype melts
 
-autocmd BufNewFile,BufRead *.do setfiletype zsh
-
 " Add syntax highlighting for newline escapes in shell files
 autocmd Filetype zsh,bash,sh syn match NewlineEscape /\\$/
 hi link NewlineEscape Comment
@@ -179,6 +177,6 @@ autocmd FileType nerdtree syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cs
 autocmd FileType nerdtree syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|\(doc\|xls\)x\=\)$#
 autocmd FileType nerdtree syn match NerdTreeFileBoilerplate #^\s\+\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)$#
 autocmd FileType nerdtree syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\)#
-autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|include\|includes\|lib\)#
+autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|include\|includes\|lib\|build\|templates\)#
 
 let NERDTreeHijackNetrw=1

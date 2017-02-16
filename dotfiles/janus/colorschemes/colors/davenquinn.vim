@@ -178,7 +178,7 @@ elseif &background == "dark"
     hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
     hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE
     hi NerdTreeFileImage gui=italic guifg=#8B5E75 guibg=NONE "#ba8184
-    hi NerdTreeDirCommon gui=italic guifg=#005959 guibg=#051917
+    hi NerdTreeDirCommon gui=italic guifg=#005454 guibg=#021008 "#102723
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
     hi NerdTreeFileDoc gui=NONE guifg=#a193c8 guibg=NONE
     hi NerdTreeDirUnimportant gui=italic guifg=#003030 guibg=#021009
