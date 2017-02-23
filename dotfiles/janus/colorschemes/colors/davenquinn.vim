@@ -17,7 +17,7 @@ if &background == "light"
     hi DiffChange gui=NONE guifg=NONE guibg=#f5f5f5
     hi DiffDelete gui=NONE guifg=#f6f0f0 guibg=#f6f0f0
     hi DiffText gui=NONE guifg=NONE guibg=#e3e3e3
-    hi Directory gui=italic guifg=#19b880 guibg=#f1fef9:
+    hi Directory gui=italic guifg=#19b880 guibg=#f1fef9
     hi Error gui=NONE guifg=NONE guibg=#fff0f0
     hi ErrorMsg gui=NONE guifg=NONE guibg=#fff0f0
     hi FoldColumn gui=NONE guifg=#c2c2c2 guibg=NONE
@@ -126,7 +126,8 @@ elseif &background == "dark"
     hi StatusLine gui=NONE guifg=#303030 guibg=#111111
     hi StatusLineNC gui=NONE guifg=#242424 guibg=#111111
     hi StorageClass gui=NONE guifg=#064789 guibg=NONE
-    hi String gui=NONE guifg=#007a61 guibg=NONE
+    hi String gui=NONE guifg=#008b8b guibg=#020A09
+    "#007a61 guibg=NONE
     "#101719
     hi TabLine gui=NONE guifg=#666666 guibg=#242424
     hi TabLineFill gui=NONE guifg=NONE guibg=#1a1a1a
@@ -159,6 +160,16 @@ elseif &background == "dark"
     " pandocLaTeXInlineMath
     hi pandocCiteKey gui=italic guifg=#1968bd guibg=#092543
     hi pandocLaTeXMath gui=NONE guifg=#555555 guibg=NONE
+
+
+    hi link pandocFilterComment preProc
+    "hi pandocFilterComment gui=NONE guifg=#8B5E75 guibg=NONE
+    hi pandocFilterCommentDelimiter gui=italic guifg=#4A3A4B guibg=NONE
+    hi pandocFilterHighlight gui=NONE guifg=#9BA565 guibg=NONE
+    hi pandocFilterHighlightDelimiter gui=italic guifg=#4B6835 guibg=NONE
+    hi pandocFilterBox gui=bold guifg=NONE guibg=NONE
+    hi pandocFilterBoxDelimiter gui=italic guifg=NONE guibg=NONE
+
     hi Delimiter gui=NONE guifg=#383838 guibg=NONE
 
     " GitGutter (same as line numbers)
@@ -173,13 +184,14 @@ elseif &background == "dark"
     hi NewlineEscape gui=bold guifg=#151515
 
     " Files etc
+    hi PythonStringDelimiter gui=NONE guifg=#0B4741 guibg=#020A09
     hi Directory gui=NONE guifg=#008b8b guibg=#051917
 
     hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
     hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE
     hi NerdTreeFileImage gui=italic guifg=#8B5E75 guibg=NONE "#ba8184
-    hi NerdTreeDirCommon gui=italic guifg=#005454 guibg=#021008 "#102723
+    hi NerdTreeDirCommon gui=italic guifg=#006262 guibg=#021008 "#102723
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
-    hi NerdTreeFileDoc gui=NONE guifg=#a193c8 guibg=NONE
+    hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
     hi NerdTreeDirUnimportant gui=italic guifg=#003030 guibg=#021009
 endif

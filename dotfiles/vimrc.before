@@ -174,9 +174,16 @@ autocmd FileType nerdtree syn match NerdTreeFileBuild #^\s\+.*\(do\)$#
 
 autocmd FileType nerdtree syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)$#
 autocmd FileType nerdtree syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)$#
-autocmd FileType nerdtree syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|\(doc\|xls\)x\=\)$#
+autocmd FileType nerdtree syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|docx\=\|xlsx\=\)$#
 autocmd FileType nerdtree syn match NerdTreeFileBoilerplate #^\s\+\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)$#
 autocmd FileType nerdtree syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\)#
-autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|include\|includes\|lib\|build\|templates\)#
+autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|includes\=\|lib\|build\|templates\|output\)#
+
+autocmd FileType pandoc syn region pandocFilterComment matchgroup=pandocFilterCommentDelimiter start=#<!\=\(comment\|fixme\|margin\)># end=#<\/!\=\(comment\|fixme\|margin\)>#
+autocmd FileType pandoc syn region pandocFilterHighlight matchgroup=pandocFilterHighlightDelimiter start=#<!\=highlight># end=#<\/!\=highlight>#
+autocmd FileType pandoc syn region pandocFilterBox matchgroup=pandocFilterBoxDelimiter start=#<!\=box># end=#<\/!\=box>#
+hi link pandocFilterCommentDelimiter Delimiter
+hi link pandocFilterBoxDelimiter Delimiter
+hi link pandocFilterHighlightDelimiter Delimiter
 
 let NERDTreeHijackNetrw=1

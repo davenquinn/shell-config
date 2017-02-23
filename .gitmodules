@@ -66,3 +66,6 @@
 	path = dotfiles/janus/limelight.vim
 	url = git://github.com/junegunn/limelight.vim.git
 
+[submodule "dotfiles/janus/vim-easy-align"]
+	path = dotfiles/janus/vim-easy-align
+	url = git://github.com/junegunn/vim-easy-align.git

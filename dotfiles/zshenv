@@ -8,6 +8,8 @@ if [[ "$SHLVL" -eq 1 ]]; then
   export DOTFILES="$HOME/Environment/dotfiles"
   export LOCALBIN="$HOME/bin:$DOTFILES/bin"
   export PATH="$LOCALBIN:$PATH"
+  # People suck
+  export QUOTING_STYLE=literal
 fi
 
 _local="${ZDOTDIR:-$HOME}/.zshenv.local"
