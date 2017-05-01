@@ -6,8 +6,9 @@
 
 if [[ "$SHLVL" -eq 1 ]]; then
   export DOTFILES="$HOME/Environment/dotfiles"
-  export LOCALBIN="$HOME/bin:$DOTFILES/bin"
+  export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
   export PATH="$LOCALBIN:$PATH"
+  export LDFLAGS="-L/usr/local/lib"
   # People suck
   export QUOTING_STYLE=literal
 fi

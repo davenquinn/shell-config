@@ -26,6 +26,9 @@ autoload -U zmv
 # Use vim key bindings
 bindkey -v
 
+# Edit command line on ^E^V (normal mode) or ESC v (vim mode)
+autoload -U edit-command-line
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -71,18 +74,6 @@ function edit-env() {
   mvim ~/Environment/dotfiles/dotfiles
 }
 
-function fed() {
-  (
-  if [[ ! -z "$PROJECT_DIR" ]]; then
-    cd $PROJECT_DIR
-  fi
-  if [[ ! -z "$1" ]]; then
-    cd $1
-  fi
-  open -a MacVim $(fzf --height 60%)
-  )
-}
-
 # Add a newline before commands
 precmd() { print "" }
 
@@ -93,8 +84,91 @@ fi
 
 # Desk environment setup
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-alias to='desk .'
+# Fuzzy project finder
+function pr() {
+  # Go directly to project
+  if [ "$#" -eq 1 ]; then
+    desk . "$1"
+    return
+  fi
+  vm=$(desk ls 2> /dev/null | fzf | grep -o -e '^\w\+')
+  desk . "$vm"
+}
+alias prl='desk ls'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Doesn't seem to work under zsh, maybe should fix...
+ #Shims for `fzf` cli tool
+#_fzf_shims="${ZDOTDIR:-$HOME}/.contrib/fzf-extras"
+#if [ -d $_fzf_shims ]; then
+  #. $_fzf_shims/fzf-extras.sh
+  #. $_fzf_shims/fzf-extras.zsh
+#fi
+# Fuzzy directory CD
+function fd() {
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+     -o -type d -print 2> /dev/null | fzf +m) &&r
+  cd "$dir"
+}
+
+# z replacement
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}
+
+# Function to redo all *do files in directory
+function ra {
+  for f in *.do; do
+    # Redo each target
+    redo ${f:r}
+  done
+}
+
+function get_in_project {
+  dir=$(find ${PROJECT_DIR:-.} -path '*/\.*' -prune \
+    -o -print 2> /dev/null | sed -e "s|${PROJECT_DIR}/||g" | fzf +m) &&
+  echo "$PROJECT_DIR/$dir"
+}
+
+function smart_open() {
+  if [[ -f $1 ]]; then
+    if isutf8 $1 &> /dev/null; then
+      mvim $1
+    else
+      open $1
+    fi
+  else
+    cd "$1"
+  fi
+
+}
+
+# Project fuzzy finder
+function pf() {
+  dn=$(get_in_project) &&
+  smart_open $dn
+}
+
+# Always open in editor
+function pe() {
+  dir=$(get_in_project) &&
+  mvim $dir
+}
+
+function pz() {
+  # Fallback to cwd
+  dir=${PROJECT_DIR:-$(pwd)}
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$dir/$(_z -l 2>&1 | grep "$dir/" | sed "s|${dir}/||g" | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}
+
+# PIP install in a virtualenv parent
+function pip-parent () {
+  pyexe="$(readlink "$VIRTUAL_ENV/bin/python")"
+  "${pyexe:h}/pip" $@
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+##
+# Starting pyenv breaks subshells so we only do it on request
+# (e.g. in desk environments)
+##
+export PYENV_ROOT="$(brew --prefix)/var/pyenv"
+# Add pyenv root to PATH
+# and initialize pyenv
+if [[ -d $PYENV_ROOT ]];then
+    # initialize pyenv
+    if which pyenv > /dev/null; then
+      export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init -)";
+      # initialize pyenv virtualenv
+      #eval "$(pyenv virtualenv-init -)"
+    fi
+    # We're not using virtualenvwrapper
+fi
+

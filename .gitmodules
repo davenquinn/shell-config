@@ -69,3 +69,15 @@
 [submodule "dotfiles/janus/vim-easy-align"]
 	path = dotfiles/janus/vim-easy-align
 	url = git://github.com/junegunn/vim-easy-align.git
+[submodule "dotfiles/contrib/fzf-extras"]
+	path = dotfiles/contrib/fzf-extras
+	url = git://github.com/atweiden/fzf-extras.git
+[submodule "dotfiles/janus/vim-swift"]
+	path = dotfiles/janus/vim-swift
+	url = git://github.com/toyamarinyon/vim-swift.git
+[submodule "dotfiles/janus/fzf.vim"]
+	path = dotfiles/janus/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "dotfiles/janus/jedi-vim"]
+	path = dotfiles/janus/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim.git

@@ -17,7 +17,6 @@ if &background == "light"
     hi DiffChange gui=NONE guifg=NONE guibg=#f5f5f5
     hi DiffDelete gui=NONE guifg=#f6f0f0 guibg=#f6f0f0
     hi DiffText gui=NONE guifg=NONE guibg=#e3e3e3
-    hi Directory gui=italic guifg=#19b880 guibg=#f1fef9
     hi Error gui=NONE guifg=NONE guibg=#fff0f0
     hi ErrorMsg gui=NONE guifg=NONE guibg=#fff0f0
     hi FoldColumn gui=NONE guifg=#c2c2c2 guibg=NONE
@@ -78,8 +77,17 @@ if &background == "light"
     " GitGutter (same as line numbers)
     hi SignColumn gui=NONE guifg=NONE guibg=#fafafa
     hi BracelessIndent gui=NONE guifg=NONE guibg=#eaeaff
+
+    hi Directory gui=bold guifg=#19b880 guibg=#f1fef9
     " #39a6ea
     " #83afdd
+    hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
+    hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE
+    hi NerdTreeFileImage gui=italic guifg=#8B5E75 guibg=NONE "#ba8184
+    hi NerdTreeDirCommon gui=italic guifg=#006262 guibg=NONE "#102723
+    hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
+    hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
+    hi NerdTreeDirUnimportant gui=italic guifg=#006b6b guibg=NONE
 elseif &background == "dark"
     hi Boolean gui=NONE guifg=#737373 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717

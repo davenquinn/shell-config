@@ -20,7 +20,7 @@ fi
 
 if [[ $(uname) == 'Darwin' ]]; then
   # Use GUI vim but don't fork shell
-  export EDITOR='mvim -f'
+  export EDITOR='mvim -v'
 else
   export EDITOR='vim'
 fi
@@ -79,3 +79,8 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+### AWESOME PLOTS ###
+export MPLBACKEND="module://itermplot"
+
+

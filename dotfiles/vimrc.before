@@ -20,6 +20,12 @@ nnoremap \ :noh<return><esc>
 " Remaps space to the command leader
 noremap <space> :
 
+"""" Code folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 " Vertical splits by default
 set splitright
 " Easier split navigation
@@ -95,6 +101,8 @@ let python_highlight_all = 1
 autocmd BufNewFile,BufRead *.melts-env setfiletype melts
 autocmd BufNewFile,BufRead *.melts setfiletype melts
 
+map <silent> <leader>e ggO#!/usr/bin/env <esc>
+
 " Add syntax highlighting for newline escapes in shell files
 autocmd Filetype zsh,bash,sh syn match NewlineEscape /\\$/
 hi link NewlineEscape Comment
@@ -115,8 +123,11 @@ function! SynGroup()
     echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
 
+" Ctrl-P.vim mapping
+let g:ctrlp_working_path_mode = 0
+
 let g:thematic#themes = {
-\ 'default'  : {
+\ 'default_theme'  : {
 \   'colorscheme': 'davenquinn',
 \   'background': 'dark',
 \   'typeface': 'Hasklig',
@@ -140,8 +151,6 @@ let g:thematic#themes = {
 \ }
 \ }
 
-let g:thematic#theme_name = 'default'
-
 """" WRITING MODE ( from vim goyo config)
 
 let g:limelight_conceal_guibg = '#010101'
@@ -160,7 +169,7 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   Limelight!
-  Thematic default
+  Thematic default_theme
   GitGutterEnable
   " ...
 endfunction
