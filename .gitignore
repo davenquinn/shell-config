@@ -6,4 +6,4 @@ dotfiles/ipython/profile_default/security
 dotfiles/ipython/profile_basic/security
 
 dotfiles/matplotlib/*.cache
-dotfiles/config/yarn
+dotfiles/config/*
