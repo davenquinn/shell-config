@@ -84,6 +84,7 @@ fi
 
 # Desk environment setup
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+
 # Fuzzy project finder
 function pr() {
   # Go directly to project
@@ -91,10 +92,21 @@ function pr() {
     desk . "$1"
     return
   fi
-  vm=$(desk ls 2> /dev/null | fzf | grep -o -e '^\w\+')
+  vm=$(desk ls 2> /dev/null | grep --invert-match "{text}" | fzf | grep -o -e '^[A-Za-z0-9_-]\+')
   desk . "$vm"
 }
 alias prl='desk ls'
+
+function wr() {
+  # Writing projects only
+  # Go directly to project
+  if [ "$#" -eq 1 ]; then
+    desk . "$1"
+    return
+  fi
+  vm=$(desk ls 2> /dev/null | grep "{text}" | fzf | grep -o -e '^[A-Za-z0-9_-]\+')
+  desk . "$vm"
+}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

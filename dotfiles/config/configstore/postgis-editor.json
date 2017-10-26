@@ -6,5 +6,5 @@
 		"user": "Daven",
 		"password": ""
 	},
-	"code": "WITH lines AS\n(\nSELECT \n  (ST_Dump(ST_Polygonize(geom))).geom\nFROM mapping.edge_contact ec\nJOIN mapping.contact c ON ec.contact_id = c.id\nJOIN map_topology.edge e ON ec.edge_id = e.edge_id\nWHERE type='bedrock'\n)\nSELECT\nrow_number() OVER (),\ngeom\nFROM lines"
+	"code": "SELECT * FROM data"
 }

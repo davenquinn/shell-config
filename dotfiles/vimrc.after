@@ -5,7 +5,7 @@ colorscheme davenquinn
 if has("gui_macvim")
   set macligatures
   " Always open in fullscreen if we can
-  set fu
+  "set fu
 endif
 
 set guifont=Hasklig-Regular:h14
@@ -24,3 +24,7 @@ if has("gui_vimr")
   set background=light
 endif
 
+" Don't open nerdtree on startup
+augroup AuNERDTreeCmd
+  autocmd!
+augroup end

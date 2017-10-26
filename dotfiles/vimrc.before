@@ -38,22 +38,6 @@ nnoremap <C-H> <C-W><C-H>
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterRevertHunk
 
-" When we have middle mouse emulation turned on for our
-" trackpad, we're annoyingly pasting text all the time
-" in MacVim
-" This turns off middle mouse actions
-nnoremap <MiddleMouse> <Nop>
-nnoremap <2-MiddleMouse> <Nop>
-nnoremap <3-MiddleMouse> <Nop>
-nnoremap <4-MiddleMouse> <Nop>
-inoremap <MiddleMouse> <Nop>
-inoremap <2-MiddleMouse> <Nop>
-inoremap <3-MiddleMouse> <Nop>
-inoremap <4-MiddleMouse> <Nop>
-
-"Remap esc to shift+enter
-inoremap <S-CR> <esc>
-
 " NERDTree
 ca Tree NERDTreeToggle
 
@@ -72,20 +56,21 @@ let NERDTreeSortOrder = [ '\/$','\.do$',"Makefile$",'']
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
 endif
-let g:pandoc#biblio#sources = ['/Users/Daven/Resources/Papers/BibTeX/library.bib']
+let g:pandoc#biblio#sources = 'g'
+let g:pandoc#biblio#bibs = ['/Users/Daven/Resources/Papers/BibTeX/library.bib']
 let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#completion#bib#mode = 'fallback'
+"let g:pandoc#completion#bib#mode = 'fallback'
 " This might be making everything slow
-let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#conceal#use = 1
 
 autocmd Filetype pandoc hi link texStatement pandocLaTeXMath
 
 " VimPad
-let g:pad#dir = "~/Documents/Notes"
-let g:pad#open_in_split = 0
-let g:pad#search_backend = "ack"
-let g:pad#position = {'list': "full"}
-let g:pad#default_file_extension = "md"
+"let g:pad#dir = "~/Documents/Notes"
+"let g:pad#open_in_split = 0
+"let g:pad#search_backend = "ack"
+"let g:pad#position = {'list': "full"}
+"let g:pad#default_file_extension = "md"
 
 autocmd FileType python BracelessEnable +indent +highlight
 autocmd FileType haml,yaml,coffee BracelessEnable +indent +highlight
@@ -124,7 +109,7 @@ function! SynGroup()
 endfun
 
 " Ctrl-P.vim mapping
-let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_working_path_mode = 0
 
 let g:thematic#themes = {
 \ 'default_theme'  : {
@@ -139,6 +124,7 @@ let g:thematic#themes = {
 \   'background': 'dark',
 \   'typeface': 'Hasklig',
 \   'font-size': 18,
+\   'linespace': 4
 \ },
 \ 'thin' :{
 \   'colorscheme': 'davenquinn',
@@ -150,6 +136,8 @@ let g:thematic#themes = {
 \   'background': 'dark'
 \ }
 \ }
+
+ca TN ThematicNext
 
 """" WRITING MODE ( from vim goyo config)
 
@@ -195,4 +183,42 @@ hi link pandocFilterCommentDelimiter Delimiter
 hi link pandocFilterBoxDelimiter Delimiter
 hi link pandocFilterHighlightDelimiter Delimiter
 
-let NERDTreeHijackNetrw=1
+"autocmd VimEnter * if !argc() | VimFiler | endif
+let g:NERDTreeHijackNetrw=0
+
+" Load vim-fzf
+"set rtp+=/usr/local/opt/fzf
+"let g:fzf_launcher = "iterm-launcher %s"
+"
+"nerdtree stuff
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_enable_auto_cd = 1
+
+noremap <silent> <Leader>f :VimFilerBufferDir  -auto-cd -create<CR>
+nnoremap <silent> <Leader>F :VimFilerBufferDir -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit -auto-cd<CR>
+let g:vimfiler_tree_leaf_icon = "⠇"
+let g:vimfiler_tree_opened_icon = "▼"
+let g:vimfiler_tree_closed_icon = "▷"
+let g:vimfiler_quick_look_command = 'qlmanage -p'
+
+autocmd FileType vimfiler nmap <buffer> <2-LeftMouse>	<Plug>(vimfiler_expand_or_edit)
+autocmd FileType vimfiler nnoremap <silent> <Up> k
+autocmd FileType vimfiler nnoremap <silent> <Down> j
+autocmd FileType vimfiler nmap <buffer> <Left> <Plug>(vimfiler_smart_h)
+autocmd FileType vimfiler nmap <buffer> <Right> <Plug>(vimfiler_smart_l)
+autocmd FileType vimfiler noremap <silent> cd  <Plug>(vimfiler_cd_vim_current_dir)
+autocmd FileType vimfiler noremap <buffer> <C-l> <Plug>(vimfiler_preview_file)
+
+
+nmap <Leader>m :<C-u>call vimfiler#mappings#do_switch_action('vsplit')<CR>
+
+"autocmd FileType vimfiler DisableWhitespace
+let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler']
+
+"nmap <buffer> c
+"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
+"nmap <buffer> m
+"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_move_file)
+"nmap <buffer> d
+"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)

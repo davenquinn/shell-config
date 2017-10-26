@@ -20,5 +20,6 @@ def cli(files, interpreter='zsh'):
         mode = os.stat(fn).st_mode
         mode |= (mode & 0o444) >> 2
         os.chmod(fn,mode)
+        # Echo fn
         echo(fn)
 cli()

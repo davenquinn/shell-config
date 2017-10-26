@@ -35,10 +35,10 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'homebrew' \
   'osx' \
-  'python' \
   'git' \
   'prompt' \
   'syntax-highlighting'\
+  #'python' \
 
 
 #

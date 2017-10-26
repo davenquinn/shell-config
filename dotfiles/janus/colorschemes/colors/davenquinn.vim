@@ -67,7 +67,7 @@ if &background == "light"
     hi Repeat gui=bold guifg=#e06c85 guibg=NONE
     hi Operator gui=NONE guifg=#a7d0fc guibg=#fafcff
     hi Identifier gui=NONE guifg=#39a6ea guibg=#f5faff
-    hi PreProc gui=NONE guifg=NONE guibg=NONE
+    hi PreProc gui=NONE guifg=#fe818b guibg=NONE
     " Nerdtree
     hi NERDTreeDirSlash gui=NONE guifg=#f5f5f5 guibg=NONE
     hi NerdTreeOpenable gui=NONE guifg=#aaaaaa guibg=NONE
@@ -77,6 +77,8 @@ if &background == "light"
     " GitGutter (same as line numbers)
     hi SignColumn gui=NONE guifg=NONE guibg=#fafafa
     hi BracelessIndent gui=NONE guifg=NONE guibg=#eaeaff
+
+    hi pandocLaTeXMath gui=NONE guifg=#555555 guibg=NONE
 
     hi Directory gui=bold guifg=#19b880 guibg=#f1fef9
     " #39a6ea
@@ -88,6 +90,15 @@ if &background == "light"
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
     hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
     hi NerdTreeDirUnimportant gui=italic guifg=#006b6b guibg=NONE
+
+    hi PythonStringDelimiter gui=NONE guifg=#9eda8e guibg=#f0fbea
+    " Newline escapes
+    hi NewlineEscape gui=bold guifg=#e5e5e5
+    hi coffeeInterp gui=NONE guifg=#fe818b guibg=#f0fbea
+    hi coffeeInterpDelim gui=NONE guifg=#e06c85 guibg=#f0fbea
+    
+
+
 elseif &background == "dark"
     hi Boolean gui=NONE guifg=#737373 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717

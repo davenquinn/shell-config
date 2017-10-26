@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+## Clone one directory to another. Does not delete unless specified
+delete=""
+if [ $1 = "--delete" ]; then
+  delete="--delete"
+  shift
+fi
+
+rsync -avxHAWXS --progress $delete $1/ $2

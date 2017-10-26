@@ -1,0 +1,10 @@
+ra      Redo all                  Use the `redo` build tool on all files in a directory
+grr     Git graph                 Show a pretty-formatted git log
+gc      Git commit
+gcm     Git commit (message)
+wow     Git status
+pr      Show projects
+pz      `z` within project
+pf      Fuzzy find in project
+edit    Open in Neovim.app
+mvim    Open in MacVim.app

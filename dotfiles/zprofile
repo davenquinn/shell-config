@@ -82,5 +82,6 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 
 ### AWESOME PLOTS ###
 export MPLBACKEND="module://itermplot"
+export ITERMPLOT=rv
 
 

@@ -56,17 +56,32 @@ export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
 #   Doesn't matter if we refrain from running when subshells
 #   are opened
 export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+#export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # nodenv... but your days are numbered
 export NODENV_ROOT="$(brew --prefix)/var/nodenv"
 if [[ -d $NODENV_ROOT ]];then
     if which nodenv > /dev/null; then
-      PATH="$NODENV_ROOT/bin:$PATH"
       # initialize nodeenv
       eval "$(nodenv init -)"
+      export PATH="$NODENV_ROOT/bin:$PATH"
     fi
 fi
+
+#export PYENV_ROOT="$(brew --prefix)/var/pyenv"
+## Add pyenv root to PATH
+## and initialize pyenv
+#if [[ -d $PYENV_ROOT ]];then
+    ## initialize pyenv
+    #if which pyenv > /dev/null; then
+      #export PATH="$PYENV_ROOT/bin:$PATH"
+      #eval "$(pyenv init -)";
+      ## initialize pyenv virtualenv
+      #eval "$(pyenv virtualenv-init -)"
+    #fi
+    ## We're not using virtualenvwrapper
+#fi
 
 function install-gdal() {
   # Function to install GDAL from source including build shims
