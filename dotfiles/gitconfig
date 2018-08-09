@@ -115,7 +115,9 @@
 	meta = yellow bold
 	frag = magenta bold # line info
 	old = red # deletions
-	new = green # additions
+  new = green # additions
+  oldMoved = red dim
+  newMoved = green dim
 
 [color "status"]
 

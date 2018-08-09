@@ -1,89 +1,30 @@
-[submodule "dotfiles/janus/vim-gitgutter"]
-	path = dotfiles/janus/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "dotfiles/janus/vim-pandoc-syntax"]
-	path = dotfiles/janus/vim-pandoc-syntax
-	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
-[submodule "dotfiles/janus/vim-pandoc"]
-	path = dotfiles/janus/vim-pandoc
-	url = https://github.com/vim-pandoc/vim-pandoc.git
-[submodule "dotfiles/janus/csapprox"]
-	path = dotfiles/janus/csapprox
-	url = https://github.com/godlygeek/csapprox.git
-[submodule "dotfiles/janus/nginx-vim-syntax"]
-	path = dotfiles/janus/nginx-vim-syntax
-	url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "dotfiles/janus/vim-pad"]
-	path = dotfiles/janus/vim-pad
-	url = https://github.com/fmoralesc/vim-pad.git
-	branch = devel
 [submodule "bin/prm"]
 	path = bin/prm
 	url = https://github.com/eivind88/prm
-[submodule "dotfiles/vim"]
-	path = dotfiles/vim
-	url = https://github.com/carlhuda/janus.git
-[submodule "dotfiles/janus/vim-cjsx"]
-	path = dotfiles/janus/vim-cjsx
-	url = https://github.com/mtscout6/vim-cjsx.git
-[submodule "dotfiles/janus/vim-braceless"]
-	path = dotfiles/janus/vim-braceless
-	url = https://github.com/tweekmonster/braceless.vim.git
 [submodule "bin/gitwatch"]
 	path = bin/gitwatch
 	url = https://github.com/davenquinn/gitwatch.git
-[submodule "dotfiles/janus/unite.vim"]
-	path = dotfiles/janus/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
-[submodule "dotfiles/janus/python-syntax"]
-	path = dotfiles/janus/python-syntax
-	url = https://github.com/hdima/python-syntax.git
 [submodule "dotfiles/janus/vim-alphamelts-syntax"]
 	path = dotfiles/janus/vim-alphamelts-syntax
 	url = https://github.com/davenquinn/vim-alphamelts-syntax.git
-[submodule "dotfiles/janus/vim-stylus"]
-	path = dotfiles/janus/vim-stylus
-	url = https://github.com/wavded/vim-stylus.git
-[submodule "dotfiles/janus/vim-pug"]
-	path = dotfiles/janus/vim-pug
-	url = https://github.com/digitaltoad/vim-pug.git
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = https://github.com/sorin-ionescu/prezto
 [submodule "dotfiles/pandoc/templates/pandoc-letter"]
 	path = dotfiles/pandoc/templates/pandoc-letter
 	url = git://github.com/aaronwolen/pandoc-letter.git
-[submodule "dotfiles/janus/vim-zsh"]
-	path = dotfiles/janus/vim-zsh
-	url = git://github.com/chrisbra/vim-zsh.git
-[submodule "dotfiles/janus/vim-thematic"]
-	path = dotfiles/janus/vim-thematic
-	url = git://github.com/reedes/vim-thematic.git
-[submodule "dotfiles/janus/goyo.vim"]
-	path = dotfiles/janus/goyo.vim
-	url = git://github.com/junegunn/goyo.vim.git
-[submodule "dotfiles/janus/limelight.vim"]
-	path = dotfiles/janus/limelight.vim
-	url = git://github.com/junegunn/limelight.vim.git
-
-[submodule "dotfiles/janus/vim-easy-align"]
-	path = dotfiles/janus/vim-easy-align
-	url = git://github.com/junegunn/vim-easy-align.git
 [submodule "dotfiles/contrib/fzf-extras"]
 	path = dotfiles/contrib/fzf-extras
 	url = git://github.com/atweiden/fzf-extras.git
-[submodule "dotfiles/janus/fzf.vim"]
-	path = dotfiles/janus/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "dotfiles/janus/jedi-vim"]
 	path = dotfiles/janus/jedi-vim
 	url = git://github.com/davidhalter/jedi-vim.git
-[submodule "dotfiles/janus/vim-yaml"]
-	path = dotfiles/janus/vim-yaml
-	url = git://github.com/avakhov/vim-yaml.git
-[submodule "dotfiles/janus/swift"]
-	path = dotfiles/janus/swift.vim
-	url = https://github.com/keith/swift.vim
-[submodule "dotfiles/janus/vimfiler.vim"]
-	path = dotfiles/janus/vimfiler.vim
-	url = git://github.com/Shougo/vimfiler.vim.git
+[submodule "dotfiles/janus/vim-pencil"]
+	path = dotfiles/janus/vim-pencil
+	url = git://github.com/reedes/vim-pencil.git
+[submodule "dotfiles/janus/emmet-vim"]
+	path = dotfiles/janus/emmet-vim
+	url = git://github.com/mattn/emmet-vim.git
+[submodule "bin/pg-backup-all"]
+	path = bin/pg-backup-all
+	url = git://github.com/davenquinn/pg-backup-all.git

@@ -17,7 +17,7 @@ if (($SHLVL == 1 )); then
 
   export PYTHONDONTWRITEBYTECODE=True
 
-  export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.4.0
+  export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.7.0
   export IDL_PATH=/Applications/exelis/CAT_ENVI
 
   # PostgreSQL
@@ -58,6 +58,7 @@ export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
 export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
 #export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # nodenv... but your days are numbered
 export NODENV_ROOT="$(brew --prefix)/var/nodenv"

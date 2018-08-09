@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+echo "Apple Mail"
+du -hs ~/Library/Mail
+
+echo "Airmail 3"
+(cd ~/Library/Group\ Containers && du -h -d 0 *airmail*)

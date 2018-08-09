@@ -1,0 +1,4 @@
+#!/bin/bash
+# dumps the schema for a database table
+
+pg_dump -t "$2" --schema-only $1
