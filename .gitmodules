@@ -8,8 +8,8 @@
         path = dotfiles/janus/vim-pandoc
         url = https://github.com/vim-pandoc/vim-pandoc.git
 [submodule "dotfiles/janus/csapprox"]
-        path = dotfiles/janus/csapprox
-        url = https://github.com/godlygeek/csapprox.git
+	path = dotfiles/janus/csapprox
+	url = git://github.com/godlygeek/csapprox.git
 [submodule "dotfiles/janus/nginx-vim-syntax"]
         path = dotfiles/janus/nginx-vim-syntax
         url = https://github.com/evanmiller/nginx-vim-syntax.git
