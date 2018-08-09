@@ -28,3 +28,9 @@
 [submodule "bin/pg-backup-all"]
 	path = bin/pg-backup-all
 	url = git://github.com/davenquinn/pg-backup-all.git
+[submodule "dotfiles/vim"]
+	path = dotfiles/vim
+	url = git://github.com/carlhuda/janus.git
+[submodule "dotfiles/janus/vimfiler.vim"]
+	path = dotfiles/janus/vimfiler.vim
+	url = git://github.com/Shougo/vimfiler.vim.git
