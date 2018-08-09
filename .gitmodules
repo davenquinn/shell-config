@@ -74,4 +74,24 @@
 [submodule "dotfiles/janus/limelight.vim"]
 	path = dotfiles/janus/limelight.vim
   url = git://github.com/janegunn/limelight.vim.git
-
+[submodule "dotfiles/janus/swift.vim"]
+	path = dotfiles/janus/swift.vim
+  url = git://github.com/keith/swift.vim.git
+[submodule "dotfiles/janus/vim-easy-align"]
+	path = dotfiles/janus/vim-easy-align
+  url = git://github.com/junegunn/vim-easy-align.git
+[submodule "dotfiles/janus/vim-pug"]
+	path = dotfiles/janus/vim-pug
+  url = git://github.com/digitaltoad/vim-easy-align.git
+[submodule "dotfiles/janus/vim-stylus"]
+	path = dotfiles/janus/vim-stylus
+  url = git://github.com/wavded/vim-stylus.git
+[submodule "dotfiles/janus/vim-thematic"]
+	path = dotfiles/janus/vim-thematic
+  url = git://github.com/reedes/vim-thematic.git
+[submodule "dotfiles/janus/vim-yaml"]
+	path = dotfiles/janus/vim-yaml
+  url = git://github.com/stephpy/vim-yaml.git
+[submodule "dotfiles/chrisbra/vim-zsh"]
+	path = dotfiles/janus/vim-zsh
+  url =  git://github.com/chrisbra/vim-zsh.git
