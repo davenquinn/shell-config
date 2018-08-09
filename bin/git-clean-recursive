@@ -1,0 +1,11 @@
+#!/bin/bash
+git status
+echo
+read -p "This will delete all untracked files, are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  git clean -f
+  git submodule foreach --recursive git clean -f
+fi
+
