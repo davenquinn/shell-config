@@ -33,4 +33,7 @@
 	url = git://github.com/carlhuda/janus.git
 [submodule "dotfiles/janus/vimfiler.vim"]
 	path = dotfiles/janus/vimfiler.vim
-	url = git://github.com/Shougo/vimfiler.vim.git
+  url = git://github.com/Shougo/vimfiler.vim.git
+[submodule "dotfiles/janus/goyo.vim"]
+	path = dotfiles/janus/goyo.vim
+	url = git://github.com/janegunn/goyo.vim.git
