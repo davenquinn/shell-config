@@ -5,6 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Define LSCOLORS before they are overridden by Prezto
+export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
+export LS_COLORS=di=1;36:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -18,7 +22,7 @@ if (($SHLVL == 1 )); then
   fi
 
   if [[ $(uname) == 'Darwin' ]]; then
-    neofetch --ascii "$HOME/.zsh-prompt-theme/mac-ascii-art.txt"
+    neofetch
   fi
 fi
 
@@ -71,7 +75,7 @@ function reload() {
 }
 
 function edit-env() {
-  mvim ~/Environment/dotfiles/dotfiles
+  mvim ~/Environment/shell-config
 }
 
 # Add a newline before commands

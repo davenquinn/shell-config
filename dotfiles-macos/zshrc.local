@@ -44,7 +44,6 @@ alias git='hub'
 #alias pad='mvim -c "Pad ls"'
 
 #export CLICOLOR=1
-#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls --color'
 
 # Set up environment for ENVI and modify the IDL path:

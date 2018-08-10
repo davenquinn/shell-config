@@ -97,3 +97,9 @@
 [submodule "dotfiles/janus/nginx.vim"]
 	path = dotfiles/vim-plugins/nginx.vim
 	url = git://github.com/chr4/nginx.vim.git
+[submodule "dotfiles/vim-plugins/fzf"]
+	path = dotfiles/vim-plugins/fzf
+	url = git://github.com/junegunn/fzf.git
+[submodule "dotfiles/vim-plugins/ack.vim"]
+	path = dotfiles/vim-plugins/ack.vim
+	url = git://github.com/mileszs/ack.vim.git

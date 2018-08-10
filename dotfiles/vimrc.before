@@ -38,6 +38,9 @@ nnoremap <C-H> <C-W><C-H>
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterRevertHunk
 
+" Map easier terminal escape
+tnoremap <C-C> <C-W><C-C>
+
 " NERDTree
 ca Tree NERDTreeToggle
 
