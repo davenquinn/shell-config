@@ -213,4 +213,6 @@ elseif &background == "dark"
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
     hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
     hi NerdTreeDirUnimportant gui=italic guifg=#003030 guibg=#021009
+
+    hi Terminal guifg=#a0a0a0 guibg=#010101
 endif

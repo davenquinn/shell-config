@@ -3,20 +3,16 @@
         url = https://github.com/airblade/vim-gitgutter.git
 [submodule "dotfiles/janus/vim-pandoc-syntax"]
         path = dotfiles/janus/vim-pandoc-syntax
-        url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+        url = https://github.com//vim-pandoc-syntax.git
 [submodule "dotfiles/janus/vim-pandoc"]
         path = dotfiles/janus/vim-pandoc
         url = https://github.com/vim-pandoc/vim-pandoc.git
 [submodule "dotfiles/janus/csapprox"]
-	path = dotfiles/janus/csapprox
-	url = git://github.com/godlygeek/csapprox.git
+	      path = dotfiles/janus/csapprox
+	      url = git://github.com/godlygeek/csapprox.git
 [submodule "dotfiles/janus/nginx-vim-syntax"]
         path = dotfiles/janus/nginx-vim-syntax
         url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "dotfiles/janus/vim-pad"]
-        path = dotfiles/janus/vim-pad
-        url = https://github.com/fmoralesc/vim-pad.git
-        branch = devel
 [submodule "bin/prm"]
         path = bin/prm
         url = https://github.com/eivind88/prm
@@ -70,10 +66,10 @@
   url = git://github.com/Shougo/vimfiler.vim.git
 [submodule "dotfiles/janus/goyo.vim"]
 	path = dotfiles/janus/goyo.vim
-  url = git://github.com/janegunn/goyo.vim.git
+  url = git://github.com/junegunn/goyo.vim.git
 [submodule "dotfiles/janus/limelight.vim"]
 	path = dotfiles/janus/limelight.vim
-  url = git://github.com/janegunn/limelight.vim.git
+  url = git://github.com/junegunn/limelight.vim.git
 [submodule "dotfiles/janus/swift.vim"]
 	path = dotfiles/janus/swift.vim
   url = git://github.com/keith/swift.vim.git
@@ -82,10 +78,10 @@
   url = git://github.com/junegunn/vim-easy-align.git
 [submodule "dotfiles/janus/vim-pug"]
 	path = dotfiles/janus/vim-pug
-  url = git://github.com/digitaltoad/vim-easy-align.git
+  url = git://github.com/digitaltoad/vim-pug.git
 [submodule "dotfiles/janus/vim-stylus"]
 	path = dotfiles/janus/vim-stylus
-  url = git://github.com/wavded/vim-stylus.git
+  url = git://github.com/davenquinn/vim-stylus.git
 [submodule "dotfiles/janus/vim-thematic"]
 	path = dotfiles/janus/vim-thematic
   url = git://github.com/reedes/vim-thematic.git
@@ -95,3 +91,9 @@
 [submodule "dotfiles/chrisbra/vim-zsh"]
 	path = dotfiles/janus/vim-zsh
   url =  git://github.com/chrisbra/vim-zsh.git
+[submodule "dotfiles/janus/fzf.vim"]
+	path = dotfiles/janus/fzf.vim
+	url = git://github.com/junegunn/fzf.vim.git
+[submodule "dotfiles/janus/iceberg.vim"]
+	path = dotfiles/janus/iceberg.vim
+	url = git://github.com/cocopon/iceberg.vim.git
