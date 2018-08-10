@@ -10,9 +10,6 @@
 [submodule "dotfiles/janus/csapprox"]
 	      path = dotfiles/janus/csapprox
 	      url = git://github.com/godlygeek/csapprox.git
-[submodule "dotfiles/janus/nginx-vim-syntax"]
-        path = dotfiles/janus/nginx-vim-syntax
-        url = https://github.com/fbernier/nginx-vim-syntax.git
 [submodule "bin/prm"]
         path = bin/prm
         url = https://github.com/eivind88/prm
@@ -97,3 +94,6 @@
 [submodule "dotfiles/janus/iceberg.vim"]
 	path = dotfiles/janus/iceberg.vim
 	url = git://github.com/cocopon/iceberg.vim.git
+[submodule "dotfiles/janus/nginx.vim"]
+	path = dotfiles/janus/nginx.vim
+	url = git://github.com/chr4/nginx.vim.git
