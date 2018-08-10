@@ -3,7 +3,7 @@
         url = https://github.com/airblade/vim-gitgutter.git
 [submodule "dotfiles/janus/vim-pandoc-syntax"]
         path = dotfiles/janus/vim-pandoc-syntax
-        url = https://github.com//vim-pandoc-syntax.git
+        url = https://github.com/davenquinn/vim-pandoc-syntax.git
 [submodule "dotfiles/janus/vim-pandoc"]
         path = dotfiles/janus/vim-pandoc
         url = https://github.com/vim-pandoc/vim-pandoc.git
@@ -12,7 +12,7 @@
 	      url = git://github.com/godlygeek/csapprox.git
 [submodule "dotfiles/janus/nginx-vim-syntax"]
         path = dotfiles/janus/nginx-vim-syntax
-        url = https://github.com/evanmiller/nginx-vim-syntax.git
+        url = https://github.com/fbernier/nginx-vim-syntax.git
 [submodule "bin/prm"]
         path = bin/prm
         url = https://github.com/eivind88/prm
