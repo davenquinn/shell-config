@@ -1,14 +1,14 @@
 [submodule "dotfiles/janus/vim-gitgutter"]
-        path = dotfiles/janus/vim-gitgutter
+	path = dotfiles/vim-plugins/vim-gitgutter
         url = https://github.com/airblade/vim-gitgutter.git
 [submodule "dotfiles/janus/vim-pandoc-syntax"]
-        path = dotfiles/janus/vim-pandoc-syntax
+	path = dotfiles/vim-plugins/vim-pandoc-syntax
         url = https://github.com/davenquinn/vim-pandoc-syntax.git
 [submodule "dotfiles/janus/vim-pandoc"]
-        path = dotfiles/janus/vim-pandoc
+	path = dotfiles/vim-plugins/vim-pandoc
         url = https://github.com/vim-pandoc/vim-pandoc.git
 [submodule "dotfiles/janus/csapprox"]
-	      path = dotfiles/janus/csapprox
+	path = dotfiles/vim-plugins/csapprox
 	      url = git://github.com/godlygeek/csapprox.git
 [submodule "bin/prm"]
         path = bin/prm
@@ -17,19 +17,19 @@
         path = dotfiles/vim
         url = https://github.com/carlhuda/janus.git
 [submodule "dotfiles/janus/vim-cjsx"]
-        path = dotfiles/janus/vim-cjsx
+	path = dotfiles/vim-plugins/vim-cjsx
         url = https://github.com/mtscout6/vim-cjsx.git
 [submodule "dotfiles/janus/vim-braceless"]
-        path = dotfiles/janus/vim-braceless
+	path = dotfiles/vim-plugins/vim-braceless
         url = https://github.com/tweekmonster/braceless.vim.git
 [submodule "bin/gitwatch"]
         path = bin/gitwatch
         url = https://github.com/davenquinn/gitwatch.git
 [submodule "dotfiles/janus/unite.vim"]
-        path = dotfiles/janus/unite.vim
+	path = dotfiles/vim-plugins/unite.vim
         url = https://github.com/Shougo/unite.vim.git
 [submodule "dotfiles/janus/python-syntax"]
-        path = dotfiles/janus/python-syntax
+	path = dotfiles/vim-plugins/python-syntax
         url = https://github.com/hdima/python-syntax.git
 [submodule "dotfiles/janus/vim-alphamelts-syntax"]
 	path = dotfiles/janus/vim-alphamelts-syntax
@@ -59,41 +59,41 @@
 	path = dotfiles/vim
 	url = git://github.com/carlhuda/janus.git
 [submodule "dotfiles/janus/vimfiler.vim"]
-	path = dotfiles/janus/vimfiler.vim
+	path = dotfiles/vim-plugins/vimfiler.vim
   url = git://github.com/Shougo/vimfiler.vim.git
 [submodule "dotfiles/janus/goyo.vim"]
-	path = dotfiles/janus/goyo.vim
+	path = dotfiles/vim-plugins/goyo.vim
   url = git://github.com/junegunn/goyo.vim.git
 [submodule "dotfiles/janus/limelight.vim"]
-	path = dotfiles/janus/limelight.vim
+	path = dotfiles/vim-plugins/limelight.vim
   url = git://github.com/junegunn/limelight.vim.git
 [submodule "dotfiles/janus/swift.vim"]
-	path = dotfiles/janus/swift.vim
+	path = dotfiles/vim-plugins/swift.vim
   url = git://github.com/keith/swift.vim.git
 [submodule "dotfiles/janus/vim-easy-align"]
-	path = dotfiles/janus/vim-easy-align
+	path = dotfiles/vim-plugins/vim-easy-align
   url = git://github.com/junegunn/vim-easy-align.git
 [submodule "dotfiles/janus/vim-pug"]
-	path = dotfiles/janus/vim-pug
+	path = dotfiles/vim-plugins/vim-pug
   url = git://github.com/digitaltoad/vim-pug.git
 [submodule "dotfiles/janus/vim-stylus"]
-	path = dotfiles/janus/vim-stylus
+	path = dotfiles/vim-plugins/vim-stylus
   url = git://github.com/davenquinn/vim-stylus.git
 [submodule "dotfiles/janus/vim-thematic"]
-	path = dotfiles/janus/vim-thematic
+	path = dotfiles/vim-plugins/vim-thematic
   url = git://github.com/reedes/vim-thematic.git
 [submodule "dotfiles/janus/vim-yaml"]
-	path = dotfiles/janus/vim-yaml
+	path = dotfiles/vim-plugins/vim-yaml
   url = git://github.com/stephpy/vim-yaml.git
 [submodule "dotfiles/chrisbra/vim-zsh"]
-	path = dotfiles/janus/vim-zsh
+	path = dotfiles/vim-plugins/vim-zsh
   url =  git://github.com/chrisbra/vim-zsh.git
 [submodule "dotfiles/janus/fzf.vim"]
-	path = dotfiles/janus/fzf.vim
+	path = dotfiles/vim-plugins/fzf.vim
 	url = git://github.com/junegunn/fzf.vim.git
 [submodule "dotfiles/janus/iceberg.vim"]
-	path = dotfiles/janus/iceberg.vim
+	path = dotfiles/vim-plugins/iceberg.vim
 	url = git://github.com/cocopon/iceberg.vim.git
 [submodule "dotfiles/janus/nginx.vim"]
-	path = dotfiles/janus/nginx.vim
+	path = dotfiles/vim-plugins/nginx.vim
 	url = git://github.com/chr4/nginx.vim.git
