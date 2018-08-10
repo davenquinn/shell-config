@@ -5,7 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 
 if [[ "$SHLVL" -eq 1 ]]; then
-  export DOTFILES="$(git rev-parse --show-toplevel)"
+  export DOTFILES="~/Environment/shell-config"
   export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
   export PATH="$LOCALBIN:$PATH"
   export LDFLAGS="-L/usr/local/lib"
