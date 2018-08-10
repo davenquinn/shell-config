@@ -7,7 +7,7 @@
 
 # Define LSCOLORS before they are overridden by Prezto
 export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
-export LS_COLORS=di=1;36:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32
+export LS_COLORS="di=1;36:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
