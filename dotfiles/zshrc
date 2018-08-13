@@ -4,10 +4,25 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+# First, initialize local zshrc
+_local="${ZDOTDIR:-$HOME}/.zshrc.local"
+if [ -s $_local ]; then
+  source $_local
+fi
 
-# Define LSCOLORS before they are overridden by Prezto
-export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
-export LS_COLORS="di=1;36:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
+if type "dircolors" > /dev/null; then
+  # GNU dircolors is installed
+cfile=$HOME/.dircolors-$(tput colors)
+if [[ -f $cfile ]]; then
+    eval $(dircolors -b $cfile)
+else
+    eval $(dircolors)
+fi
+else
+  # No dircolors script is installed
+  export LSCOLORS=GxCxhxDxfxhxhxhxhxcxcx
+  export LS_COLORS="di=1;36:ln=1;32:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -25,6 +40,8 @@ if (($SHLVL == 1 )); then
     neofetch
   fi
 fi
+
+alias ls='ls --color'
 
 autoload -U zmv
 # Use vim key bindings

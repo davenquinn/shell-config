@@ -8,7 +8,7 @@ from functools import partial
 from subprocess import call
 
 home = Path(expanduser("~"))
-here = Path(dirname(__file__)).resolve()
+here = Path(__file__).resolve().parent
 dotfiles = here/"dotfiles"
 
 cyan = lambda s: style(str(s),fg="cyan")

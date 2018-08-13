@@ -4,7 +4,7 @@ if (($SHLVL == 1 )); then
 
   COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
   export TEX_BIN="/usr/local/texlive/2014/bin/x86_64-darwin"
-  export PATH="$TEX_BIN:$COREUTILS:/usr/local/opt/qgis2/bin:$PATH"
+  export PATH="$TEX_BIN:$COREUTILS:$PATH"
 
   ## Link Homebrew casks in `/Applications` rather than `~/Applications`
   export HOMEBREW_CASK_OPTS="--appdir=/Applications";

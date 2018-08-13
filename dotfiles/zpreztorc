@@ -38,8 +38,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'prompt' \
   'syntax-highlighting'\
-  #'python' \
-
+  'python' \
+# 'Python' now handles pyenv shell integration
 
 #
 # Editor
