@@ -21,11 +21,11 @@ if (($SHLVL == 1 )); then
   export IDL_PATH=/Applications/exelis/CAT_ENVI
 
   # PostgreSQL
-  export PGDATA=$HOME/Library/Databases/PostgreSQL/
+  export PGDATA=$HOME/Library/PostgreSQL/
 
   # Python virtualenvs
-  export WORKON_HOME="$HOME/Environment/virtualenvs"
-  export PROJECT_HOME="$HOME/Development"
+  export WORKON_HOME="$HOME/Environment/Python-virtualenvs"
+  export PROJECT_HOME="$HOME/Projects"
 
   #export PYENV_ROOT="/usr/local/var/pyenv"
 fi
