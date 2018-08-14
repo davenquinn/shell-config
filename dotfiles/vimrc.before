@@ -78,12 +78,6 @@ autocmd Filetype pandoc hi link texStatement pandocLaTeXMath
 autocmd FileType python BracelessEnable +indent +highlight
 autocmd FileType haml,yaml,coffee BracelessEnable +indent +highlight
 
-" Need to change to syntax
-autocmd FileType zsh,bash,sh syn match NewlineEscape #\\$#
-
-hi link NewlineEscape Comment
-hi link vimContinue NewlineEscape
-
 " commands for adding python breakpoints
 au FileType python map <silent> <leader>I oimport IPython; IPython.embed(); raise<esc>
 au FileType python map <silent> <leader>d oimport pdb; pdb.set_trace()<esc>
