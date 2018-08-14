@@ -62,7 +62,7 @@ export MANPAGER="less -X";
 export GREP_OPTIONS="--color=auto";
 
 # Environment setup
-export DESK_DESKS_DIR="$HOME/Environment/desks"
+export DESK_DESKS_DIR="$HOME/Environment/Desks"
 
 alias wow='git status'
 alias such='git add'

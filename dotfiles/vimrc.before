@@ -78,6 +78,12 @@ autocmd Filetype pandoc hi link texStatement pandocLaTeXMath
 autocmd FileType python BracelessEnable +indent +highlight
 autocmd FileType haml,yaml,coffee BracelessEnable +indent +highlight
 
+" Need to change to syntax
+autocmd FileType zsh,bash,sh syn match NewlineEscape #\\$#
+
+hi link NewlineEscape Comment
+hi link vimContinue NewlineEscape
+
 " commands for adding python breakpoints
 au FileType python map <silent> <leader>I oimport IPython; IPython.embed(); raise<esc>
 au FileType python map <silent> <leader>d oimport pdb; pdb.set_trace()<esc>
@@ -90,11 +96,6 @@ autocmd BufNewFile,BufRead *.melts-env setfiletype melts
 autocmd BufNewFile,BufRead *.melts setfiletype melts
 
 map <silent> <leader>e ggO#!/usr/bin/env <esc>
-
-" Add syntax highlighting for newline escapes in shell files
-autocmd Filetype zsh,bash,sh syn match NewlineEscape /\\$/
-hi link NewlineEscape Comment
-hi link vimContinue NewlineEscape
 
 " Show syntax groups under cursor
 nmap <leader>sp :call <SID>SynStack()<CR>
@@ -182,6 +183,7 @@ autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|includes\=\|lib\|b
 autocmd FileType pandoc syn region pandocFilterComment matchgroup=pandocFilterCommentDelimiter start=#<!\=\(comment\|fixme\|margin\)># end=#<\/!\=\(comment\|fixme\|margin\)>#
 autocmd FileType pandoc syn region pandocFilterHighlight matchgroup=pandocFilterHighlightDelimiter start=#<!\=highlight># end=#<\/!\=highlight>#
 autocmd FileType pandoc syn region pandocFilterBox matchgroup=pandocFilterBoxDelimiter start=#<!\=box># end=#<\/!\=box>#
+
 hi link pandocFilterCommentDelimiter Delimiter
 hi link pandocFilterBoxDelimiter Delimiter
 hi link pandocFilterHighlightDelimiter Delimiter
@@ -241,7 +243,6 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -263,6 +264,5 @@ nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>r :Rg<CR>
 
-tnoremap <Esc> <C-W>N
-
 set notermguicolors
+

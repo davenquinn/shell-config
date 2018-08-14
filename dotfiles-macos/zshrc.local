@@ -21,7 +21,12 @@ if (($SHLVL == 1 )); then
   export IDL_PATH=/Applications/exelis/CAT_ENVI
 
   # PostgreSQL
-  export PGDATA=$HOME/Library/PostgreSQL/
+  for fn in ($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL); do
+    if [ -d $fn ]; then
+      export PGDATA=$fn
+      break
+    fi
+  done
 
   # Python virtualenvs
   export WORKON_HOME="$HOME/Environment/Python-virtualenvs"

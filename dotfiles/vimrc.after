@@ -8,6 +8,8 @@ if has("gui_macvim")
   set macligatures
   " Always open in fullscreen if we can
   "set fu
+  "Mac OS touchbar
+  an icon=NSTouchBarSearchTemplate TouchBar.Search :Rg<CR>
 endif
 
 set guifont=SourceCodePro-Light:h14
@@ -31,3 +33,4 @@ endif
 augroup AuNERDTreeCmd
   autocmd!
 augroup end
+

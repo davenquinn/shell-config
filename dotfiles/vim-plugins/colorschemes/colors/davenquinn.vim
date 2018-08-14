@@ -96,9 +96,6 @@ if &background == "light"
     hi NewlineEscape gui=bold guifg=#e5e5e5
     hi coffeeInterp gui=NONE guifg=#fe818b guibg=#f0fbea
     hi coffeeInterpDelim gui=NONE guifg=#e06c85 guibg=#f0fbea
-    
-
-
 elseif &background == "dark"
     hi Boolean gui=NONE guifg=#737373 guibg=NONE
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717
@@ -200,7 +197,7 @@ elseif &background == "dark"
     hi coffeeInterp gui=NONE guifg=#A0898F guibg=#100000
 
     " Newline escapes
-    hi NewlineEscape gui=bold guifg=#151515
+    hi NewlineEscape gui=bold guifg=#222222
 
     " Files etc
     hi PythonStringDelimiter gui=NONE guifg=#0B4741 guibg=#020A09
