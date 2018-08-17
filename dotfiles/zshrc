@@ -147,7 +147,10 @@ function fd() {
   cd "$dir"
 }
 
-# z replacement
+# Setup `z` command line switcher
+. $(brew --prefix)/etc/profile.d/z.sh
+
+# z replacement that does fuzzy finding
 unalias z 2> /dev/null
 z() {
   [ $# -gt 0 ] && _z "$*" && return

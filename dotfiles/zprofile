@@ -20,6 +20,7 @@ fi
 
 if [[ $(uname) == 'Darwin' ]]; then
   # Use GUI vim but don't fork shell
+  alias mvim='mvim -o'
   export EDITOR='mvim -v'
 else
   export EDITOR='vim'

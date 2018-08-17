@@ -35,7 +35,7 @@ if (($SHLVL == 1 )); then
   #export PYENV_ROOT="/usr/local/var/pyenv"
 fi
 
-
+# Setup `z` command line switcher
 . $(brew --prefix)/etc/profile.d/z.sh
 
 

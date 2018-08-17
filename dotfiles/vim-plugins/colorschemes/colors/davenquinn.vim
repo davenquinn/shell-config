@@ -93,7 +93,7 @@ if &background == "light"
 
     hi PythonStringDelimiter gui=NONE guifg=#9eda8e guibg=#f0fbea
     " Newline escapes
-    hi NewlineEscape gui=bold guifg=#e5e5e5
+    hi NewlineEscape gui=bold guifg=#eeeeee
     hi coffeeInterp gui=NONE guifg=#fe818b guibg=#f0fbea
     hi coffeeInterpDelim gui=NONE guifg=#e06c85 guibg=#f0fbea
 elseif &background == "dark"

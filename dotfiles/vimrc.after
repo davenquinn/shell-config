@@ -5,6 +5,7 @@ set statusline+=%{fugitive\#statusline()}
 colorscheme davenquinn
 
 if has("gui_macvim")
+  set fu
   set macligatures
   " Always open in fullscreen if we can
   "set fu
@@ -12,7 +13,7 @@ if has("gui_macvim")
   an icon=NSTouchBarSearchTemplate TouchBar.Search :Rg<CR>
 endif
 
-set guifont=SourceCodePro-Light:h14
+set guifont=SourceCodePro-Regular:h14
 "set guifont=Hasklig-Regular:h14
 set background=dark
 set linespace=2
