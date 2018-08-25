@@ -5,12 +5,52 @@ set statusline+=%{fugitive\#statusline()}
 colorscheme davenquinn
 
 if has("gui_macvim")
-  set fu
   set macligatures
   " Always open in fullscreen if we can
   "set fu
-  "Mac OS touchbar
-  an icon=NSTouchBarSearchTemplate TouchBar.Search :Rg<CR>
+  "Mac OS touchbar - works like `toolbar`
+
+  fun! CreateVimFilerButton()
+    " Don't strip on these filetypes
+    silent! aun TouchBar.ExitFullScreen
+    silent! aun TouchBar.VimFiler
+    silent! aun TouchBar.-flexspace1-
+    silent! aun TouchBar.git-status
+    silent! aun TouchBar.Cancel
+    silent! aun TouchBar.Commit
+    silent! aun TouchBar.-flexspace2-
+    silent! aun TouchBar.Buffers
+    silent! aun TouchBar.Files
+    silent! aun TouchBar.VSplit
+    silent! aun TouchBar.Search
+    if &ft=='vimfiler'
+      "silent! aunmenu TouchBar.-Sep-
+    else
+      an icon=NSTouchBarFolderTemplate TouchBar.VimFiler :bp \| :VimFilerBufferDir  -auto-cd -create<CR>
+    endif
+
+    if winnr('$') < 2
+      an icon=NSTouchBarSidebarTemplate TouchBar.VSplit :vsplit<CR>
+    else
+      an icon=NSTouchBarSidebarTemplate TouchBar.VSplit <C-W>w
+    endif
+
+    an TouchBar.-flexspace1- <Nop>
+    if &ft=='gitcommit'
+      an TouchBar.Commit :GCommit<CR>
+      "silent! aunmenu TouchBar.-Sep-
+      an TouchBar.Cancel :q<CR>
+    else
+      an TouchBar.git-status :Gstatus<CR>
+    endif
+
+    an TouchBar.-flexspace2- <Nop>
+    an icon=NSTouchBarSearchTemplate TouchBar.Search :Rg<CR>
+    an icon=NSTouchBarListTemplate TouchBar.Files :Files<CR>
+    an TouchBar.Buffers :Buffers<CR>
+  endfun
+
+  au BufEnter,WinEnter,VimResized * call CreateVimFilerButton()
 endif
 
 set guifont=SourceCodePro-Regular:h14

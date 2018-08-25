@@ -211,7 +211,7 @@ autocmd FileType vimfiler noremap <buffer> <C-l> <Plug>(vimfiler_preview_file)
 nmap <Leader>m :<C-u>call vimfiler#mappings#do_switch_action('vsplit')<CR>
 
 "autocmd FileType vimfiler DisableWhitespace
-let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler']
+let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler', 'terminal']
 
 "nmap <buffer> c
 "\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
@@ -257,6 +257,4 @@ let g:fzf_layout = { 'window': '20split', 'up': 20}
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>r :Rg<CR>
-
-set notermguicolors
 

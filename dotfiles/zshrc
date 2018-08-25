@@ -92,7 +92,7 @@ function reload() {
 }
 
 function edit-env() {
-  mvim ~/Environment/shell-config
+  mvim -v ~/Environment/shell-config
 }
 
 # Add a newline before commands
@@ -208,3 +208,6 @@ function pip-parent () {
   pyexe="$(readlink "$VIRTUAL_ENV/bin/python")"
   "${pyexe:h}/pip" $@
 }
+
+alias f='mvim -v +VimFiler'
+alias vim='mvim -v'
