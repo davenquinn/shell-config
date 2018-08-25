@@ -103,3 +103,6 @@
 [submodule "dotfiles/vim-plugins/ack.vim"]
 	path = dotfiles/vim-plugins/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "xcode-themes/dracula-theme"]
+	path = xcode-themes/dracula-theme
+	url = https://github.com/dracula/xcode.git
