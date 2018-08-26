@@ -10,7 +10,7 @@ if has("gui_macvim")
   "set fu
   "Mac OS touchbar - works like `toolbar`
 
-  fun! CreateVimFilerButton()
+  fun! CreateTouchBar()
     " Don't strip on these filetypes
     silent! aun TouchBar.ExitFullScreen
     silent! aun TouchBar.VimFiler
@@ -50,7 +50,11 @@ if has("gui_macvim")
     an TouchBar.Buffers :Buffers<CR>
   endfun
 
-  au BufEnter,WinEnter,VimResized * call CreateVimFilerButton()
+  augroup touchbar
+    autocmd!
+    autocmd BufWinEnter,VimResized * call CreateTouchBar()
+  augroup END
+
 endif
 
 set guifont=SourceCodePro-Regular:h14
