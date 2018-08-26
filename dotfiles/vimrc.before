@@ -33,6 +33,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" Brackets for split cycling
+nnoremap [ <C-W>W
+nnoremap ] <C-W>w
 
 " Maps gitgutter staging and undo
 nmap <Leader>hs <Plug>GitGutterStageHunk

@@ -15,13 +15,14 @@ if has("gui_macvim")
     silent! aun TouchBar.ExitFullScreen
     silent! aun TouchBar.VimFiler
     silent! aun TouchBar.-flexspace1-
-    silent! aun TouchBar.git-status
+    silent! aun TouchBar.VSplit
+    silent! aun TouchBar.-flexspace2-
+    silent! aun TouchBar.git\ status
     silent! aun TouchBar.Cancel
     silent! aun TouchBar.Commit
-    silent! aun TouchBar.-flexspace2-
+    silent! aun TouchBar.-flexspace3-
     silent! aun TouchBar.Buffers
     silent! aun TouchBar.Files
-    silent! aun TouchBar.VSplit
     silent! aun TouchBar.Search
     if &ft=='vimfiler'
       "silent! aunmenu TouchBar.-Sep-
@@ -30,29 +31,28 @@ if has("gui_macvim")
     endif
 
     if winnr('$') < 2
+      an TouchBar.-flexspace1- <Nop>
       an icon=NSTouchBarSidebarTemplate TouchBar.VSplit :vsplit<CR>
-    else
-      an icon=NSTouchBarSidebarTemplate TouchBar.VSplit <C-W>w
-    endif
-
-    an TouchBar.-flexspace1- <Nop>
-    if &ft=='gitcommit'
-      an TouchBar.Commit :GCommit<CR>
-      "silent! aunmenu TouchBar.-Sep-
-      an TouchBar.Cancel :q<CR>
-    else
-      an TouchBar.git-status :Gstatus<CR>
     endif
 
     an TouchBar.-flexspace2- <Nop>
+    " Git functions (if within a git repository)
+    if &ft=='gitcommit'
+      an TouchBar.Commit :GCommit<CR>
+      an TouchBar.Cancel :q<CR>
+    else
+      an TouchBar.git\ status :Gstatus<CR>
+    endif
+
+    an TouchBar.-flexspace3- <Nop>
+    an icon=NSTouchBarTextListTemplate TouchBar.Files :GitFiles<CR>
     an icon=NSTouchBarSearchTemplate TouchBar.Search :Rg<CR>
-    an icon=NSTouchBarListTemplate TouchBar.Files :Files<CR>
-    an TouchBar.Buffers :Buffers<CR>
+    "an TouchBar.Buffers :Buffers<CR>
   endfun
 
   augroup touchbar
     autocmd!
-    autocmd BufWinEnter,VimResized * call CreateTouchBar()
+    autocmd VimEnter,WinEnter,VimResized * call CreateTouchBar()
   augroup END
 
 endif
