@@ -3,8 +3,7 @@ if (($SHLVL == 1 )); then
   # don't want to add to path etc.
 
   COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
-  export TEX_BIN="/usr/local/texlive/2014/bin/x86_64-darwin"
-  export PATH="$TEX_BIN:$COREUTILS:$PATH"
+  export PATH="$COREUTILS:$PATH"
 
   ## Link Homebrew casks in `/Applications` rather than `~/Applications`
   export HOMEBREW_CASK_OPTS="--appdir=/Applications";
@@ -21,7 +20,8 @@ if (($SHLVL == 1 )); then
   export IDL_PATH=/Applications/exelis/CAT_ENVI
 
   # PostgreSQL
-  for fn in ($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL); do
+  arr=($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL)
+  for fn in $arr; do
     if [ -d $fn ]; then
       export PGDATA=$fn
       break
@@ -110,3 +110,4 @@ function bundle-id() {
 # AlphaMELTS
 alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
 
+alias steno-tunnel="ssh -p 22 -L 5439:127.0.0.1:5432 steno"
