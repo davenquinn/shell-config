@@ -1,0 +1,7 @@
+# vim: set filetype=bash:
+
+fn="$HOME/.common-aliases"
+if [[ -f "$fn" ]]; then
+  source "$fn"
+fi
+

@@ -1,0 +1,10 @@
+# vim: set filetype=zsh:
+
+alias wow='git status'
+alias such='git add'
+alias very='git commit -m'
+alias text-changes='git diff --color-words'
+alias grr='git graph'
+alias protect='chmod -R -w'
+alias ls='ls -N'
+alias du='du -h'
