@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export SIMPLE_SHELL=1
+/usr/bin/env zsh --login

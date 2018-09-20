@@ -30,8 +30,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-echo ""
-if (($SHLVL == 1 )); then
+if (($SHLVL == 1 & false )); then
   if [[ $(uname) == 'Linux' ]]; then
     neofetch --image "$HOME/Environment/startup-image.jpg"
   fi
@@ -40,8 +39,6 @@ if (($SHLVL == 1 )); then
     neofetch
   fi
 fi
-
-alias ls='ls --color'
 
 autoload -U zmv
 # Use vim key bindings
@@ -92,16 +89,11 @@ function reload() {
 }
 
 function edit-env() {
-  mvim -v ~/Environment/shell-config
+  mvim ~/Environment/shell-config
 }
 
 # Add a newline before commands
 precmd() { print "" }
-
-_local="${ZDOTDIR:-$HOME}/.zshrc.local"
-if [ -s $_local ]; then
-  source $_local
-fi
 
 # Desk environment setup
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
@@ -209,5 +201,6 @@ function pip-parent () {
   "${pyexe:h}/pip" $@
 }
 
+alias ls='ls --color'
 alias f='mvim -v +VimFiler'
 alias vim='mvim -v'

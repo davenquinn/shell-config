@@ -82,12 +82,9 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 ### AWESOME PLOTS ###
-export MPLBACKEND="module://itermplot"
+## This should be done in Python until a better way is figured out;
+## exporting this variable requires us to constantly define 'normal'
+## backends in code that is initialized from the command line.
+#export MPLBACKEND="module://itermplot"
 export ITERMPLOT=rv
 
-
-
-# Setting PATH for Python 3.6
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
