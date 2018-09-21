@@ -88,9 +88,4 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #export MPLBACKEND="module://itermplot"
 export ITERMPLOT=rv
 
-# Bash/zsh aliases
-fn="$HOME/.common-aliases"
-if [[ -f "$fn" ]]; then
-  source "$fn"
-fi
 
