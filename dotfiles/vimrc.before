@@ -1,10 +1,10 @@
 set nocompatible
 let mapleader = ","
 
-set backup 
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
-set backupskip=/tmp/*,/private/tmp/* 
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 if has('mouse')
@@ -42,11 +42,10 @@ nnoremap ] <C-W>w
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterRevertHunk
 
+if has('terminal')
 " Map easier terminal escape
-tnoremap <C-C> <C-W><C-C>
-
-" NERDTree
-ca Tree NERDTreeToggle
+  tnoremap <C-C> <C-W><C-C>
+endif
 
 " Git status
 ca Wow Gstatus
@@ -54,11 +53,14 @@ ca Wow Gstatus
 " word whitelist
 set spellfile=$HOME/.words/en.utf-8.add
 
+" NERDTree
 " Adds some files to NerdTreeIgnore
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
 
 let NERDTreeSortOrder = [ '\/$','\.do$',"Makefile$",'']
+ca Tree NERDTreeToggle
+
 
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
