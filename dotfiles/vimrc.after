@@ -63,7 +63,7 @@ if has("gui_macvim")
 endif
 
 "set guifont=SourceCodePro-Regular:h14
-set guifont=Hasklig-Regular:h14
+set guifont=FiraCode-Retina:h13
 set background=dark
 set linespace=2
 set go-=L
