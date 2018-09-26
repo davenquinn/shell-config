@@ -1,9 +1,13 @@
 # vim: set filetype=zsh:
 
-alias wow='git status'
+function wow {
+  git status 2>/dev/null
+  [ $? != 0 ] && echo -e "Try running this \033[1min a repository\033[0m."
+}
+
+alias grr='git graph'
 alias such='git add'
 alias very='git commit -m'
 alias text-changes='git diff --color-words'
-alias grr='git graph'
 alias protect='chmod -R -w'
 alias du='du -h'
