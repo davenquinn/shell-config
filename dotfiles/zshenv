@@ -4,15 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 
-if [[ "$SHLVL" -eq 1 ]]; then
-  export DOTFILES="$HOME/Environment/shell-config"
-  export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
-  export PATH="$LOCALBIN:$PATH"
-  export LDFLAGS="-L/usr/local/lib"
-  # People suck
-  export QUOTING_STYLE=literal
-fi
-
 _local="${ZDOTDIR:-$HOME}/.zshenv.local"
 if [ -f $_local ]; then
   source $_local

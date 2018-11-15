@@ -4,11 +4,31 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-# First, initialize local zshrc
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Initialize local zshrc
 _local="${ZDOTDIR:-$HOME}/.zshrc.local"
 if [ -s $_local ]; then
   source $_local
 fi
+
+# Setup path (maybe should go in zshenv)
+if [[ "$SHLVL" -eq 1 ]]; then
+  export DOTFILES="$HOME/Environment/shell-config"
+  export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
+  export PATH="$LOCALBIN:$PATH"
+  export LDFLAGS="-L/usr/local/lib"
+  # People suck
+  export QUOTING_STYLE=literal
+fi
+
+# Environment setup
+export DESK_DESKS_DIR="$HOME/Environment/Desks"
+export PIP_RESPECT_VIRTUALENV=true
 
 if type "dircolors" > /dev/null; then
   # GNU dircolors is installed
@@ -22,11 +42,6 @@ else
   # No dircolors script is installed
   export LSCOLORS=GxCxhxDxfxhxhxhxhxcxcx
   export LS_COLORS="di=1;36:ln=1;32:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
-fi
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
@@ -57,11 +72,6 @@ export MANPAGER="less -X";
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
-
-# Environment setup
-export DESK_DESKS_DIR="$HOME/Environment/Desks"
-
-export PIP_RESPECT_VIRTUALENV=true
 
 function killport () {
   kill -9 `lsof -t -i :$1`
