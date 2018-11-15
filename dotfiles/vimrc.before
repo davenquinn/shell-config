@@ -168,15 +168,15 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Filetypes
-autocmd FileType nerdtree syn match NerdTreeFileBuild #^\s\+\(Makefile\|Rakefile\)$#
-autocmd FileType nerdtree syn match NerdTreeFileBuild #^\s\+.*\(do\)$#
+autocmd FileType vimfiler syn match NerdTreeFileBuild #^\s\+\(Makefile\|Rakefile\)#
+autocmd FileType vimfiler syn match NerdTreeFileBuild #^\s\+.*\(do\)#
 
-autocmd FileType nerdtree syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)$#
-autocmd FileType nerdtree syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)$#
-autocmd FileType nerdtree syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|docx\=\|xlsx\=\)$#
-autocmd FileType nerdtree syn match NerdTreeFileBoilerplate #^\s\+\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)$#
-autocmd FileType nerdtree syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\)#
-autocmd FileType nerdtree syn match NerdTreeDirCommon #\(bin\|includes\=\|lib\|build\|templates\|output\)#
+autocmd FileType vimfiler syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)#
+autocmd FileType vimfiler syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)#
+autocmd FileType vimfiler syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|docx\=\|xlsx\=\)#
+autocmd FileType vimfiler syn match NerdTreeFileBoilerplate #\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)#
+autocmd FileType vimfiler syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\|\.*\)#
+autocmd FileType vimfiler syn match NerdTreeDirCommon #\(bin\|includes\=\|lib\|build\|templates\|output\)#
 
 autocmd FileType pandoc syn region pandocFilterComment matchgroup=pandocFilterCommentDelimiter start=#<!\=\(comment\|fixme\|margin\)># end=#<\/!\=\(comment\|fixme\|margin\)>#
 autocmd FileType pandoc syn region pandocFilterHighlight matchgroup=pandocFilterHighlightDelimiter start=#<!\=highlight># end=#<\/!\=highlight>#
@@ -195,12 +195,12 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
 
-noremap <silent> <Leader>f :bp \| :VimFilerBufferDir  -find -create<CR>
-nnoremap <silent> <Leader>F :VimFilerBufferDir  -find -create<CR>
+noremap <silent> <Leader>f :bp \| :VimFilerBufferDir  -find<CR>
+nnoremap <silent> <Leader>F :VimFilerBufferDir  -find<CR>
 " We disabled -auto-cd for now
 let g:vimfiler_tree_leaf_icon = "⠇"
 let g:vimfiler_tree_opened_icon = "▼"
-let g:vimfiler_tree_closed_icon = "▷"
+let g:vimfiler_tree_closed_icon = "▶︎"
 let g:vimfiler_quick_look_command = 'qlmanage -p'
 
 autocmd FileType vimfiler nmap <buffer> <2-LeftMouse>	<Plug>(vimfiler_expand_or_edit)
@@ -236,7 +236,7 @@ let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler', 'terminal']
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   "rg --no-ignore-vcs -g '!{.git,node_modules}' --column --line-number --no-heading --color=always ".shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
@@ -257,6 +257,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 let g:fzf_layout = { 'window': 'vertical'}
+
 
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>

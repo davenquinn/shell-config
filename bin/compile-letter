@@ -5,5 +5,5 @@
 pandoc -s \
   -V geometry:margin=1in -t latex \
   --template=letter.tex \
-  --latex-engine=xelatex  -o $2 $1
+  --pdf-engine=xelatex  -o $2 $1
 

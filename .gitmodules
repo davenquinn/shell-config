@@ -28,9 +28,6 @@
 [submodule "dotfiles/janus/unite.vim"]
 	path = dotfiles/vim-plugins/unite.vim
         url = https://github.com/Shougo/unite.vim.git
-[submodule "dotfiles/janus/python-syntax"]
-	path = dotfiles/vim-plugins/python-syntax
-        url = https://github.com/hdima/python-syntax.git
 [submodule "dotfiles/janus/vim-alphamelts-syntax"]
 	path = dotfiles/janus/vim-alphamelts-syntax
 	url = https://github.com/davenquinn/vim-alphamelts-syntax.git
@@ -106,3 +103,9 @@
 [submodule "xcode-themes/dracula-theme"]
 	path = xcode-themes/dracula-theme
 	url = https://github.com/dracula/xcode.git
+[submodule "dotfiles/vim-plugins/vim-coffee-script"]
+	path = dotfiles/vim-plugins/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "dotfiles/vim-plugins/python-syntax"]
+	path = dotfiles/vim-plugins/python-syntax
+	url = git://github.com/vim-python/python-syntax.git

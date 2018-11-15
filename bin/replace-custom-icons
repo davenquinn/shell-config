@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+CUSTOM_ICON_DIR="$HOME/Environment/custom-icons"
+
+for f in $(ls $CUSTOM_ICON_DIR); do
+  appdir="/Applications/${f:r}.app"
+  if [ -d "$appdir" ]; then
+    echo "Replacing icon for ${f:r}."
+    cp "$CUSTOM_ICON_DIR/$f" "$appdir/Contents/Resources/$f"
+  fi
+done
+
+rm /var/folders/*/*/*/com.apple.dock.iconcache
+killall Dock

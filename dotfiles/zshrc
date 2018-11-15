@@ -202,3 +202,6 @@ if [[ -f "$fn" ]]; then
   source "$fn"
 fi
 
+# Use our custom implementation of `tab`
+unalias tab 2> /dev/null
+

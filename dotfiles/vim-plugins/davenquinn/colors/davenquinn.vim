@@ -1,6 +1,29 @@
 hi clear
 syntax reset
 
+" for vimshell, vimfiler, unite.vim
+hi default link Command Function
+hi default link GitCommand Constant
+hi default link Arguments Type
+hi default link PdfHtml Function
+hi default link Archive Special
+hi default link Image Type
+hi default link Multimedia SpecialComment
+hi default link System Comment
+hi default link Text Constant
+hi default link Link Constant
+hi default link Exe Statement
+hi default link Prompt PreCondit
+hi default link Icon LineNr
+hi Time ctermfg=141 ctermbg=none gui=none guifg=#af87ff
+hi Date ctermfg=140 ctermbg=none gui=none guifg=#af87df
+hi default link DateToday Special
+hi default link DateWeek Identifier
+hi default link DateOld Comment
+hi default link Path Preproc
+hi default link Marked StorageClass
+hi default link Title Identifier
+
 let g:colors_name = "davenquinn"
 if &background == "light"
     hi Boolean gui=NONE guifg=#707070 guibg=NONE

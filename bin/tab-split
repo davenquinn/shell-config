@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+#
+# Open new Terminal tabs from the command line
+#
+# Author: Justin Hileman (http://justinhileman.com)
+#
+# Installation:
+#     Add the following function to your `.bashrc` or `.bash_profile`,
+#     or save it somewhere (e.g. `~/.tab.bash`) and source it in `.bashrc`
+#
+# Usage:
+#     tab                   Opens the current directory in a new tab
+#     tab [PATH]            Open PATH in a new tab
+#     tab [CMD]             Open a new tab and execute CMD
+#     tab [PATH] [CMD] ...  You can prob'ly guess
+
+# Only for teh Mac users
+[ `uname -s` != "Darwin" ] && exit
+
+local cmd=""
+local dirname="$(pwd)"
+local desk="$(desk | head -n 1 | cut -f 1 -d ' ')"
+local args="$@"
+
+if [ "$desk" = "No" ]; then
+  desk=""
+else
+  desk="desk . $desk"
+fi
+
+if [ -n "$args" ]; then
+    cmd="$args"
+fi
+
+osascript << EOF
+tell application "iTerm"
+	tell current session of current window
+		set newSession to split vertically with same profile
+		tell newSession
+			select
+			write text "$desk"
+      write text "cd \"$dirname\"; $cmd"
+		end tell
+	end tell
+end tell
+EOF
+
