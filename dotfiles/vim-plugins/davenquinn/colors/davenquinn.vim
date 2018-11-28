@@ -229,6 +229,7 @@ elseif &background == "dark"
     " Files etc
     hi PythonStringDelimiter gui=NONE guifg=#0B4741 guibg=#020A09
     hi Directory gui=NONE guifg=#008b8b guibg=#051917
+    hi vimfilerDirSlash gui=bold guifg=#003a3a guibg=#051917
 
     hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
     hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE

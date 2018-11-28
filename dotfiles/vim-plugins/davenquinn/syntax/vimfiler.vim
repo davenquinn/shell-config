@@ -19,29 +19,45 @@ syntax match vimfilerTypeMultimedia /.*\ze\[M\]/ contained containedin=vimfilerN
 syntax match vimfilerTypeSystem     /.*\ze\[S\]/ contained containedin=vimfilerNormalFile contains=vimfilerColumn__Type,vimfilerColumn__Size,vimfilerColumn__Time
 syntax match vimfilerTypeText       /.*\ze\[T\]/ contained containedin=vimfilerNormalFile contains=vimfilerColumn__Type,vimfilerColumn__Size,vimfilerColumn__Time
 syntax match vimfilerPdfHtml        /\c.*\.\%(pdf\|html\) / contained containedin=vimfilerNormalFile contains=vimfilerColumn__Type,vimfilerColumn__Size,vimfilerColumn__Time
-if has_key(g:, 'landscape_vimfiler_important')
-  execute 'syntax match vimfilerImportant' string(g:landscape_vimfiler_important) 'contained containedin=vimfilerNonMark,vimfilerNormalFile,vimfilerClosedFile,vimfilerOpenedFile'
-endif
+"execute 'syntax match vimfilerImportant' string(g:landscape_vimfiler_important) 'contained containedin=vimfilerNonMark,vimfilerNormalFile,vimfilerClosedFile,vimfilerOpenedFile'
+
+hi link vimfilerDirectory Directory
+hi link vimfilerOpenedFile Directory
+hi link vimfilerClosedFile Directory
+hi link vimfilerCurrentDirectory Directory
+
+
+"syntax match vimfilerTypeDirectory /\w\S\+\// contained containedin=vimfilerTypeDirectoryContainer
+syn match vimfilerDirSlash  /\/\s\+/ contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match vimfilerWhitespace /\s\+/ contained containedIn=vimfilerDirSlash,vimfilerNormalFile,vimfilerTypeExecute
+syn match vimfilerUnimportantDir  /\(__\w\+\|node_modules\|\w\+\.\(egg-info\)\)/ containedIn=vimfilerOpenedFile,vimfilerClosedFile
 
 hi default link vimfilerColumn__TimeToday DateOld
 hi default link vimfilerColumn__TimeWeek DateToday
 hi default link vimfilerColumn__TimeNormal DateWeek
 hi default link vimfilerColumn__SizeLine Constant
-hi default link vimfilerClosedFile Path
-hi default link vimfilerCurrentDirectory Path
 hi default link vimfilerImportant SpecialChar
 hi default link vimfilerMarkedFile Marked
 hi default link vimfilerNonMark Icon
-hi default link vimfilerOpenedFile Path
 hi default link vimfilerPdfHtml PdfHtml
 hi default link vimfilerTypeArchive Archive
-hi default link vimfilerTypeDirectory Path
+"hi default link vimfilerTypeDirectory Path
 hi default link vimfilerTypeExecute Exe
 hi default link vimfilerTypeImage Image
 hi default link vimfilerTypeLink Link
 hi default link vimfilerTypeMultimedia Multimedia
 hi default link vimfilerTypeSystem System
 hi default link vimfilerTypeText Text
+
+highlight def link vimfilerWhitespace Normal
+highlight def link vimfilerColumn__TypeText Comment
+highlight def link vimfilerColumn__TypeImage Comment
+highlight def link vimfilerColumn__TypeArchive Comment
+highlight def link vimfilerColumn__TypeExecute Comment
+highlight def link vimfilerColumn__TypeMultimedia Comment
+highlight def link vimfilerColumn__TypeDirectory Comment
+highlight def link vimfilerColumn__TypeSystem Comment
+highlight def link vimfilerColumn__TypeLink Comment
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
