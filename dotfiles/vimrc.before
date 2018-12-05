@@ -45,9 +45,6 @@ nmap <Leader>hr <Plug>GitGutterRevertHunk
 " Map easier terminal escape
 tnoremap <C-C> <C-W><C-C>
 
-" NERDTree
-ca Tree NERDTreeToggle
-
 " Git status
 ca Wow Gstatus
 
@@ -195,7 +192,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
 
-noremap <silent> <Leader>f :bp \| :VimFilerBufferDir  -find<CR>
+noremap <silent> <Leader>f :VimFilerBufferDir -buffer-name=default -find<CR>
 nnoremap <silent> <Leader>F :VimFilerBufferDir  -find<CR>
 " We disabled -auto-cd for now
 let g:vimfiler_tree_leaf_icon = "⠇"

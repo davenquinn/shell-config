@@ -203,8 +203,8 @@ function pip-parent () {
 }
 
 alias ls='ls --color'
-alias f='mvim -v +VimFiler'
-alias vim='mvim -v'
+alias f="mvim -v +VimFiler"
+alias vim="mvim -v"
 
 # Bash/zsh aliases
 fn="$HOME/.common-aliases"

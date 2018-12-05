@@ -104,6 +104,9 @@ if &background == "light"
     hi pandocLaTeXMath gui=NONE guifg=#555555 guibg=NONE
 
     hi Directory gui=bold guifg=#19b880 guibg=#f1fef9
+    hi vimfilerDirSlash gui=bold guifg=#d0ecd9 guibg=#f1fef9
+    hi vimfilerUnimportantDir gui=italic guifg=#24e8b0 guibg=#f1fef9
+
     " #39a6ea
     " #83afdd
     hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
@@ -112,7 +115,6 @@ if &background == "light"
     hi NerdTreeDirCommon gui=italic guifg=#006262 guibg=NONE "#102723
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
     hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
-    hi NerdTreeDirUnimportant gui=italic guifg=#006b6b guibg=NONE
 
     hi PythonStringDelimiter gui=NONE guifg=#9eda8e guibg=#f0fbea
     " Newline escapes
@@ -228,8 +230,9 @@ elseif &background == "dark"
 
     " Files etc
     hi PythonStringDelimiter gui=NONE guifg=#0B4741 guibg=#020A09
-    hi Directory gui=NONE guifg=#008b8b guibg=#051917
-    hi vimfilerDirSlash gui=bold guifg=#003a3a guibg=#051917
+    hi Directory gui=bold guifg=#008b8b guibg=#051917
+    hi vimfilerDirSlash gui=bold guifg=#003030 guibg=#051917
+    hi vimfilerUnimportantDir gui=italic guifg=#003030 guibg=#051917
 
     hi NerdTreeFileBuild gui=NONE guifg=#064789 guibg=NONE
     hi NerdTreeFileData gui=italic guifg=#aa9990 guibg=NONE
@@ -237,7 +240,6 @@ elseif &background == "dark"
     hi NerdTreeDirCommon gui=italic guifg=#006262 guibg=#021008 "#102723
     hi NerdTreeFileBoilerplate gui=NONE guifg=#333333 guibg=NONE
     hi NerdTreeFileDoc gui=NONE guifg=#776290 guibg=NONE
-    hi NerdTreeDirUnimportant gui=italic guifg=#003030 guibg=#021009
 
     hi Terminal guifg=#a0a0a0 guibg=#010101
 endif

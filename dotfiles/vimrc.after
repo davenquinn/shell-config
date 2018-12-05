@@ -9,7 +9,9 @@ if has("gui_macvim")
   " Always open in fullscreen if we can
   "set fu
   "Mac OS touchbar - works like `toolbar`
+endif
 
+if has("gui_macvim")
   fun! CreateTouchBar()
     " Don't strip on these filetypes
     silent! aun TouchBar.ExitFullScreen
@@ -57,7 +59,7 @@ if has("gui_macvim")
 
   augroup touchbar
     autocmd!
-    autocmd VimEnter,WinEnter,VimResized,DirChanged * call CreateTouchBar()
+    autocmd VimEnter,WinEnter,DirChanged * call CreateTouchBar()
   augroup END
 
 endif
