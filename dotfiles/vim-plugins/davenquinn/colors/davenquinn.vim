@@ -15,8 +15,8 @@ hi default link Link Constant
 hi default link Exe Statement
 hi default link Prompt PreCondit
 hi default link Icon LineNr
-hi Time ctermfg=141 ctermbg=none gui=none guifg=#af87ff
-hi Date ctermfg=140 ctermbg=none gui=none guifg=#af87df
+hi Time gui=none guifg=#af87ff
+hi Date gui=none guifg=#af87df
 hi default link DateToday Special
 hi default link DateWeek Identifier
 hi default link DateOld Comment
