@@ -1,6 +1,42 @@
 "*":
+  Hydrogen:
+    kernelNotifications: true
+  "autocomplete-bibtex":
+    bibtex: [
+      "~/Resources/Papers/library.bib"
+    ]
+  "autocomplete-plus":
+    fileBlacklist: [
+      ".*"
+      "*.md"
+    ]
+  "autocomplete-python":
+    useKite: false
   core:
+    disabledPackages: [
+      "kite"
+    ]
     telemetryConsent: "limited"
-  editor: {}
+    themes: [
+      "one-dark-ui"
+      "perplex-syntax"
+    ]
+    titleBar: "custom"
+    useTreeSitterParsers: false
+  "dark-flat-ui":
+    accentColor: "purple"
+  editor:
+    fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 16
+    showInvisibles: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
+  "git-log": {}
+  kite:
+    editorMetricsEnabled: "no"
+    showWelcomeNotificationOnStartup: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
+".css.source.stylus":
+  editor:
+    showIndentGuide: true

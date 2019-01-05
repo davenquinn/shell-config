@@ -109,3 +109,6 @@
 [submodule "dotfiles/vim-plugins/python-syntax"]
 	path = dotfiles/vim-plugins/python-syntax
 	url = git://github.com/vim-python/python-syntax.git
+[submodule "atom-themes/perplex-syntax"]
+	path = atom-themes/perplex-syntax
+	url = git://github.com/davenquinn/perplex-syntax.git

@@ -15,8 +15,25 @@
  * (To see them, uncomment and save)
  */
 
+ .tree-view,
+ atom-text-editor {
+     -webkit-font-smoothing: antialiased; // forces hardware rendering, which improves text quality in Mac
+     // -webkit-text-stroke: 0.01em; // use when without font-smoothing, also almost does the trick
+ }
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+   /* Retina-specific stuff here */
+   .tree-view {
+     font-size: 1.0em !important;
+     // background-color: whitesmoke;
+   }
+}
+
 // style the background color of the tree view
 .tree-view {
+  font-size: 1.2em;
   // background-color: whitesmoke;
 }
 

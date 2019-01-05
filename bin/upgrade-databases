@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+version=$1
+
+for f in $(psql -tA -c 'SELECT datname FROM pg_database'); do
+  psql "$f" -c "ALTER EXTENSION postgis UPDATE TO \"$version\";"
+  psql "$f" -c "ALTER EXTENSION postgis-topology UPDATE TO \"$version\";"
+done
+

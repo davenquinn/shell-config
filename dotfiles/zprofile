@@ -81,6 +81,9 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
+### Setup pipenv ###
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_SKIP_LOCK=true
 ### AWESOME PLOTS ###
 ## This should be done in Python until a better way is figured out;
 ## exporting this variable requires us to constantly define 'normal'
