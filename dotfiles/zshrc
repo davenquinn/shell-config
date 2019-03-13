@@ -143,15 +143,17 @@ function fd() {
   cd "$dir"
 }
 
-# Setup `z` command line switcher
-. $(brew --prefix)/etc/profile.d/z.sh
+if brew 2> /dev/null; then
+  # Setup `z` command line switcher
+  . $(brew --prefix)/etc/profile.d/z.sh
 
-# z replacement that does fuzzy finding
-unalias z 2> /dev/null
-z() {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
-}
+  # z replacement that does fuzzy finding
+  unalias z 2> /dev/null
+  z() {
+    [ $# -gt 0 ] && _z "$*" && return
+    cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+  }
+fi
 
 # Function to redo all *do files in directory
 function ra {
@@ -204,10 +206,6 @@ function pip-parent () {
   pyexe="$(readlink "$VIRTUAL_ENV/bin/python")"
   "${pyexe:h}/pip" $@
 }
-
-alias ls='ls --color'
-alias f="mvim -v +VimFiler"
-alias vim="mvim -v"
 
 # Bash/zsh aliases
 fn="$HOME/.common-aliases"

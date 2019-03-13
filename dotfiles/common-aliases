@@ -11,3 +11,13 @@ alias very='git commit -m'
 alias text-changes='git diff --color-words'
 alias protect='chmod -R -w'
 alias du='du -h'
+
+alias ls='ls --color'
+
+if [[ $(uname) == 'Darwin' ]]; then
+  alias f="mvim -v +VimFiler"
+  alias vim="mvim -v"
+else
+  alias f="vim -v +VimFiler"
+  alias vim="vim -v"
+fi
