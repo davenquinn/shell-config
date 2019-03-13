@@ -1,6 +1,14 @@
 set nocompatible
 let mapleader = ","
 
+" Remaps search highlighting to clear with backslash
+nnoremap \ :noh<return><esc>
+" Remaps semicolon to the command leader (may change back to <space>)
+noremap <space> :
+
+" EasyMotion with basic leader
+map <Leader> <Plug>(easymotion-prefix)
+
 set backup 
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set backupskip=/tmp/*,/private/tmp/* 
@@ -16,16 +24,18 @@ if has('mouse')
   endif
 endif
 
-" Remaps search highlighting to clear with backslash
-nnoremap \ :noh<return><esc>
-" Remaps space to the command leader
-noremap <space> :
+set visualbell
 
 """" Code folding
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+
+""" MUCOMPLETE is disabled
+" Get rid of MUcomplete error that seems to hav
+" to do with tab mapping
+"imap <c-j> <plug>(MUcompleteFwd)
 
 " Vertical splits by default
 set splitright
@@ -84,7 +94,9 @@ au FileType python map <silent> <leader>I oimport IPython; IPython.embed(); rais
 au FileType python map <silent> <leader>d oimport pdb; pdb.set_trace()<esc>
 au FileType python map <silent> <leader>D Oimport pdb; pdb.set_trace()<esc>
 
-let python_highlight_all = 1
+let g:polyglot_disabled = ['python', 'coffeescript']
+let g:python_highlight_file_headers_as_comments = 0
+let g:python_higlight_all = 1
 
 " Add syntax for alphamelts config
 autocmd BufNewFile,BufRead *.melts-env setfiletype melts
@@ -165,15 +177,6 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Filetypes
-autocmd FileType vimfiler syn match NerdTreeFileBuild #^\s\+\(Makefile\|Rakefile\)#
-autocmd FileType vimfiler syn match NerdTreeFileBuild #^\s\+.*\(do\)#
-
-autocmd FileType vimfiler syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)#
-autocmd FileType vimfiler syn match NerdTreeFileData #^.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)#
-autocmd FileType vimfiler syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|docx\=\|xlsx\=\)#
-autocmd FileType vimfiler syn match NerdTreeFileBoilerplate #\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)#
-autocmd FileType vimfiler syn match NerdTreeDirUnimportant #\(node_modules\|.git\|.redo\|\.*\)#
-autocmd FileType vimfiler syn match NerdTreeDirCommon #\(bin\|includes\=\|lib\|build\|templates\|output\)#
 
 autocmd FileType pandoc syn region pandocFilterComment matchgroup=pandocFilterCommentDelimiter start=#<!\=\(comment\|fixme\|margin\)># end=#<\/!\=\(comment\|fixme\|margin\)>#
 autocmd FileType pandoc syn region pandocFilterHighlight matchgroup=pandocFilterHighlightDelimiter start=#<!\=highlight># end=#<\/!\=highlight>#
@@ -192,8 +195,9 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
 
-noremap <silent> <Leader>f :VimFilerBufferDir -buffer-name=default -find<CR>
-nnoremap <silent> <Leader>F :VimFilerBufferDir  -find<CR>
+noremap <silent> <Leader>f :VimFilerBufferDir -create -parent -find -auto-cd<CR>
+autocmd FileType vimfiler nnoremap <buffer> <C-w>v :vsplit<bar>:VimFilerBufferDir -create -parent -find -auto-cd<CR>
+
 " We disabled -auto-cd for now
 let g:vimfiler_tree_leaf_icon = "⠇"
 let g:vimfiler_tree_opened_icon = "▼"
@@ -207,20 +211,13 @@ autocmd FileType vimfiler nmap <buffer> <Left> <Plug>(vimfiler_smart_h)
 autocmd FileType vimfiler nmap <buffer> <Right> <Plug>(vimfiler_smart_l)
 autocmd FileType vimfiler noremap <silent> cd  <Plug>(vimfiler_cd_vim_current_dir)
 autocmd FileType vimfiler noremap <buffer> <C-l> <Plug>(vimfiler_preview_file)
-
+autocmd FileType vimfiler nmap <buffer> w <Leader>j
 
 nmap <Leader>m :<C-u>call vimfiler#mappings#do_switch_action('vsplit')<CR>
 
 "autocmd FileType vimfiler DisableWhitespace
 let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler', 'terminal']
 
-"nmap <buffer> c
-"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
-"nmap <buffer> m
-"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_move_file)
-"nmap <buffer> d
-"\ <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)
-"
 "
 "Vim-pencil
 
@@ -263,3 +260,6 @@ nnoremap <silent> <leader>r :Rg<CR>
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" Disable annoying autocomplete
+let g:jedi#auto_initialization = 0

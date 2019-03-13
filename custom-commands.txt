@@ -8,3 +8,9 @@ pz      `z` within project
 pf      Fuzzy find in project
 edit    Open in Neovim.app
 mvim    Open in MacVim.app
+
+# Vimfiler
+
+`yy`: yank a path or paths
+`,a`: open actions list
+

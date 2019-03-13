@@ -27,7 +27,6 @@
     accentColor: "purple"
   editor:
     fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 16
     showInvisibles: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
@@ -35,8 +34,7 @@
   kite:
     editorMetricsEnabled: "no"
     showWelcomeNotificationOnStartup: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
 ".css.source.stylus":
   editor:
     showIndentGuide: true

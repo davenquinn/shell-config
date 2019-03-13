@@ -32,6 +32,16 @@ syn match vimfilerDirSlash  /\/\s\+/ contained containedIn=vimfilerOpenedFile,vi
 syn match vimfilerWhitespace /\s\+/ contained containedIn=vimfilerDirSlash,vimfilerNormalFile,vimfilerTypeExecute
 syn match vimfilerUnimportantDir  /\(__\w\+\|node_modules\|\w\+\.\(egg-info\)\)/ containedIn=vimfilerOpenedFile,vimfilerClosedFile
 
+syn match NerdTreeFileBuild #^\s\+\(Makefile\|Rakefile\)#  contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeFileBuild #^\s\+.*\(do\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+
+syn match NerdTreeFileImage #^.*\.\(png\|jpe\=g\|svg\|pdf\|tiff\=\|e\=ps\|jp2\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeFileData #\s\+.*\.\(tsv\|json\|yaml\|cson\|csv\|pickle\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeFileDoc #^.*\.\(md\|txt\|tex\|docx\=\|xlsx\=\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeFileBoilerplate #\(package.json\|setup.py\|yarn.lock\|.gitignore\|.gitmodules\|.gitconfig\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeDirUnimportant #\s\+\(node_modules\|.git\|.redo\|\.*\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+syn match NerdTreeDirCommon #\s\+\(bin\|includes\=\|lib\|build\|templates\|output\)# contained containedIn=vimfilerOpenedFile,vimfilerClosedFile
+
 hi default link vimfilerColumn__TimeToday DateOld
 hi default link vimfilerColumn__TimeWeek DateToday
 hi default link vimfilerColumn__TimeNormal DateWeek

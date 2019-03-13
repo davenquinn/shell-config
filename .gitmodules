@@ -73,9 +73,6 @@
 [submodule "dotfiles/janus/vim-pug"]
 	path = dotfiles/vim-plugins/vim-pug
   url = git://github.com/digitaltoad/vim-pug.git
-[submodule "dotfiles/janus/vim-stylus"]
-	path = dotfiles/vim-plugins/vim-stylus
-  url = git://github.com/davenquinn/vim-stylus.git
 [submodule "dotfiles/janus/vim-thematic"]
 	path = dotfiles/vim-plugins/vim-thematic
   url = git://github.com/reedes/vim-thematic.git
@@ -112,3 +109,9 @@
 [submodule "atom-themes/perplex-syntax"]
 	path = atom-themes/perplex-syntax
 	url = git://github.com/davenquinn/perplex-syntax.git
+[submodule "dotfiles/vim-plugins/vim-stylus"]
+	path = dotfiles/vim-plugins/vim-stylus
+	url = git://github.com/iloginow/vim-stylus.git
+[submodule "dotfiles/vim-plugins/vim-styled-components"]
+	path = dotfiles/vim-plugins/vim-styled-components
+	url = git://github.com/styled-components/vim-styled-components.git

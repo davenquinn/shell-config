@@ -24,6 +24,17 @@ hi default link Path Preproc
 hi default link Marked StorageClass
 hi default link Title Identifier
 
+hi Interp gui=none guifg=#000000
+hi InterpDelim gui=none guifg=#000000
+
+"hi default link coffeeInterp Interp
+"hi default link coffeeInterpDelim InterpDelim
+"hi default link jsTemplateExpression Interp
+"hi default link jsTemplateBraces InterpDelim
+
+"syn cluster Interp add=coffeeInterp,jsTemplateExpression
+"syn cluster InterpDelim add=coffeeInterpDelim,jsTemplateBraces
+
 let g:colors_name = "davenquinn"
 if &background == "light"
     hi Boolean gui=NONE guifg=#707070 guibg=NONE
@@ -31,7 +42,7 @@ if &background == "light"
     hi Comment gui=NONE guifg=#c0c0c0 guibg=NONE
     hi Conceal gui=NONE guifg=#707070 guibg=NONE
     hi Conditional gui=NONE guifg=#4a4a4a guibg=NONE
-    hi Constant gui=NONE guifg=#707070 guibg=NONE
+    hi Constant gui=bold guifg=#fe818b guibg=NONE
     hi Cursor gui=reverse guifg=NONE guibg=NONE
     hi CursorColumn gui=NONE guifg=NONE guibg=#f5f5f5
     hi CursorLine gui=NONE guifg=NONE guibg=#f5f5f5
@@ -69,7 +80,6 @@ if &background == "light"
     hi Statement gui=bold guifg=#e06c85 guibg=NONE
     hi StatusLine gui=NONE guifg=#262626 guibg=#ededed
     hi StatusLineNC gui=NONE guifg=#969696 guibg=#ededed
-    hi StorageClass gui=NONE guifg=#4a4a4a guibg=NONE
     hi String gui=NONE guifg=#7eba5e guibg=#f0fbea
     hi TabLine gui=NONE guifg=#969696 guibg=#ededed
     hi TabLineFill gui=NONE guifg=NONE guibg=#ededed
@@ -88,7 +98,8 @@ if &background == "light"
     hi Structure gui=bold guifg=#fe818b guibg=NONE
     hi Function gui=NONE guifg=#19b880 guibg=NONE
     hi Repeat gui=bold guifg=#e06c85 guibg=NONE
-    hi Operator gui=NONE guifg=#a7d0fc guibg=#fafcff
+    hi StorageClass gui=bold guifg=#a7d0fc guibg=NONE
+    hi Operator gui=NONE guifg=#39a6ea guibg=#fafcff
     hi Identifier gui=NONE guifg=#39a6ea guibg=#f5faff
     hi PreProc gui=NONE guifg=#fe818b guibg=NONE
     " Nerdtree
@@ -119,8 +130,8 @@ if &background == "light"
     hi PythonStringDelimiter gui=NONE guifg=#9eda8e guibg=#f0fbea
     " Newline escapes
     hi NewlineEscape gui=bold guifg=#eeeeee
-    hi coffeeInterp gui=NONE guifg=#fe818b guibg=#f0fbea
-    hi coffeeInterpDelim gui=NONE guifg=#e06c85 guibg=#f0fbea
+    hi Interp gui=NONE guifg=#fe818b guibg=#f0fbea
+    hi InterpDelim gui=NONE guifg=#e06c85 guibg=#f0fbea
 elseif &background == "dark"
 
     let g:terminal_ansi_colors = ['#073642', '#dc322f', '#859900', '#b58900', '#268bd2', '#d33682', '#2aa198', '#eee8d5',
@@ -130,7 +141,7 @@ elseif &background == "dark"
     hi ColorColumn gui=NONE guifg=NONE guibg=#171717
     hi Comment gui=NONE guifg=#464646 guibg=NONE
     hi Conceal gui=NONE guifg=#737373 guibg=NONE
-    hi Constant gui=NONE guifg=#737373 guibg=NONE
+    hi Constant gui=bold guifg=#8B5E75 guibg=#080000
     hi Cursor gui=reverse guifg=NONE guibg=NONE
     hi CursorColumn gui=NONE guifg=NONE guibg=#171717
     hi CursorLine gui=NONE guifg=NONE guibg=#171717
@@ -167,10 +178,9 @@ elseif &background == "dark"
     hi SpellCap gui=underline guisp=NONE guifg=NONE guibg=NONE
     hi SpellLocal gui=underline guisp=NONE guifg=NONE guibg=#052305
     hi SpellRare gui=underline guisp=NONE guifg=NONE guibg=#242424
-    hi Statement gui=bold guifg=#469dd3 guibg=#041c29
+    hi Statement gui=bold guifg=#064789 guibg=NONE
     hi StatusLine gui=NONE guifg=#303030 guibg=#111111
     hi StatusLineNC gui=NONE guifg=#242424 guibg=#111111
-    hi StorageClass gui=NONE guifg=#064789 guibg=NONE
     hi String gui=NONE guifg=#008b8b guibg=#020A09
     "#007a61 guibg=NONE
     "#101719
@@ -192,8 +202,9 @@ elseif &background == "dark"
     hi Function gui=NONE guifg=#4c849f guibg=NONE
     hi Structure gui=bold guifg=#8b80a3 guibg=#05293d
     hi Conditional gui=NONE guifg=#a193c8 guibg=#121536
-    hi Repeat gui=NONE guifg=#767fc7 guibg=#121536
-    hi Operator gui=NONE guifg=#888ba5 guibg=#080b26
+    hi Repeat gui=NONE guifg=#888ba5 guibg=#121536
+    hi Operator gui=NONE guifg=#767fc7 guibg=#080b26
+    hi StorageClass gui=bold guifg=#064789 guibg=NONE
     hi Identifier gui=NONE guifg=#469dd3 guibg=#041c29
     hi PreProc gui=NONE guifg=#8B5E75 guibg=#080000
 
@@ -223,7 +234,8 @@ elseif &background == "dark"
     " #a14558
     " #92cd8e
     hi BracelessIndent gui=NONE guifg=NONE guibg=#061d3d
-    hi coffeeInterp gui=NONE guifg=#A0898F guibg=#100000
+    hi Interp gui=NONE guifg=#A0898F guibg=#100000
+    hi InterpDelim gui=NONE guifg=#8B5E75 guibg=#100000
 
     " Newline escapes
     hi NewlineEscape gui=bold guifg=#222222

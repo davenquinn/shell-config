@@ -59,6 +59,9 @@ autoload -U zmv
 # Use vim key bindings
 bindkey -v
 
+# Enable back-i-search
+bindkey '^R' history-incremental-search-backward
+
 # Edit command line on ^E^V (normal mode) or ESC v (vim mode)
 autoload -U edit-command-line
 

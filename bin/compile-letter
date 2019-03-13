@@ -3,7 +3,14 @@
 #   compile-letter input.md output.pdf
 #
 pandoc -s \
-  -V geometry:margin=1in -t latex \
+  -V geometry:margin=1in \
+  -V fontsize:12pt \
+  -V mainfont:"Chaparral Pro" \
+  -V papersize:letter \
+  -V "signature:$HOME/Documents/signature.jpeg" \
+  -V 'signature-before:-0.5in}\hspace*{-0.6in' \
+  -V "signature-width:3in" \
+  -t latex \
   --template=letter.tex \
   --pdf-engine=xelatex  -o $2 $1
 

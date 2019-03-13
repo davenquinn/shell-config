@@ -108,6 +108,9 @@ function bundle-id() {
 }
 
 # AlphaMELTS
-alias run-alphamelts='/Applications/alphamelts/1.5/run_alphamelts.command'
+alias run-alphamelts='/Applications/alphamel5/run_alphamelts.command'
 
 alias steno-tunnel="ssh -p 22 -L 5439:127.0.0.1:5432 steno"
+function steno-tunnel-web() {
+  ssh -p 22 -L 5439:127.0.0.1:5432 -L ${1}:localhost:80 steno
+}
