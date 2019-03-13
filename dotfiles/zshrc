@@ -209,6 +209,9 @@ alias ls='ls --color'
 alias f="mvim -v +VimFiler"
 alias vim="mvim -v"
 
+# Enables moving with wildcards *.c.orig orig/*.c
+alias mmv='noglob zmv -W'
+
 # Bash/zsh aliases
 fn="$HOME/.common-aliases"
 if [[ -f "$fn" ]]; then
