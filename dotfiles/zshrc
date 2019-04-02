@@ -213,6 +213,12 @@ if [[ -f "$fn" ]]; then
   source "$fn"
 fi
 
+if command -v hub >/dev/null 2>&1 ; then
+  alias git='hub'
+fi
+
+alias cdenv="cd $DOTFILES"
+
 # Use our custom implementation of `tab`
 unalias tab 2> /dev/null
 
