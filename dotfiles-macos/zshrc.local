@@ -3,7 +3,8 @@ if (($SHLVL == 1 )); then
   # don't want to add to path etc.
 
   COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
-  export PATH="$COREUTILS:$PATH"
+  SED=$(brew --prefix gnu-sed)/libexec/gnubin
+  export PATH="$SED:$COREUTILS:$PATH"
 
   ## Link Homebrew casks in `/Applications` rather than `~/Applications`
   export HOMEBREW_CASK_OPTS="--appdir=/Applications";
