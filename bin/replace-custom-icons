@@ -2,7 +2,7 @@
 
 ln -Fs `find $(brew --prefix) -name "QGIS.app"` /Applications/QGIS.app
 # Make QGIS appear in finder
-qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
+qgis_location=$(find $(brew --prefix)/Cellar/osgeo-qgis-res/ -name "3.*" -print -quit)/QGIS.app
 osascript -e 'tell application "Finder"' -e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications")' -e 'end tell'
 
 

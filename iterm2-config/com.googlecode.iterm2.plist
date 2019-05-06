@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -47048,7 +47048,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>206 377 796 486 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>179 308 650 427 0 0 1440 900 </string>
+	<string>0 450 650 427 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3 322 1440 574 0 0 1440 900 </string>
 	<key>NeverWarnAboutShortLivedSessions_E421EDCD-36A6-4E47-85D3-F1AE7A731745</key>
@@ -48458,9 +48458,15 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>FB4B6E13-380E-4712-AADC-E37557169897</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncSaveDocumentAsPathSet_saveDocumentAs:</key>
+	<true/>
+	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>555639357.80455804</real>
@@ -48510,7 +48516,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-01T18:03:18Z</date>
+	<date>2019-04-22T22:49:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -48522,7 +48528,7 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -1,4 +1,4 @@
-if (($SHLVL == 1 )); then
+if [[ "$SHLVL" -eq 1 ]] ; then
   # Subshells inherit already-declared variables so we
   # don't want to add to path etc.
 
@@ -67,7 +67,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # nodenv... but your days are numbered
 export NODENV_ROOT="$(brew --prefix)/var/nodenv"
-if [[ -d $NODENV_ROOT ]];then
+if [[ -d $NODENV_ROOT && "$SHLVL" -eq 1 ]];then
     if which nodenv > /dev/null; then
       # initialize nodeenv
       eval "$(nodenv init -)"
@@ -109,9 +109,13 @@ function bundle-id() {
 }
 
 # AlphaMELTS
-alias run-alphamelts='/Applications/alphamel5/run_alphamelts.command'
+alias run-alphamelts='/Applications/alphamelts/run_alphamelts.command'
 
 alias steno-tunnel="ssh -p 22 -L 5439:127.0.0.1:5432 steno"
 function steno-tunnel-web() {
   ssh -p 22 -L 5439:127.0.0.1:5432 -L ${1}:localhost:80 steno
+}
+
+function docker-killall {
+  docker stop $(docker ps -a -q)
 }

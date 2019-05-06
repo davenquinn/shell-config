@@ -10,12 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Initialize local zshrc
-_local="${ZDOTDIR:-$HOME}/.zshrc.local"
-if [ -s $_local ]; then
-  source $_local
-fi
-
 # Setup path (maybe should go in zshenv)
 if [[ "$SHLVL" -eq 1 ]]; then
   export DOTFILES="$HOME/Environment/shell-config"
@@ -24,6 +18,12 @@ if [[ "$SHLVL" -eq 1 ]]; then
   export LDFLAGS="-L/usr/local/lib"
   # People suck
   export QUOTING_STYLE=literal
+
+    # Initialize local zshrc
+  _local="${ZDOTDIR:-$HOME}/.zshrc.local"
+  if [ -s $_local ]; then
+    source $_local
+  fi
 fi
 
 # Environment setup
@@ -45,7 +45,7 @@ else
 fi
 
 # Customize to your needs...
-if (($SHLVL == 1 & false )); then
+if [[ $SHLVL -eq 1 ]] ; then
   if [[ $(uname) == 'Linux' ]]; then
     neofetch --image "$HOME/Environment/startup-image.jpg"
   fi
@@ -143,7 +143,7 @@ function fd() {
   cd "$dir"
 }
 
-if brew 2> /dev/null; then
+if command -v brew >/dev/null 2>&1 ; then
   # Setup `z` command line switcher
   . $(brew --prefix)/etc/profile.d/z.sh
 
@@ -200,6 +200,13 @@ function pz() {
   dir=${PROJECT_DIR:-$(pwd)}
   [ $# -gt 0 ] && _z "$*" && return
   cd "$dir/$(_z -l 2>&1 | grep "$dir/" | sed "s|${dir}/||g" | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}
+
+function git-fix() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  commit=$(git log --oneline origin/master.."$branch" | fzf | awk '{print $1}')
+
+  git commit --fixup="$commit"
 }
 
 # PIP install in a virtualenv parent
