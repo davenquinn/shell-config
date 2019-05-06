@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+dn="${0:a:h:h}/dotfiles"
+
+cd "$dn"
+for f in $(ls .); do
+  fp="$dn/$f"
+  echo $fp
+  ln -sf "$fp" "$HOME/.$f"
+done
+
+[ -z $1 ] && exit 0
+
+dn="$dn-$1"
+
+cd "$dn"
+for f in $(ls .); do
+  fp="$dn/$f"
+  echo $fp
+  ln -sf "$fp" "$HOME/.$f"
+done
+
