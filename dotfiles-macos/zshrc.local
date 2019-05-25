@@ -1,40 +1,38 @@
-if [[ "$SHLVL" -eq 1 ]] ; then
-  # Subshells inherit already-declared variables so we
-  # don't want to add to path etc.
+# Subshells inherit already-declared variables so we
+# don't want to add to path etc.
 
-  COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
-  SED=$(brew --prefix gnu-sed)/libexec/gnubin
-  export PATH="$SED:$COREUTILS:$PATH"
+COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
+SED=$(brew --prefix gnu-sed)/libexec/gnubin
+export PATH="$SED:$COREUTILS:$PATH"
 
-  ## Link Homebrew casks in `/Applications` rather than `~/Applications`
-  export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+## Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
-  export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
+export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
 
-  ## GIS
-  # Right now ECWJP2 is built against old gdal
-  export GDAL_DRIVER_PATH="$(brew --prefix)/lib/gdal2plugins"
+## GIS
+# Right now ECWJP2 is built against old gdal
+export GDAL_DRIVER_PATH="$(brew --prefix)/lib/gdal2plugins"
 
-  export PYTHONDONTWRITEBYTECODE=True
+export PYTHONDONTWRITEBYTECODE=True
 
-  export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.7.0
-  export IDL_PATH=/Applications/exelis/CAT_ENVI
+export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.7.0
+export IDL_PATH=/Applications/exelis/CAT_ENVI
 
-  # PostgreSQL
-  arr=($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL)
-  for fn in $arr; do
-    if [ -d $fn ]; then
-      export PGDATA=$fn
-      break
-    fi
-  done
+# PostgreSQL
+arr=($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL)
+for fn in $arr; do
+  if [ -d $fn ]; then
+    export PGDATA=$fn
+    break
+  fi
+done
 
-  # Python virtualenvs
-  export WORKON_HOME="$HOME/Environment/Python-virtualenvs"
-  export PROJECT_HOME="$HOME/Projects"
+# Python virtualenvs
+export WORKON_HOME="$HOME/Environment/Python-virtualenvs"
+export PROJECT_HOME="$HOME/Projects"
 
-  #export PYENV_ROOT="/usr/local/var/pyenv"
-fi
+#export PYENV_ROOT="/usr/local/var/pyenv"
 
 # Setup `z` command line switcher
 . $(brew --prefix)/etc/profile.d/z.sh

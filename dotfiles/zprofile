@@ -4,6 +4,13 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+# Pyenv seems to have a hard time with tmux on Macs..
+# https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
+# system-wide environment settings for zsh(1)
+export PATH=""
+if [ -f /etc/zprofile ]; then
+  source /etc/zprofile
+fi
 
 #
 # Browser
@@ -16,7 +23,6 @@ fi
 #
 # Editors
 #
-
 
 if [[ $(uname) == 'Darwin' ]]; then
   # Use GUI vim but don't fork shell

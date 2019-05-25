@@ -11,19 +11,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Setup path (maybe should go in zshenv)
-if [[ "$SHLVL" -eq 1 ]]; then
-  export DOTFILES="$HOME/Environment/shell-config"
-  export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
-  export PATH="$LOCALBIN:$PATH"
-  export LDFLAGS="-L/usr/local/lib"
-  # People suck
-  export QUOTING_STYLE=literal
+export DOTFILES="$HOME/Environment/shell-config"
+export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
+export PATH="$LOCALBIN:$PATH"
+export LDFLAGS="-L/usr/local/lib"
+# People suck
+export QUOTING_STYLE=literal
 
-    # Initialize local zshrc
-  _local="${ZDOTDIR:-$HOME}/.zshrc.local"
-  if [ -s $_local ]; then
-    source $_local
-  fi
+  # Initialize local zshrc
+_local="${ZDOTDIR:-$HOME}/.zshrc.local"
+if [ -s $_local ]; then
+  source $_local
 fi
 
 # Environment setup
