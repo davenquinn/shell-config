@@ -1,15 +1,55 @@
 #!/usr/bin/env zsh
 # Usage:
-#   compile-letter input.md output.pdf
+#   compile-letter [--letterhead X] input.md output.pdf
 #
+
+letterheads="/Users/Daven/Resources/Letterheads"
+postfix='-letterhead.pdf'
+
+if [[ -z "$1" ]]; then
+
+cat << EOF
+Usage:
+compile-letter [--letterhead uw-madison] input.md output.pdf
+
+Letterheads:
+EOF
+ls $letterheads \
+| grep -- $postfix \
+| sed "s/$postfix//g" \
+| sed 's/^/  /g'
+exit 0
+
+fi
+
+if [[ $1 == '--letterhead' ]]; then
+  shift
+  letterhead="$letterheads/$1$postfix"
+  if [ ! -f "$letterhead" ]; then
+    echo "Letterhead $letterhead does not exist" \
+    exit 0
+  fi
+fi
+
+if [ -n "$letterhead" ]; then
+  echo "Using letterhead $letterhead"
+  letterhead="letterhead:$letterhead"
+fi
+
+if [ -z $1 ] || [ -z $2 ]; then
+  echo "Please specify both input and output files"
+  exit 1
+fi
+
 pandoc -s \
   -V geometry:margin=1in \
   -V fontsize:12pt \
   -V mainfont:"Chaparral Pro" \
   -V papersize:letter \
-  -V "signature:$HOME/Documents/signature.jpeg" \
+  -V "signature:$letterheads/signature.pdf" \
   -V 'signature-before:-0.5in}\hspace*{-0.6in' \
   -V "signature-width:3in" \
+  -V "$letterhead" \
   -t latex \
   --template=letter.tex \
   --pdf-engine=xelatex  -o $2 $1

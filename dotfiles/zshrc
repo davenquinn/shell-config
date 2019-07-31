@@ -66,7 +66,8 @@ autoload -U edit-command-line
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
@@ -101,7 +102,7 @@ precmd() { print "" }
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
 # Fuzzy project finder
-function pr() {
+pr() {
   # Go directly to project
   if [ "$#" -eq 1 ]; then
     desk . "$1"

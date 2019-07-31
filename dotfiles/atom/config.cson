@@ -15,6 +15,8 @@
   core:
     disabledPackages: [
       "autocomplete-python"
+      "docker"
+      "language-r"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -27,13 +29,14 @@
     accentColor: "purple"
   editor:
     fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 15
-    showInvisibles: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
   "git-log": {}
   kite:
     showWelcomeNotificationOnStartup: false
+  "mojave-dark-mode":
+    darkProfile: "one-dark-ui perplex-syntax"
+    lightProfile: "one-dark-ui perplex-syntax"
   touchbar:
     buttons: "[{\"name\":\"toggle-command-palette\",\"type\":\"button\",\"label\":\"Commands\",\"command\":\"command-palette:toggle\"},{\"name\":\"color-picker\",\"type\":\"color-picker\"},{\"name\":\"spacer\",\"type\":\"button\",\"size\":\"small\",\"label\":\"\",\"command\":\"tree-view:toggle\",\"color\":\"#00716c\",\"icon\":\"NSTouchBarSidebarTemplate\",\"iconColor\":\"white\"},{\"name\":\"toggle-github\",\"type\":\"button\",\"label\":\"GitHub\",\"color\":\"#919191\",\"command\":\"github:toggle-github-tab\"}]"
   "tree-view": {}

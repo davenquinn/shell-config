@@ -65,7 +65,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # nodenv... but your days are numbered
 export NODENV_ROOT="$(brew --prefix)/var/nodenv"
-if [[ -d $NODENV_ROOT && "$SHLVL" -eq 1 ]];then
+if [[ -d $NODENV_ROOT ]];then
     if which nodenv > /dev/null; then
       # initialize nodeenv
       eval "$(nodenv init -)"
