@@ -29,11 +29,7 @@ if [[ $1 == '--letterhead' ]]; then
     echo "Letterhead $letterhead does not exist" \
     exit 0
   fi
-fi
-
-if [ -n "$letterhead" ]; then
-  echo "Using letterhead $letterhead"
-  letterhead="letterhead:$letterhead"
+  shift
 fi
 
 if [ -z $1 ] || [ -z $2 ]; then
@@ -41,16 +37,30 @@ if [ -z $1 ] || [ -z $2 ]; then
   exit 1
 fi
 
+
+if [ -n "$letterhead" ]; then
+  echo "Using letterhead $letterhead"
+  pandoc -s \
+    -V geometry:margin=1in \
+    -V fontsize:12pt \
+    -V mainfont:"Chaparral Pro" \
+    -V papersize:letter \
+    -V "signature:$letterheads/signature.pdf" \
+    -V 'signature-before:-0.5in}\hspace*{-0.6in' \
+    -V "signature-width:3in" \
+    -V "letterhead:$letterhead" \
+    -t latex \
+    --template=letter.tex \
+    --pdf-engine=xelatex  -o $2 $1
+  exit 0
+fi
+
 pandoc -s \
   -V geometry:margin=1in \
   -V fontsize:12pt \
   -V mainfont:"Chaparral Pro" \
   -V papersize:letter \
-  -V "signature:$letterheads/signature.pdf" \
-  -V 'signature-before:-0.5in}\hspace*{-0.6in' \
-  -V "signature-width:3in" \
-  -V "$letterhead" \
-  -t latex \
-  --template=letter.tex \
   --pdf-engine=xelatex  -o $2 $1
+
+
 

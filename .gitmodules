@@ -81,7 +81,7 @@
   url =  git://github.com/chrisbra/vim-zsh.git
 [submodule "dotfiles/janus/fzf.vim"]
 	path = dotfiles/vim-plugins/fzf.vim
-	url = git://github.com/junegunn/fzf.vim.git
+	url = git://github.com/davenquinn/fzf.vim.git
 [submodule "dotfiles/janus/iceberg.vim"]
 	path = dotfiles/vim-plugins/iceberg.vim
 	url = git://github.com/cocopon/iceberg.vim.git
