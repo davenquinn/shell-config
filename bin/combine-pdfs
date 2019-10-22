@@ -1,0 +1,6 @@
+#!/bin/bash
+
+last=${@:$#} # last parameter 
+other=${*%${!#}} # all parameters except the last
+
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="$last" $other

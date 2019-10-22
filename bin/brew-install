@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+packages="
+fzf
+zsh
+git
+coreutils
+z
+hub
+pyenv
+pipenv
+"
+
+core_casks="
+atom
+macvim
+"
+
+gui_casks="
+zotero
+adobe-creative-cloud
+mactex
+docker
+"
+
+for f in $packages; do
+  echo $f
+done

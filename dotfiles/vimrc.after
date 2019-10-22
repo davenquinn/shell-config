@@ -86,3 +86,7 @@ augroup AuNERDTreeCmd
   autocmd!
 augroup end
 
+" EasyMotion with basic leader
+" ,w - words
+" ,L - line
+"map <Leader> <Plug>(easymotion-prefix)

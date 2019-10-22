@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+bundle_id=$(osascript -e 'id of app "Spark"')
+
+duti -s $bundle_id mailto

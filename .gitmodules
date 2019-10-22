@@ -118,3 +118,6 @@
 [submodule "atom-themes/perplex-light-syntax"]
 	path = atom-themes/perplex-light-syntax
 	url = git://github.com/davenquinn/perplex-syntax.git
+[submodule "dotfiles/vim-plugins/vim-node"]
+	path = dotfiles/vim-plugins/vim-node
+	url = git://github.com/moll/vim-node.git

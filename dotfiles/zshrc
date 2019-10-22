@@ -12,7 +12,7 @@ fi
 
 # Setup path (maybe should go in zshenv)
 export DOTFILES="$HOME/Environment/shell-config"
-export LOCALBIN="$HOME/bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
+export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$HOME/Library/Haskell/bin"
 export PATH="$LOCALBIN:$PATH"
 export LDFLAGS="-L/usr/local/lib"
 # People suck
@@ -214,6 +214,16 @@ function pip-parent () {
   "${pyexe:h}/pip" $@
 }
 
+function pip2 () {
+  "$HOME/.pyenv/shims/pip" $@
+  pyenv rehash
+}
+
+function pip () {
+  "$HOME/.pyenv/shims/pip3" $@
+  pyenv rehash
+}
+
 alias ls='ls --color'
 alias f="mvim -v +VimFiler"
 alias vim="mvim -v"
@@ -235,4 +245,7 @@ alias cdenv="cd $DOTFILES"
 
 # Use our custom implementation of `tab`
 unalias tab 2> /dev/null
+
+# This creates some confusing problems sometimes
+unsetopt auto_cd
 
