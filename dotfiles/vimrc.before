@@ -206,7 +206,6 @@ let g:vimfiler_tree_opened_icon = "▼"
 let g:vimfiler_tree_closed_icon = "▶︎"
 let g:vimfiler_quick_look_command = 'qlmanage -p'
 
-autocmd FileType vimfiler nmap <buffer> <2-LeftMouse>	<Plug>(vimfiler_expand_or_edit)
 autocmd FileType vimfiler nnoremap <silent> <Up> k
 autocmd FileType vimfiler nnoremap <silent> <Down> j
 autocmd FileType vimfiler nmap <buffer> <Left> <Plug>(vimfiler_smart_h)
@@ -218,7 +217,7 @@ autocmd FileType vimfiler nmap <buffer> w <Leader>j
 nmap <Leader>m :<C-u>call vimfiler#mappings#do_switch_action('vsplit')<CR>
 
 "autocmd FileType vimfiler DisableWhitespace
-let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler', 'terminal']
+let g:extra_whitespace_ignored_filetypes = ['unite', 'defx', 'terminal']
 
 """ <C-w>f opens file in a new vertical split
 autocmd FileType javascript,coffee nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile

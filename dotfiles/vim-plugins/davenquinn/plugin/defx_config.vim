@@ -47,10 +47,12 @@ function! s:defx_cd_or_open_file() abort
 endfunction
 
 function! s:defx_keymaps() abort
-  " double click/Enter/l to open file
+  " double click/Enter/l/left-arrow to open file
   nnoremap <silent><buffer><expr> <2-LeftMouse> <sid>defx_toggle_tree_or_open_file()
   nnoremap <silent><buffer><expr> <CR> <sid>defx_toggle_tree_or_open_file()
+
   nnoremap <silent><buffer><expr> l    <sid>defx_cd_or_open_file()
+  nnoremap <silent><buffer><expr> <Left> <sid>defx_cd_or_open_file()
 
   nnoremap <silent><buffer><expr> q     defx#do_action('quit')
   nnoremap <silent><buffer><expr> .     defx#do_action('toggle_ignored_files')
@@ -118,3 +120,6 @@ augroup defx_group
 augroup END
 
 map <C-e> :Defx -toggle<CR>
+"noremap <silent> <Leader>f :bp \| :VimFilerBufferDir  -auto-cd -create<CR>
+noremap <silent> <Leader>f :Defx -toggle<CR>
+
