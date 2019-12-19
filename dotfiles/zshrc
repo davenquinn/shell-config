@@ -225,8 +225,14 @@ function pip () {
 }
 
 alias ls='ls --color'
-alias f="mvim -v +VimFiler"
-alias vim="mvim -v"
+
+if [[ $(uname) == 'Darwin' ]]; then
+  alias f="mvim -v +VimFiler"
+  alias vim="mvim -v"
+else
+  alias f="vim -v +VimFiler"
+  alias mvim="vim"
+fi
 
 # Enables moving with wildcards *.c.orig orig/*.c
 alias mmv='noglob zmv -W'
