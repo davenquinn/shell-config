@@ -249,3 +249,6 @@ unalias tab 2> /dev/null
 # This creates some confusing problems sometimes
 unsetopt auto_cd
 
+# NPM configuration
+export npm_config_python=python2.7
+export npm_config_save=true

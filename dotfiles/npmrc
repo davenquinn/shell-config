@@ -1,6 +1,0 @@
-python=python2.7
-save=true
-@macrostrat:registry=https://registry.npmjs.org/
-scope=macrostrat
-access=public
-//registry.npmjs.org/:_authToken=b5a1a664-2744-4695-a137-03d7c0e7853f
