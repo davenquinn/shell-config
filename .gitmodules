@@ -52,9 +52,6 @@
 [submodule "bin/pg-backup-all"]
 	path = bin/pg-backup-all
 	url = git://github.com/davenquinn/pg-backup-all.git
-[submodule "dotfiles/janus/vimfiler.vim"]
-	path = dotfiles/vim-plugins/vimfiler.vim
-  url = git://github.com/Shougo/vimfiler.vim.git
 [submodule "dotfiles/janus/goyo.vim"]
 	path = dotfiles/vim-plugins/goyo.vim
   url = git://github.com/junegunn/goyo.vim.git
@@ -121,3 +118,12 @@
 [submodule "dotfiles/vim-plugins/vim-node"]
 	path = dotfiles/vim-plugins/vim-node
 	url = git://github.com/moll/vim-node.git
+[submodule "dotfiles/vim-plugins/defx"]
+	path = dotfiles/vim-plugins/defx
+	url = git://github.com/Shougo/defx.nvim.git
+[submodule "dotfiles/vim-plugins/vim-hug-neovim-rpc"]
+	path = dotfiles/vim-plugins/vim-hug-neovim-rpc
+	url = git://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule "dotfiles/vim-plugins/nvim-yarp"]
+	path = dotfiles/vim-plugins/nvim-yarp
+	url = git://github.com/roxma/nvim-yarp.git
