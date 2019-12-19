@@ -16,6 +16,8 @@
     disabledPackages: [
       "docker"
       "language-r"
+      "linter-coffee-variables"
+      "linter"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -28,20 +30,36 @@
     accentColor: "purple"
   editor:
     fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 13
     scrollPastEnd: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
+  "file-types":
+    "^Dockerfile\\..*$": "source.dockerfile"
   "git-log": {}
+  "ide-python":
+    python: "/Users/Daven/.pyenv/shims/python"
   kite:
     showWelcomeNotificationOnStartup: false
+  "linter-ui-default":
+    panelHeight: 300
+    showPanel: true
   "mojave-dark-mode":
     darkProfile: "one-dark-ui perplex-syntax"
     lightProfile: "one-light-ui perplex-syntax"
+  "theme-toggler":
+    darkSyntaxTheme: "perplex-syntax"
+    darkUiTheme: "one-dark-ui"
+    lightSyntaxTheme: "perplex-light-syntax"
+    lightUiTheme: "one-light-ui"
   touchbar:
     buttons: "[{\"name\":\"toggle-command-palette\",\"type\":\"button\",\"label\":\"Commands\",\"command\":\"command-palette:toggle\"},{\"name\":\"color-picker\",\"type\":\"color-picker\"},{\"name\":\"spacer\",\"type\":\"button\",\"size\":\"small\",\"label\":\"\",\"command\":\"tree-view:toggle\",\"color\":\"#00716c\",\"icon\":\"NSTouchBarSidebarTemplate\",\"iconColor\":\"white\"},{\"name\":\"toggle-github\",\"type\":\"button\",\"label\":\"GitHub\",\"color\":\"#919191\",\"command\":\"github:toggle-github-tab\"}]"
   "tree-view": {}
   welcome:
     showOnStartup: false
+  zentabs:
+    maximumOpenedTabs: 4
+    neverCloseUnsaved: true
 ".css.source.stylus":
   editor:
     showIndentGuide: true

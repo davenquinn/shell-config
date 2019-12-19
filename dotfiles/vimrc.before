@@ -220,6 +220,9 @@ nmap <Leader>m :<C-u>call vimfiler#mappings#do_switch_action('vsplit')<CR>
 "autocmd FileType vimfiler DisableWhitespace
 let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler', 'terminal']
 
+""" <C-w>f opens file in a new vertical split
+autocmd FileType javascript,coffee nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile
+autocmd FileType javascript,coffee nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile
 "
 "Vim-pencil
 

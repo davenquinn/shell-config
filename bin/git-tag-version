@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+ver=$1
+if [ -f package.json ]; then
+  ver=$(cat package.json | jq -r .version)
+fi
+echo "Tagging v$ver"
+
+git tag -a v$ver -m "Version $ver"
+
