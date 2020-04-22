@@ -121,3 +121,6 @@
 [submodule "dotfiles/vim-plugins/vim-node"]
 	path = dotfiles/vim-plugins/vim-node
 	url = git://github.com/moll/vim-node.git
+[submodule "git-annex-remote-rclone"]
+	path = bin/annex-remote-rclone
+	url = git://github.com/DanielDent/git-annex-remote-rclone.git

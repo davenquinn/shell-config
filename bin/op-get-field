@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+[ -z OP_SESSION ] && eval $(op signin patelquinn)
+op get item "$1" | jq -r '.details.fields[] |select(.designation=="'$2'").value'
