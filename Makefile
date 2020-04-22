@@ -1,5 +1,6 @@
 .PHONY: clean
 
 clean:
-	git submodule foreach git clean -f
+	cd dotfiles/vim \
+	&& git submodule foreach git clean -f
 
