@@ -2,13 +2,25 @@
 # connects to SSH through openconnect and VPN
 # for use with ProxyCommand in SSH
 
+port=9053
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    -p|--port)
+      local port=$2
+      shift
+      ;;
+  esac
+  shift
+done
+
 op_item="University of Wisconsin – Madison"
 vpn_address="uwmadison.vpn.wisc.edu"
-port=9053
 
 function h {
   echo "$(tput bold)$1$(tput sgr0)"
 }
+
+echo "Running VPN on port $port"
 
 proxy_pid=$(lsof -t -i :$port)
 if [[ ! -z "$proxy_pid" ]] ; then
@@ -22,13 +34,13 @@ fi
 op-get-field "$op_item" password \
 | xargs \
 | openconnect \
-  --reconnect-timeout 60 \
   --no-dtls \
   --script-tun \
+  --protocol=gp \
+  --reconnect-timeout 60 \
   --script "ocproxy -D $port" \
   --user=$(op-get-field "$op_item" username) \
-  --protocol=gp \
-  --csd-wrapper=openconnect-hipreport \
+  --csd-wrapper="$(which openconnect-hipreport)" \
   $vpn_address &
 vpn_pid=$!
 
