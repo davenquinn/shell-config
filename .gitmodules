@@ -127,3 +127,6 @@
 [submodule "dotfiles/vim-plugins/nvim-yarp"]
 	path = dotfiles/vim-plugins/nvim-yarp
 	url = git://github.com/roxma/nvim-yarp.git
+[submodule "git-annex-remote-rclone"]
+	path = bin/annex-remote-rclone
+	url = git://github.com/DanielDent/git-annex-remote-rclone.git

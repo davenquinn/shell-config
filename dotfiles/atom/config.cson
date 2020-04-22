@@ -1,6 +1,16 @@
 "*":
   Hydrogen:
     kernelNotifications: true
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui": {}
+    "atom-ide-signature-help": {}
+    use:
+      "atom-ide-code-highlight": "never"
+  "atom-typescript":
+    ignoredDiagnosticCodes: [
+      "2307"
+      "7016"
+    ]
   "autocomplete-bibtex":
     bibtex: [
       "~/Resources/Papers/library.bib"
@@ -12,12 +22,20 @@
     ]
   "autocomplete-python":
     useKite: false
+  "city-lights-ui": {}
   core:
+    customFileTypes:
+      ".ts": "source.ts"
+      "^Dockerfile\\..*$": "source.dockerfile"
     disabledPackages: [
       "docker"
       "language-r"
       "linter-coffee-variables"
+      "language-typescript-grammars-only"
+      "file-types"
+      "linter-ui-default"
       "linter"
+      "language-mdx"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -25,28 +43,53 @@
       "perplex-syntax"
     ]
     titleBar: "custom"
-    useTreeSitterParsers: false
   "dark-flat-ui":
     accentColor: "purple"
   editor:
     fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 13
     scrollPastEnd: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
-  "file-types":
-    "^Dockerfile\\..*$": "source.dockerfile"
   "git-log": {}
   "ide-python":
+    pylsPlugins:
+      flake8: {}
+      pycodestyle: {}
     python: "/Users/Daven/.pyenv/shims/python"
+  "isotope-ui":
+    fontFamily: "Fira Sans"
+    fontWeight: "Light"
+    minimalMode: true
+  "js-hyperclick":
+    extensions: [
+      ".js"
+      ".json"
+      ".node"
+      ".ts"
+    ]
   kite:
     showWelcomeNotificationOnStartup: false
   "linter-ui-default":
+    decorateOnTreeView: "None"
     panelHeight: 300
-    showPanel: true
+  minimap: {}
   "mojave-dark-mode":
     darkProfile: "one-dark-ui perplex-syntax"
     lightProfile: "one-light-ui perplex-syntax"
+  "one-dark-ui":
+    stickyHeaders: true
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        blue: "#361fa7"
+      zBright:
+        brightBlue: "#7b26fe"
+    style:
+      theme: "city-lights"
+  "terminal-plus":
+    core: {}
+    style:
+      theme: "dracula"
   "theme-toggler":
     darkSyntaxTheme: "perplex-syntax"
     darkUiTheme: "one-dark-ui"
@@ -55,10 +98,15 @@
   touchbar:
     buttons: "[{\"name\":\"toggle-command-palette\",\"type\":\"button\",\"label\":\"Commands\",\"command\":\"command-palette:toggle\"},{\"name\":\"color-picker\",\"type\":\"color-picker\"},{\"name\":\"spacer\",\"type\":\"button\",\"size\":\"small\",\"label\":\"\",\"command\":\"tree-view:toggle\",\"color\":\"#00716c\",\"icon\":\"NSTouchBarSidebarTemplate\",\"iconColor\":\"white\"},{\"name\":\"toggle-github\",\"type\":\"button\",\"label\":\"GitHub\",\"color\":\"#919191\",\"command\":\"github:toggle-github-tab\"}]"
   "tree-view": {}
+  "vim-mode-plus":
+    blackholeRegisteredOperators: [
+      "delete*"
+    ]
+    hideTabBarOnMaximizePane: false
   welcome:
     showOnStartup: false
   zentabs:
-    maximumOpenedTabs: 4
+    maximumOpenedTabs: 6
     neverCloseUnsaved: true
 ".css.source.stylus":
   editor:

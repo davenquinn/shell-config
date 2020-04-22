@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+# connects to SSH through openconnect and VPN
+# for use with ProxyCommand in SSH
+
+op_item="University of Wisconsin – Madison"
+vpn_address="uwmadison.vpn.wisc.edu"
+port=9053
+
+function h {
+  echo "$(tput bold)$1$(tput sgr0)"
+}
+
+proxy_pid=$(lsof -t -i :$port)
+if [[ ! -z "$proxy_pid" ]] ; then
+  >&2 echo "SOCKS proxy port $(h $port) already in use, exiting."
+  exit 1
+fi
+
+
+>&2 echo $(h "Starting OpenConnect VPN")
+# first run openconnect
+op-get-field "$op_item" password \
+| xargs \
+| openconnect \
+  --reconnect-timeout 60 \
+  --no-dtls \
+  --script-tun \
+  --script "ocproxy -D $port" \
+  --user=$(op-get-field "$op_item" username) \
+  --protocol=gp \
+  --csd-wrapper=openconnect-hipreport \
+  $vpn_address &
+vpn_pid=$!
+
+sleep 1
+
+proxy_pid=$(lsof -t -i :$port)
+
+>&2 echo $vpn_pid $proxy_pid $1 $2
+
+# kill connection on exit
+function cleanup {
+  >&2 echo $(h "Stopping OpenConnect VPN")
+  kill -9 $vpn_pid
+  kill -9 $proxy_pid
+}
+trap cleanup EXIT
+
+## redirect traffic (standard input and output) through VPN
+if [[ ! -z $1 ]] ; then
+  nc -X 5 -x 127.0.0.1:$port $1 $2
+else
+  wait
+fi

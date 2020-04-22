@@ -1,6 +1,9 @@
 set nocompatible
 let mapleader = ","
 
+" Vim-EasyMotion:
+" navigate words with <Leader><Leader>,
+
 " Remaps search highlighting to clear with backslash
 nnoremap \ :noh<return><esc>
 " Remaps semicolon to the command leader (may change back to <space>)
@@ -59,15 +62,6 @@ ca Wow Gstatus
 
 " word whitelist
 set spellfile=$HOME/.words/en.utf-8.add
-
-" NERDTree
-" Adds some files to NerdTreeIgnore
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
-let NERDTreeIgnore += ['\.DS_Store$','\.egg-info$[[dir]]','.sass-cache','__pycache__']
-
-let NERDTreeSortOrder = [ '\/$','\.do$',"Makefile$",'']
-ca Tree NERDTreeToggle
-
 
 if v:version < 704
   let g:pandoc#modules#disabled += ["bibliographies","command"]
@@ -188,11 +182,8 @@ hi link pandocFilterCommentDelimiter Delimiter
 hi link pandocFilterBoxDelimiter Delimiter
 hi link pandocFilterHighlightDelimiter Delimiter
 
-"autocmd VimEnter * if !argc() | VimFiler | endif
+"Disable nerdtree and enable vimfiler
 let g:NERDTreeHijackNetrw=0
-
-"
-"nerdtree stuff
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1

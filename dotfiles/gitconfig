@@ -7,6 +7,9 @@
   # Makes a pretty chart
   graph = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(bold cyan)%d%Creset %s %Cgreen(%cr)%Creset [%C(blue)%an%Creset]' --abbrev-commit
 
+  # Execute a command at git root
+  exec = !"exec "
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 

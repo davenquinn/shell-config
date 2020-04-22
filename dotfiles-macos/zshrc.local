@@ -117,3 +117,4 @@ function steno-tunnel-web() {
 function docker-killall {
   docker stop $(docker ps -a -q)
 }
+

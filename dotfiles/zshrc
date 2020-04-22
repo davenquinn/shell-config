@@ -258,3 +258,6 @@ unsetopt auto_cd
 # NPM configuration
 export npm_config_python=python2.7
 export npm_config_save=true
+
+# Pipenv configuration
+export PIPENV_IGNORE_VIRTUALENVS=1
