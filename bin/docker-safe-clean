@@ -25,8 +25,6 @@ function print-padded() {
   while IFS= read -r line ; do echo "  $line"; done
 }
 
-echo $dry_run
-
 if [ $dry_run == 1 ]; then
   echo "Volumes to delete:"
   echo "$filtered_volumes" | print-padded
@@ -52,6 +50,14 @@ else
 
   echo ""
   echo "Docker system prune (destroys containers but not data)"
+  echo ""
   docker system prune
+
+  echo ""
+  echo "...more aggressive system prune (destroy images for non-running containers)"
+  echo "   Only run this if you have a suitable network connection to re-download"
+  echo "   your base images!"
+  echo ""
+  docker system prune -a
 fi
 
