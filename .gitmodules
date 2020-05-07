@@ -124,3 +124,6 @@
 [submodule "git-annex-remote-rclone"]
 	path = bin/annex-remote-rclone
 	url = git://github.com/DanielDent/git-annex-remote-rclone.git
+[submodule "deps/docker-safe-clean"]
+	path = deps/docker-safe-clean
+	url = git://github.com/davenquinn/docker-safe-clean.git
