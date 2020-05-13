@@ -1,5 +1,5 @@
 .PHONY: clean
 
 clean:
-	git submodule foreach git clean -f
+	git submodule foreach --recursive git clean -f
 
