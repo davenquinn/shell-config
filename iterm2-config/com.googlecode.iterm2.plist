@@ -47052,7 +47052,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>280 343 642 442 0 0 1440 900 </string>
+	<string>760 326 650 453 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>414 308 650 452 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_E421EDCD-36A6-4E47-85D3-F1AE7A731745</key>
@@ -49150,7 +49150,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>7BD8D8C1-2F6F-41F2-8771-F78C2F4937C7</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>22</integer>
+	<integer>23</integer>
 	<key>NoSyncNewTabFromTmuxOpensTmux</key>
 	<true/>
 	<key>NoSyncNewTabFromTmuxOpensTmux_selection</key>
@@ -49973,7 +49973,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-25T19:36:44Z</date>
+	<date>2020-05-12T20:19:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -49994,6 +49994,8 @@
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.3.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>

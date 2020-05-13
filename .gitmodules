@@ -127,3 +127,6 @@
 [submodule "deps/docker-safe-clean"]
 	path = deps/docker-safe-clean
 	url = git://github.com/davenquinn/docker-safe-clean.git
+[submodule "core"]
+	path = core
+	url = git://github.com/davenquinn/core-shell-config.git
