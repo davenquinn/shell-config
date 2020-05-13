@@ -118,3 +118,6 @@ function docker-killall {
   docker stop $(docker ps -a -q)
 }
 
+function sst {
+  ssh -t $@ "tmux -CC attach || tmux -CC new";
+}
