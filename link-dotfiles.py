@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
-from os.path import dirname, expanduser
+from os.path import expanduser
 from pathlib import Path
 import click
 from click import style, echo, confirm
-from functools import partial
 from subprocess import call
 
 home = Path(expanduser("~"))
 here = Path(__file__).resolve().parent
-dotfiles = here/"dotfiles"
+core_dotfiles = here/"core"/"dotfiles"
+local_dotfiles = here/"dotfiles"
 
 cyan = lambda s: style(str(s),fg="cyan")
 magenta = lambda s: style(str(s),fg="magenta")
@@ -31,8 +31,8 @@ def symlink_path(p):
     echo(s)
     loc.symlink_to(p)
 
-def make_symlinks(files):
-    results = (symlink_path(i) for i in  files)
+def make_symlinks(dir):
+    results = (symlink_path(i) for i in  dir.iterdir())
     remainders = list(filter(lambda x: x is not None, results))
     if len(remainders) == 0: return
     linkfiles = list(map(linkfile, remainders))
@@ -66,7 +66,8 @@ def dotfile_cmd(profile,list):
             magenta(i)
         return
 
-    make_symlinks(dotfiles.iterdir())
+    make_symlinks(core_dotfiles)
+    make_symlinks(local_dotfiles)
 
     if profile is None:
         echo("No profile-specific dotfiles were linked. "

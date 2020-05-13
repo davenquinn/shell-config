@@ -1,7 +1,0 @@
-default_context:
-    full_name: "Daven Quinn"
-    email: "dev@davenquinn.com"
-    github_username: "davenquinn"
-abbreviations:
-    pypackage: https://github.com/audreyr/cookiecutter-pypackage.git
-    gh: https://github.com/{0}.git

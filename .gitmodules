@@ -7,9 +7,6 @@
 [submodule "dotfiles/janus/vim-pandoc"]
 	path = dotfiles/vim-plugins/vim-pandoc
         url = https://github.com/vim-pandoc/vim-pandoc.git
-[submodule "dotfiles/janus/csapprox"]
-	path = dotfiles/vim-plugins/csapprox
-	      url = git://github.com/godlygeek/csapprox.git
 [submodule "bin/prm"]
         path = bin/prm
         url = https://github.com/eivind88/prm
@@ -52,9 +49,6 @@
 [submodule "bin/pg-backup-all"]
 	path = bin/pg-backup-all
 	url = git://github.com/davenquinn/pg-backup-all.git
-[submodule "dotfiles/janus/vimfiler.vim"]
-	path = dotfiles/vim-plugins/vimfiler.vim
-  url = git://github.com/Shougo/vimfiler.vim.git
 [submodule "dotfiles/janus/goyo.vim"]
 	path = dotfiles/vim-plugins/goyo.vim
   url = git://github.com/junegunn/goyo.vim.git
@@ -127,3 +121,6 @@
 [submodule "deps/docker-safe-clean"]
 	path = deps/docker-safe-clean
 	url = git://github.com/davenquinn/docker-safe-clean.git
+[submodule "core"]
+	path = core
+	url = git://github.com/davenquinn/core-shell-config.git

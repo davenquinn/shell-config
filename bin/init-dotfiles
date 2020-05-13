@@ -1,22 +1,18 @@
 #!/usr/bin/env zsh
+# A simpler dotfiles linker that relies only on zsh
 
-dn="${0:a:h:h}/dotfiles"
+function link-dir {
+  # Link dotfiles for a single directory
+  cd "$1"
+  for f in $(ls .); do
+    fp="$1/$f"
+    ln -sf "$fp" "$HOME/.$f"
+    echo "$fp -> ~/.$f"
+  done
+}
 
-cd "$dn"
-for f in $(ls .); do
-  fp="$dn/$f"
-  echo $fp
-  ln -sf "$fp" "$HOME/.$f"
-done
-
+# Start with core dotfiles
+link-dir "${0:a:h:h}/core/dotfiles"
+link-dir "${0:a:h:h}/dotfiles"
 [ -z $1 ] && exit 0
-
-dn="$dn-$1"
-
-cd "$dn"
-for f in $(ls .); do
-  fp="$dn/$f"
-  echo $fp
-  ln -sf "$fp" "$HOME/.$f"
-done
-
+link-dir "$dn-$1"

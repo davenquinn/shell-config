@@ -1,5 +1,6 @@
 *.log
 *.sqlite
+.DS_Store
 
 dotfiles-macos/karabiner.d/log/*.txt
 dotfiles/ipython/profile_default/security
