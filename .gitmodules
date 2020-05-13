@@ -22,9 +22,6 @@
 [submodule "bin/gitwatch"]
         path = bin/gitwatch
         url = https://github.com/davenquinn/gitwatch.git
-[submodule "dotfiles/janus/unite.vim"]
-	path = dotfiles/vim-plugins/unite.vim
-        url = https://github.com/Shougo/unite.vim.git
 [submodule "dotfiles/janus/vim-alphamelts-syntax"]
 	path = dotfiles/janus/vim-alphamelts-syntax
 	url = https://github.com/davenquinn/vim-alphamelts-syntax.git
