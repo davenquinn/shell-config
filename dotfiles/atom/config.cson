@@ -1,12 +1,17 @@
 "*":
   Hydrogen:
     kernelNotifications: true
+  "atom-beautify":
+    general:
+      _analyticsUserId: "a9103aef-b7b1-45bf-bbe9-83e78636a771"
   "atom-ide-ui":
     "atom-ide-diagnostics-ui": {}
     "atom-ide-signature-help": {}
     use:
       "atom-ide-code-highlight": "never"
+      "atom-ide-diagnostics-ui": "never"
   "atom-typescript":
+    allowJS: true
     ignoredDiagnosticCodes: [
       "2307"
       "7016"
@@ -15,12 +20,10 @@
     bibtex: [
       "~/Resources/Papers/library.bib"
     ]
-  "autocomplete-plus":
-    fileBlacklist: [
-      ".*"
-      "*.md"
-    ]
+    scope: ".source.gfm,.text.md, .md"
+  "autocomplete-plus": {}
   "autocomplete-python":
+    enableTouchBar: true
     useKite: false
   "city-lights-ui": {}
   core:
@@ -33,13 +36,13 @@
       "linter-coffee-variables"
       "language-typescript-grammars-only"
       "file-types"
-      "linter-ui-default"
-      "linter"
       "language-mdx"
+      "ide-python"
+      "platformio-ide-terminal"
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
+      "one-dark-ui"
       "perplex-syntax"
     ]
     titleBar: "custom"
@@ -55,6 +58,7 @@
     pylsPlugins:
       flake8: {}
       pycodestyle: {}
+      pyflakes: {}
     python: "/Users/Daven/.pyenv/shims/python"
   "isotope-ui":
     fontFamily: "Fira Sans"
@@ -70,7 +74,6 @@
   kite:
     showWelcomeNotificationOnStartup: false
   "linter-ui-default":
-    decorateOnTreeView: "None"
     panelHeight: 300
   minimap: {}
   "mojave-dark-mode":
@@ -86,6 +89,13 @@
         brightBlue: "#7b26fe"
     style:
       theme: "city-lights"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNotInPackageJson: true
+  "python-black":
+    binPath: "/Users/Daven/.pyenv/versions/Sci-Python3.8/bin/black"
+    showErrors: "flash"
   "terminal-plus":
     core: {}
     style:

@@ -99,3 +99,5 @@ export PIPENV_SKIP_LOCK=true
 export ITERMPLOT=rv
 
 
+
+export PATH="$HOME/.poetry/bin:$PATH"

@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if [ "$1" = "--root-dir" ]; then
+  echo "${0:h:h}"
+fi
+
+if [ "$1" = "--dotfiles-dir" ]; then
+  echo "${0:h:h}/dotfiles"
+fi

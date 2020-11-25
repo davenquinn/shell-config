@@ -226,14 +226,6 @@ function pip () {
 
 alias ls='ls --color'
 
-if [[ $(uname) == 'Darwin' ]]; then
-  alias f="mvim -v +VimFiler"
-  alias vim="mvim -v"
-else
-  alias f="vim -v +VimFiler"
-  alias mvim="vim"
-fi
-
 # Enables moving with wildcards *.c.orig orig/*.c
 alias mmv='noglob zmv -W'
 
@@ -241,10 +233,6 @@ alias mmv='noglob zmv -W'
 fn="$HOME/.common-aliases"
 if [[ -f "$fn" ]]; then
   source "$fn"
-fi
-
-if command -v hub >/dev/null 2>&1 ; then
-  alias git='hub'
 fi
 
 alias cdenv="cd $DOTFILES"
@@ -261,3 +249,5 @@ export npm_config_save=true
 
 # Pipenv configuration
 export PIPENV_IGNORE_VIRTUALENVS=1
+
+export PATH="$HOME/.poetry/bin:$PATH"

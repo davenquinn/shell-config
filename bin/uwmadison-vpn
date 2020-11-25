@@ -13,6 +13,8 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
+[ -z $OP_SESSION ] && eval $(op signin)
+
 op_item="University of Wisconsin – Madison"
 vpn_address="uwmadison.vpn.wisc.edu"
 

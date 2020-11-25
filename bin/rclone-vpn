@@ -1,0 +1,4 @@
+#!/bin/bash
+# Mostly just a record that we can do this
+# Run uw-madison-vpn first
+http_proxy="socks5://127.0.0.1:9053" rclone $@
