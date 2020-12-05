@@ -12,10 +12,15 @@
       "atom-ide-diagnostics-ui": "never"
   "atom-typescript":
     allowJS: true
+    disableAtomIdeDefinitions: true
     ignoredDiagnosticCodes: [
       "2307"
       "7016"
     ]
+    preferBuiltinOccurrenceHighlight: true
+    sigHelpDisplayOnChange: false
+    preferBuiltinSigHelp: true
+    preferBuiltinTooltips: true
   "autocomplete-bibtex":
     bibtex: [
       "~/Resources/Papers/library.bib"
@@ -39,6 +44,7 @@
       "language-mdx"
       "ide-python"
       "platformio-ide-terminal"
+      "atom-ide-ui"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -50,6 +56,7 @@
     accentColor: "purple"
   editor:
     fontFamily: "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 13
     scrollPastEnd: true
   "exception-reporting":
     userId: "a655fd27-83ed-49f4-9c0d-75ec94b289c0"
@@ -92,7 +99,7 @@
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
-      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
   "python-black":
     binPath: "/Users/Daven/.pyenv/versions/Sci-Python3.8/bin/black"
     showErrors: "flash"
