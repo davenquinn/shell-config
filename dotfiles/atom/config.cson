@@ -18,9 +18,6 @@
       "7016"
     ]
     preferBuiltinOccurrenceHighlight: true
-    sigHelpDisplayOnChange: false
-    preferBuiltinSigHelp: true
-    preferBuiltinTooltips: true
   "autocomplete-bibtex":
     bibtex: [
       "~/Resources/Papers/library.bib"
@@ -44,7 +41,11 @@
       "language-mdx"
       "ide-python"
       "platformio-ide-terminal"
-      "atom-ide-ui"
+      "teletype"
+      "linter-ui-default"
+      "linter"
+      "hyperclick"
+      "goto-definition"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -88,14 +89,6 @@
     lightProfile: "one-light-ui perplex-syntax"
   "one-dark-ui":
     stickyHeaders: true
-  "platformio-ide-terminal":
-    ansiColors:
-      normal:
-        blue: "#361fa7"
-      zBright:
-        brightBlue: "#7b26fe"
-    style:
-      theme: "city-lights"
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true

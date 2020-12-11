@@ -1,0 +1,85 @@
+{
+  "workbench.colorTheme": "Palenight Theme",
+  "editor.tokenColorCustomizations": {
+    "[Palenight Theme]": {
+      "textMateRules": [
+        {
+          "scope": "support.type.property-name.json",
+          "settings": {
+            "foreground": "#998bc0"
+          }
+        },
+        {
+          "scope": ["string", "string.quoted"],
+          "settings": {
+            "foreground": "#5ecfb3"
+          }
+        },
+        {
+          "scope": ["punctuation.definition.string"],
+          "settings": {
+            "foreground": "#45665e"
+          }
+        },
+        {
+          "scope": "variable.language",
+          "settings": {
+            "foreground": "#6479d8"
+          }
+        },
+        {
+          "scope": [
+            "meta.brace",
+            "punctuation",
+            "meta.import.ts punctuation.definition.block"
+          ],
+          "settings": {
+            "foreground": "#666666"
+          }
+        }
+      ]
+    }
+  },
+  "workbench.colorCustomizations": {
+    "editor.background": "#1d2130",
+    "gitDecoration.untrackedResourceForeground": "#21a886",
+    "gitDecoration.ignoredResourceForeground": "#888888",
+    "tree.indentGuidesStroke": "#1d2130",
+    "editorIndentGuide.background": "#202632"
+  },
+  "workbench.activityBar.visible": false,
+  "editor.fontSize": 13,
+  "editor.fontFamily": "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace",
+  "editor.tabSize": 2,
+  "workbench.tree.indent": 14,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 0,
+  "editor.fontLigatures": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
+}

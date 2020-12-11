@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+for f in settings.json snippets ; do
+  fn="$HOME/Library/Application Support/Code/User/$f"
+  rm -rf "$fn"
+  ln -s "${0:h:h}/vs-code/$f" "$fn"
+done
