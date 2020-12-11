@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+convert \
+   -verbose \
+   -density 150 \
+   "$1" \
+   -quality 80   \
+   -background white \
+   -alpha remove \
+   ${2}'-%02d.png'
+
