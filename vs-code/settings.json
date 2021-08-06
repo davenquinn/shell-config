@@ -1,8 +1,14 @@
 {
-  "workbench.colorTheme": "Palenight Theme",
+  "workbench.colorTheme": "Ysgrifennwr",
   "editor.tokenColorCustomizations": {
     "[Palenight Theme]": {
       "textMateRules": [
+        {"scope": ["meta.class entity.name.type.class"],
+          "settings": {
+            "foreground": "#7476e9",
+            "fontStyle": "bold"
+          }
+        },
         {
           "scope": "support.type.property-name.json",
           "settings": {
@@ -40,14 +46,7 @@
       ]
     }
   },
-  "workbench.colorCustomizations": {
-    "editor.background": "#1d2130",
-    "gitDecoration.untrackedResourceForeground": "#21a886",
-    "gitDecoration.ignoredResourceForeground": "#888888",
-    "tree.indentGuidesStroke": "#1d2130",
-    "editorIndentGuide.background": "#202632"
-  },
-  "workbench.activityBar.visible": false,
+  "workbench.colorCustomizations": {},
   "editor.fontSize": 13,
   "editor.fontFamily": "FiraCode-Retina, Menlo, Consolas, DejaVu Sans Mono, monospace",
   "editor.tabSize": 2,
@@ -66,7 +65,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 0,
   "editor.fontLigatures": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -76,10 +74,44 @@
     "configurations": [],
     "compounds": []
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "max-line-length = 88"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.requireConfig": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "problems.decorations.enabled": false,
+  "PandocCiter.DefaultBib": "/Users/Daven/Resources/Papers/library.bib",
+  "jupyter.askForKernelRestart": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 5,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.activityBar.visible": false,
+  "dayNightThemeSwitcher.nightTheme": "Palenight Theme",
+  "workbench.preferredDarkColorTheme": "Palenight Theme",
+  "workbench.preferredLightColorTheme": "Ysgrifennwr",
+  "window.autoDetectColorScheme": true,
+  "editor.inlineSuggest.enabled": true,
+  "window.zoomLevel": 1,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }

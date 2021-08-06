@@ -1,6 +1,7 @@
 # Subshells inherit already-declared variables so we
 # don't want to add to path etc.
 
+
 COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
 SED=$(brew --prefix gnu-sed)/libexec/gnubin
 export PATH="$SED:$COREUTILS:$PATH"

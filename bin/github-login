@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+[ -z OP_SESSION ] && eval $(op signin patelquinn)
+op get item GitHub

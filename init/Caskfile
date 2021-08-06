@@ -13,7 +13,4 @@ cask install transmission
 cask install virtualbox
 cask install vlc
 cask install deathtodsstore
-cask install mendeley-desktop
 cask install basictex
-cask install flash-player
-cask install lastpass-universal

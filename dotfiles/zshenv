@@ -12,5 +12,12 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   if [ -f $_local ]; then
     source $_local
   fi
+
+  export DOTFILES="$HOME/Environment/shell-config"
+  export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
+  export PATH="$LOCALBIN:$PATH"
+  export PATH="$HOME/.poetry/bin:$PATH"
+  export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
 fi
 

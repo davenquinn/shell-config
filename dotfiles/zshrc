@@ -11,9 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Setup path (maybe should go in zshenv)
-export DOTFILES="$HOME/Environment/shell-config"
-export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
-export PATH="$LOCALBIN:$PATH"
+
 export LDFLAGS="-L/usr/local/lib"
 # People suck
 export QUOTING_STYLE=literal
@@ -214,15 +212,6 @@ function pip-parent () {
   "${pyexe:h}/pip" $@
 }
 
-function pip2 () {
-  "$HOME/.pyenv/shims/pip" $@
-  pyenv rehash
-}
-
-function pip () {
-  "$HOME/.pyenv/shims/pip3" $@
-  pyenv rehash
-}
 
 alias ls='ls --color'
 
@@ -250,4 +239,3 @@ export npm_config_save=true
 # Pipenv configuration
 export PIPENV_IGNORE_VIRTUALENVS=1
 
-export PATH="$HOME/.poetry/bin:$PATH"
