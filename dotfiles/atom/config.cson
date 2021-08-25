@@ -49,8 +49,8 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "perplex-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     titleBar: "custom"
   "dark-flat-ui":

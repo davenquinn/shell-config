@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Ysgrifennwr",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "editor.tokenColorCustomizations": {
     "[Palenight Theme]": {
       "textMateRules": [
@@ -93,7 +93,6 @@
   "python.linting.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
-  "diffEditor.ignoreTrimWhitespace": false,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "problems.decorations.enabled": false,
@@ -105,13 +104,13 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "workbench.activityBar.visible": false,
   "dayNightThemeSwitcher.nightTheme": "Palenight Theme",
-  "workbench.preferredDarkColorTheme": "Palenight Theme",
+  "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
   "workbench.preferredLightColorTheme": "Ysgrifennwr",
   "window.autoDetectColorScheme": true,
   "editor.inlineSuggest.enabled": true,
-  "window.zoomLevel": 1,
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": false
 }
