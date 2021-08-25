@@ -2,16 +2,12 @@
 # connects to SSH through openconnect and VPN
 # for use with ProxyCommand in SSH
 
+# command can be start,stop,connect
+command=$1
+shift
+>&2 echo $command
+
 port=9053
-while [[ "$#" -gt 0 ]]; do
-  case $1 in
-    -p|--port)
-      local port=$2
-      shift
-      ;;
-  esac
-  shift
-done
 
 login_key="University of Wisconsin – Madison"
 vpn_address="uwmadison.vpn.wisc.edu"
@@ -20,51 +16,74 @@ function h {
   echo "$(tput bold)$1$(tput sgr0)"
 }
 
-echo "Running VPN on port $port"
+>&2 echo "Running VPN at host $host on port $port"
+
 
 proxy_pid=$(lsof -t -i :$port)
-if [[ ! -z "$proxy_pid" ]] ; then
-  >&2 echo "SOCKS proxy port $(h $port) already in use, exiting."
-  exit 1
-fi
 
-username=$(security \
-  find-generic-password -l $login_key \
-  | grep acct | sed -e 's/.*"\(.*\)"/\1/')
-
->&2 echo $(h "Starting OpenConnect VPN")
-
-
-# first run openconnect
-(security find-generic-password \
-  -l $login_key -w && echo "\n" && sleep 1 && echo "1") \
-| openconnect \
-  --verbose \
-  --protocol=gp \
-  --user=$username \
-  --script-tun \
-  --script "ocproxy -D $port" \
-  --usergroup ssl-vpn \
-  --csd-wrapper="$(which openconnect-hipreport)" \
-  $vpn_address &
-
-vpn_pid=$!
-sleep 1
-proxy_pid=$(lsof -t -i :$port)
-
->&2 echo $vpn_pid $proxy_pid $1 $2
-
-# kill connection on exit
 function cleanup {
   >&2 echo $(h "Stopping OpenConnect VPN")
-  kill -9 $vpn_pid
   kill -9 $proxy_pid
 }
-trap cleanup EXIT
+
+if [ $command = "stop" ]; then
+  cleanup
+  exit 0
+fi
+
+if [[ ! -z "$proxy_pid" ]] ; then
+  >&2 echo "SOCKS proxy port $(h $port) is running."
+  if [ $command = "stop" ]; then
+    cleanup
+    exit 0
+  fi
+else
+  if [ $command = "start" ]; then
+    >&2 echo $(h "Starting OpenConnect VPN")
+
+    username=$(security \
+      find-generic-password -l $login_key \
+      | grep acct | sed -e 's/.*"\(.*\)"/\1/')
+
+    # first run openconnect
+    (security find-generic-password \
+      -l $login_key -w && echo "\n" && sleep 1 && echo "1") \
+    | openconnect \
+      --protocol=gp \
+      --no-dtls \
+      --user=$username \
+      --script-tun \
+      --script "ocproxy -D $port" \
+      --usergroup ssl-vpn \
+      --csd-wrapper="$(which openconnect-hipreport)" \
+      --background \
+      $vpn_address
+
+    vpn_pid=$!
+    proxy_pid=$(lsof -t -i :$port)
+    sleep 5
+    >&2 echo $(h "Finished setting up VPN")
+    exit 0
+  fi
+fi
+
+
+# kill connection on exit
+#trap cleanup EXIT
+
 
 ## redirect traffic (standard input and output) through VPN
-if [[ ! -z $1 ]] ; then
+if [ $command = 'connect' ] ; then
+  $0 start
+  >&2 echo "Serving with netcat"
+  >&2 echo $proxy_pid $port $1 $2
   nc -X 5 -x 127.0.0.1:$port $1 $2
-else
-  wait
 fi
+#else
+#  while true; do
+    #>&2 echo "VPN running"
+    #sleep 86400
+  #done
+#fi
+
+
