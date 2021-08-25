@@ -13,9 +13,7 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
-[ -z $OP_SESSION ] && eval $(op signin)
-
-op_item="University of Wisconsin – Madison"
+login_key="University of Wisconsin – Madison"
 vpn_address="uwmadison.vpn.wisc.edu"
 
 function h {
@@ -30,24 +28,28 @@ if [[ ! -z "$proxy_pid" ]] ; then
   exit 1
 fi
 
+username=$(security \
+  find-generic-password -l $login_key \
+  | grep acct | sed -e 's/.*"\(.*\)"/\1/')
 
 >&2 echo $(h "Starting OpenConnect VPN")
+
+
 # first run openconnect
-op-get-field "$op_item" password \
-| xargs \
+(security find-generic-password \
+  -l $login_key -w && echo "\n" && sleep 1 && echo "1") \
 | openconnect \
-  --no-dtls \
-  --script-tun \
+  --verbose \
   --protocol=gp \
-  --reconnect-timeout 60 \
+  --user=$username \
+  --script-tun \
   --script "ocproxy -D $port" \
-  --user=$(op-get-field "$op_item" username) \
+  --usergroup ssl-vpn \
   --csd-wrapper="$(which openconnect-hipreport)" \
   $vpn_address &
+
 vpn_pid=$!
-
 sleep 1
-
 proxy_pid=$(lsof -t -i :$port)
 
 >&2 echo $vpn_pid $proxy_pid $1 $2
