@@ -1,10 +1,5 @@
 #!/bin/bash
 
-[ -z $OP_SESSION ] && eval $(op signin)
-uwmadison-vpn -p 9019 &
-p1=$!
-sleep 1
-/Applications/Firefox.app/Contents/MacOS/firefox-bin -P "UW Madison Proxy" &
-p2=$!
+uwmadison-vpn start
 
-wait $p1 $p2
+/Applications/Firefox.app/Contents/MacOS/firefox-bin -P "UW Madison Proxy"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$2" ]; then
+  echo "No argument supplied"
+  curl "$1" \
+  | npx prettier --stdin-filepath test.json \
+  | mvim -c "set filetype=json" -
+else
+  curl "$1" \
+  | npx prettier --stdin-filepath test.json \
+  > "$2"
+fi

@@ -18,6 +18,6 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   export PATH="$LOCALBIN:$PATH"
   export PATH="$HOME/.poetry/bin:$PATH"
   export PATH="/usr/local/opt/sqlite/bin:$PATH"
-
+  export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 

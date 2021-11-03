@@ -2,10 +2,9 @@
 # connects to SSH through openconnect and VPN
 # for use with ProxyCommand in SSH
 
-# command can be start,stop,connect
-command=$1
-shift
->&2 echo $command
+# command can be start,stop,connect,status
+command=${1:-"status"}
+shift 2> /dev/null
 
 port=9053
 
@@ -16,14 +15,26 @@ function h {
   echo "$(tput bold)$1$(tput sgr0)"
 }
 
->&2 echo "Running VPN at host $host on port $port"
-
-
 proxy_pid=$(lsof -t -i :$port)
 
+>&2 echo $vpn_address
+if [[ ! -z "$proxy_pid" ]] ; then
+  >&2 echo "SOCKS proxy port $(h $port) is running."
+else
+  >&2 echo "VPN proxy is not running."
+fi
+
+if [ $command = "status" ]; then
+  exit 0
+fi
+
+
 function cleanup {
-  >&2 echo $(h "Stopping OpenConnect VPN")
-  kill -9 $proxy_pid
+  #$0 status
+  if [[ ! -z "$proxy_pid" ]] ; then
+    >&2 echo $(h "Stopping OpenConnect VPN")
+    kill -9 $proxy_pid
+  fi
 }
 
 if [ $command = "stop" ]; then
@@ -31,13 +42,7 @@ if [ $command = "stop" ]; then
   exit 0
 fi
 
-if [[ ! -z "$proxy_pid" ]] ; then
-  >&2 echo "SOCKS proxy port $(h $port) is running."
-  if [ $command = "stop" ]; then
-    cleanup
-    exit 0
-  fi
-else
+if [[ -z "$proxy_pid" ]] ; then
   if [ $command = "start" ]; then
     >&2 echo $(h "Starting OpenConnect VPN")
 
@@ -57,6 +62,7 @@ else
       --usergroup ssl-vpn \
       --csd-wrapper="$(which openconnect-hipreport)" \
       --background \
+      --quiet \
       $vpn_address
 
     vpn_pid=$!
@@ -74,16 +80,12 @@ fi
 
 ## redirect traffic (standard input and output) through VPN
 if [ $command = 'connect' ] ; then
-  $0 start
-  >&2 echo "Serving with netcat"
-  >&2 echo $proxy_pid $port $1 $2
-  nc -X 5 -x 127.0.0.1:$port $1 $2
+  if [[ ! -z "$proxy_pid" ]] ; then
+    >&2 echo "Serving SOCKS proxy with netcat"
+    nc -X 5 -x 127.0.0.1:$port $1 $2
+  else
+    >&2 echo "Serving no-op with netcat"
+    nc $1 $2
+  fi
 fi
-#else
-#  while true; do
-    #>&2 echo "VPN running"
-    #sleep 86400
-  #done
-#fi
-
 
