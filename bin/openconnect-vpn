@@ -1,0 +1,91 @@
+#!/usr/bin/env zsh
+# connects to SSH through openconnect and VPN
+# for use with ProxyCommand in SSH
+# Works with Palo Alto VPNs
+
+# command can be start,stop,connect,status
+command=${1:-"status"}
+shift 2> /dev/null
+
+port=$VPN_PORT
+
+login_key=$VPN_LOGIN_KEY
+vpn_address=$VPN_ADDRESS
+
+function h {
+  echo "$(tput bold)$1$(tput sgr0)"
+}
+
+proxy_pid=$(lsof -t -i :$port)
+
+>&2 echo $vpn_address
+if [[ ! -z "$proxy_pid" ]] ; then
+  >&2 echo "SOCKS proxy port $(h $port) is running."
+else
+  >&2 echo "VPN proxy is not running."
+fi
+
+if [ $command = "status" ]; then
+  exit 0
+fi
+
+
+function cleanup {
+  #$0 status
+  if [[ ! -z "$proxy_pid" ]] ; then
+    >&2 echo $(h "Stopping OpenConnect VPN")
+    kill -9 $proxy_pid
+  fi
+}
+
+if [ $command = "stop" ]; then
+  cleanup
+  exit 0
+fi
+
+if [[ -z "$proxy_pid" ]] ; then
+  if [ $command = "start" ]; then
+    >&2 echo $(h "Starting OpenConnect VPN")
+
+    username=$(security \
+      find-generic-password -l $login_key \
+      | grep acct | sed -e 's/.*"\(.*\)"/\1/')
+
+    # first run openconnect
+    (security find-generic-password \
+      -l $login_key -w && echo "\n" && sleep 1 && echo "1") \
+    | openconnect \
+      --protocol=gp \
+      --no-dtls \
+      --user=$username \
+      --script-tun \
+      --script "ocproxy -D $port" \
+      --usergroup ssl-vpn \
+      --csd-wrapper="$(which openconnect-hipreport)" \
+      --background \
+      --quiet \
+      $vpn_address
+
+    vpn_pid=$!
+    proxy_pid=$(lsof -t -i :$port)
+    sleep 5
+    >&2 echo $(h "Finished setting up VPN")
+    exit 0
+  fi
+fi
+
+
+# kill connection on exit
+#trap cleanup EXIT
+
+## redirect traffic (standard input and output) through VPN
+if [ $command = 'connect' ] ; then
+  if [[ ! -z "$proxy_pid" ]] ; then
+    >&2 echo "Serving SOCKS proxy with netcat"
+    nc -X 5 -x 127.0.0.1:$port $1 $2
+  else
+    >&2 echo "Serving no-op with netcat"
+    nc $1 $2
+  fi
+fi
+
