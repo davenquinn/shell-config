@@ -19,5 +19,7 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   export PATH="$HOME/.poetry/bin:$PATH"
   export PATH="/usr/local/opt/sqlite/bin:$PATH"
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+  ## make sure proj and gdal tools come before their Postgres-app provided versions in the path.
+  export PATH=$(brew --prefix proj)/bin:$(brew --prefix gdal)/bin:$PATH
 fi
 

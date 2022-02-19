@@ -5,6 +5,7 @@
 
 letterheads="/Users/Daven/Resources/Letterheads"
 postfix='-letterhead.pdf'
+default_letterhead="uw-madison"
 
 if [[ -z "$1" ]]; then
 
@@ -21,6 +22,8 @@ ls $letterheads \
 exit 0
 
 fi
+
+letterhead="$letterheads/${default_letterhead}${postfix}"
 
 if [[ $1 == '--letterhead' ]]; then
   shift

@@ -121,3 +121,6 @@
 [submodule "core"]
 	path = core
 	url = git://github.com/davenquinn/core-shell-config.git
+[submodule "deps/compare-documents"]
+	path = deps/compare-documents
+	url = git://github.com/davenquinn/compare-documents.git

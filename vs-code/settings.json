@@ -1,9 +1,10 @@
 {
-  "workbench.colorTheme": "Ysgrifennwr",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "editor.tokenColorCustomizations": {
     "[Palenight Theme]": {
       "textMateRules": [
-        {"scope": ["meta.class entity.name.type.class"],
+        {
+          "scope": ["meta.class entity.name.type.class"],
           "settings": {
             "foreground": "#7476e9",
             "fontStyle": "bold"
@@ -78,9 +79,7 @@
   },
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-    "max-line-length = 88"
-  ],
+  "python.linting.flake8Args": ["max-line-length = 88"],
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -101,7 +100,6 @@
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "workbench.activityBar.visible": false,
   "dayNightThemeSwitcher.nightTheme": "Palenight Theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
   "workbench.preferredLightColorTheme": "Ysgrifennwr",
@@ -119,5 +117,8 @@
     "markdown": true
   },
   "git.autofetch": true,
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "debug.javascript.autoAttachFilter": "smart",
+  "workbench.activityBar.visible": false,
+  "thunder-client.codeSnippetLanguage": "cs-httpclient"
 }

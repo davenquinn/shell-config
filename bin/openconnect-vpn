@@ -60,7 +60,7 @@ if [[ -z "$proxy_pid" ]] ; then
       --user=$username \
       --script-tun \
       --script "ocproxy -D $port" \
-      --usergroup ssl-vpn \
+      --usergroup ${VPN_USERGROUP:-"ssl-vpn"} \
       --csd-wrapper="$(which openconnect-hipreport)" \
       --background \
       --quiet \

@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+export VPN_PORT=9054
+export VPN_LOGIN_KEY="Boise State University"
+export VPN_ADDRESS="vpn.boisestate.edu"
+export VPN_USERGROUP="gateway"
+
+openconnect-vpn $@
