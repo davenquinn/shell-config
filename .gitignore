@@ -9,3 +9,4 @@ dotfiles/ipython/profile_basic/security
 dotfiles/matplotlib/*.cache
 dotfiles/config/*
 dotfiles/matplotlib/fontlist-*.json
+!dotfiles/config/starship.toml

@@ -246,3 +246,6 @@ eval "$(pyenv init --path)"
 if command -v pyenv > /dev/null ; then
   eval "$(pyenv init -)"
 fi
+
+# Starship shell prompt
+eval "$(starship init zsh)"
