@@ -11,10 +11,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
 
-## GIS
-# Right now ECWJP2 is built against old gdal
-export GDAL_DRIVER_PATH="$(brew --prefix)/lib/gdal2plugins"
-
 export PYTHONDONTWRITEBYTECODE=True
 
 export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.7.0
@@ -43,16 +39,8 @@ export PROJECT_HOME="$HOME/Projects"
 
 alias git='hub'
 
-# Support `fuck` command for correcting screw-ups
-#eval $(thefuck --alias)
-
-#alias pad='mvim -c "Pad ls"'
-
 #export CLICOLOR=1
 alias ls='ls --color'
-
-# Set up environment for ENVI and modify the IDL path:
-export IDL_PATH="<IDL_DEFAULT>:/Applications/exelis/CAT_ENVI/"
 
 ### SOMETHING below this line causes subshells to not work ####
 # pyenv
@@ -88,20 +76,6 @@ fi
     ## We're not using virtualenvwrapper
 #fi
 
-function install-gdal() {
-  # Function to install GDAL from source including build shims
-  v=$1
-  if [ -z $v ]; then
-    v=$(gdal-config --version)
-  fi
-  c="pip install "
-  c+="--global-option build_ext "
-  c+="--global-option \"-I$(brew --prefix)/include/gdal\" "\
-  c+="gdal==$v"
-  echo $c
-  eval $c
-}
-
 # Alias to get bundle id
 function bundle-id() {
   osascript -e "id of app \"${1}\""
@@ -120,5 +94,15 @@ function docker-killall {
 }
 
 function sst {
-  ssh -t $@ "tmux -CC attach || tmux -CC new";
+  ssh -t $@ "tmux -CC";
 }
+
+## Android / Ionic development
+# See https://ionicframework.com/docs/developing/android for more info
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+# avdmanager, sdkmanager
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+# adb, logcat
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+# emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
