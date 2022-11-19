@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.colorTheme": "Tinacious Design (Light)",
   "editor.tokenColorCustomizations": {
     "[Palenight Theme]": {
       "textMateRules": [
@@ -55,7 +55,9 @@
   "editor.formatOnSave": true,
   "[python]": {
     "editor.insertSpaces": true,
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -65,6 +67,9 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
   },
   "editor.fontLigatures": true,
   "[jsonc]": {
@@ -78,7 +83,6 @@
     "*.ipynb": "jupyter-notebook"
   },
   "python.formatting.provider": "black",
-  "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["max-line-length = 88"],
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -102,7 +106,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "dayNightThemeSwitcher.nightTheme": "Palenight Theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
-  "workbench.preferredLightColorTheme": "Ysgrifennwr",
+  "workbench.preferredLightColorTheme": "Tinacious Design (Light)",
   "window.autoDetectColorScheme": true,
   "editor.inlineSuggest.enabled": true,
   "notebook.cellToolbarLocation": {
@@ -114,11 +118,15 @@
     "*": true,
     "yaml": false,
     "plaintext": false,
-    "markdown": true
+    "markdown": false,
+    "swift": true
   },
   "git.autofetch": true,
-  "editor.minimap.enabled": false,
   "debug.javascript.autoAttachFilter": "smart",
+  "thunder-client.codeSnippetLanguage": "cs-httpclient",
+  "editor.formatOnSaveMode": "file",
+  "python.linting.flake8Enabled": true,
+  "sql-formatter.uppercase": true,
   "workbench.activityBar.visible": false,
-  "thunder-client.codeSnippetLanguage": "cs-httpclient"
+  "editor.minimap.enabled": false
 }

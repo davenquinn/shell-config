@@ -3,3 +3,7 @@ disabled = true
 
 [nodejs]
 symbol = "⬢ "
+
+# Swift support is really slow
+[swift]
+disabled = true

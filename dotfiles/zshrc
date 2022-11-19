@@ -206,13 +206,6 @@ function git-fix() {
   git commit --fixup="$commit"
 }
 
-# PIP install in a virtualenv parent
-function pip-parent () {
-  pyexe="$(readlink "$VIRTUAL_ENV/bin/python")"
-  "${pyexe:h}/pip" $@
-}
-
-
 alias ls='ls --color'
 
 # Enables moving with wildcards *.c.orig orig/*.c
@@ -232,10 +225,6 @@ unalias tab 2> /dev/null
 # This creates some confusing problems sometimes
 unsetopt auto_cd
 
-# NPM configuration
-export npm_config_python=python2.7
-export npm_config_save=true
-
 # Pipenv configuration
 export PIPENV_IGNORE_VIRTUALENVS=1
 
@@ -249,3 +238,6 @@ fi
 
 # Starship shell prompt
 eval "$(starship init zsh)"
+# Run `starship timings` to check what's making things slow
+
+export PATH="$HOME/.poetry/bin:$PATH"
