@@ -241,3 +241,4 @@ eval "$(starship init zsh)"
 # Run `starship timings` to check what's making things slow
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=/Users/Daven/.meteor:$PATH
