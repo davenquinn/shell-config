@@ -57,7 +57,9 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -102,7 +104,6 @@
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 5,
-  "editor.multiCursorModifier": "ctrlCmd",
   "dayNightThemeSwitcher.nightTheme": "Palenight Theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
   "workbench.preferredLightColorTheme": "Tinacious Design (Light)",
@@ -112,13 +113,15 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "diffEditor.ignoreTrimWhitespace": false,
   "github.copilot.enable": {
     "*": true,
-    "yaml": false,
+    "yaml": true,
     "plaintext": false,
-    "markdown": false,
-    "swift": true
+    "markdown": true,
+    "scminput": false,
+    "mdx": false,
+    "swift": true,
+    "python": true
   },
   "git.autofetch": true,
   "debug.javascript.autoAttachFilter": "smart",
@@ -126,8 +129,40 @@
   "editor.formatOnSaveMode": "file",
   "python.linting.flake8Enabled": true,
   "sql-formatter.uppercase": true,
-  "editor.minimap.enabled": false,
   "git.mergeEditor": false,
-  "workbench.activityBar.visible": false,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "totalTypeScript.hiddenTips": [
+    "array-type",
+    "ts-object-type",
+    "typing-function-parameters",
+    "basic-types",
+    "union-type"
+  ],
+  "python.terminal.activateEnvironment": false,
+  "editor.minimap.enabled": false,
+  "cSpell.userWords": [
+    "cyberinfrastructure",
+    "geoscience",
+    "geosciences",
+    "Macrostrat",
+    "Mancos",
+    "tileset"
+  ],
+  "latex-workshop.view.pdf.invert": 0.85,
+  "latex-workshop.view.pdf.invertMode.enabled": "auto",
+  "cSpell.enableFiletypes": ["!python", "!typescript"],
+  "foam.files.newNotePath": "currentDir",
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "colorTabs.titleBackground": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "foam.completion.label": "title",
+  "foam.completion.useAlias": "whenPathDiffersFromTitle",
+  "diffEditor.renderSideBySide": false,
+  "vim.enableNeovim": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.activityBar.visible": false
 }

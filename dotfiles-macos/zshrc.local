@@ -34,11 +34,6 @@ export PROJECT_HOME="$HOME/Projects"
 # Setup `z` command line switcher
 . $(brew --prefix)/etc/profile.d/z.sh
 
-
-# Sometimes needed for installing things
-
-alias git='hub'
-
 #export CLICOLOR=1
 alias ls='ls --color'
 
