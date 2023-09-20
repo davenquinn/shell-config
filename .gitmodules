@@ -30,61 +30,61 @@
 	url = https://github.com/sorin-ionescu/prezto
 [submodule "dotfiles/pandoc/templates/pandoc-letter"]
 	path = dotfiles/pandoc/templates/pandoc-letter
-	url = git://github.com/aaronwolen/pandoc-letter.git
+	url = https://github.com/aaronwolen/pandoc-letter.git
 [submodule "dotfiles/contrib/fzf-extras"]
 	path = dotfiles/contrib/fzf-extras
-	url = git://github.com/atweiden/fzf-extras.git
+	url = https://github.com/atweiden/fzf-extras.git
 [submodule "dotfiles/janus/jedi-vim"]
 	path = dotfiles/janus/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
+	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "dotfiles/janus/vim-pencil"]
 	path = dotfiles/janus/vim-pencil
-	url = git://github.com/reedes/vim-pencil.git
+	url = https://github.com/reedes/vim-pencil.git
 [submodule "dotfiles/janus/emmet-vim"]
 	path = dotfiles/janus/emmet-vim
-	url = git://github.com/mattn/emmet-vim.git
+	url = https://github.com/mattn/emmet-vim.git
 [submodule "bin/pg-backup-all"]
 	path = bin/pg-backup-all
-	url = git://github.com/davenquinn/pg-backup-all.git
+	url = https://github.com/davenquinn/pg-backup-all.git
 [submodule "dotfiles/janus/goyo.vim"]
 	path = dotfiles/vim-plugins/goyo.vim
-  url = git://github.com/junegunn/goyo.vim.git
+  url = https://github.com/junegunn/goyo.vim.git
 [submodule "dotfiles/janus/limelight.vim"]
 	path = dotfiles/vim-plugins/limelight.vim
-  url = git://github.com/junegunn/limelight.vim.git
+  url = https://github.com/junegunn/limelight.vim.git
 [submodule "dotfiles/janus/swift.vim"]
 	path = dotfiles/vim-plugins/swift.vim
-  url = git://github.com/keith/swift.vim.git
+  url = https://github.com/keith/swift.vim.git
 [submodule "dotfiles/janus/vim-easy-align"]
 	path = dotfiles/vim-plugins/vim-easy-align
-  url = git://github.com/junegunn/vim-easy-align.git
+  url = https://github.com/junegunn/vim-easy-align.git
 [submodule "dotfiles/janus/vim-pug"]
 	path = dotfiles/vim-plugins/vim-pug
-  url = git://github.com/digitaltoad/vim-pug.git
+  url = https://github.com/digitaltoad/vim-pug.git
 [submodule "dotfiles/janus/vim-thematic"]
 	path = dotfiles/vim-plugins/vim-thematic
-  url = git://github.com/reedes/vim-thematic.git
+  url = https://github.com/reedes/vim-thematic.git
 [submodule "dotfiles/janus/vim-yaml"]
 	path = dotfiles/vim-plugins/vim-yaml
-  url = git://github.com/stephpy/vim-yaml.git
+  url = https://github.com/stephpy/vim-yaml.git
 [submodule "dotfiles/chrisbra/vim-zsh"]
 	path = dotfiles/vim-plugins/vim-zsh
-  url =  git://github.com/chrisbra/vim-zsh.git
+  url =  https://github.com/chrisbra/vim-zsh.git
 [submodule "dotfiles/janus/fzf.vim"]
 	path = dotfiles/vim-plugins/fzf.vim
-	url = git://github.com/davenquinn/fzf.vim.git
+	url = https://github.com/davenquinn/fzf.vim.git
 [submodule "dotfiles/janus/iceberg.vim"]
 	path = dotfiles/vim-plugins/iceberg.vim
-	url = git://github.com/cocopon/iceberg.vim.git
+	url = https://github.com/cocopon/iceberg.vim.git
 [submodule "dotfiles/janus/nginx.vim"]
 	path = dotfiles/vim-plugins/nginx.vim
-	url = git://github.com/chr4/nginx.vim.git
+	url = https://github.com/chr4/nginx.vim.git
 [submodule "dotfiles/vim-plugins/fzf"]
 	path = dotfiles/vim-plugins/fzf
-	url = git://github.com/junegunn/fzf.git
+	url = https://github.com/junegunn/fzf.git
 [submodule "dotfiles/vim-plugins/ack.vim"]
 	path = dotfiles/vim-plugins/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule "xcode-themes/dracula-theme"]
 	path = xcode-themes/dracula-theme
 	url = https://github.com/dracula/xcode.git
@@ -93,34 +93,37 @@
 	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "dotfiles/vim-plugins/python-syntax"]
 	path = dotfiles/vim-plugins/python-syntax
-	url = git://github.com/vim-python/python-syntax.git
+	url = https://github.com/vim-python/python-syntax.git
 [submodule "atom-themes/perplex-syntax"]
 	path = atom-themes/perplex-syntax
-	url = git://github.com/davenquinn/perplex-syntax.git
+	url = https://github.com/davenquinn/perplex-syntax.git
 [submodule "dotfiles/vim-plugins/vim-stylus"]
 	path = dotfiles/vim-plugins/vim-stylus
-	url = git://github.com/iloginow/vim-stylus.git
+	url = https://github.com/iloginow/vim-stylus.git
 [submodule "dotfiles/vim-plugins/vim-styled-components"]
 	path = dotfiles/vim-plugins/vim-styled-components
-	url = git://github.com/styled-components/vim-styled-components.git
+	url = https://github.com/styled-components/vim-styled-components.git
 [submodule "dotfiles/vim-plugins/vim-mdx-js"]
 	path = dotfiles/vim-plugins/vim-mdx-js
-	url = git://github.com/jxnblk/vim-mdx-js.git
+	url = https://github.com/jxnblk/vim-mdx-js.git
 [submodule "atom-themes/perplex-light-syntax"]
 	path = atom-themes/perplex-light-syntax
-	url = git://github.com/davenquinn/perplex-syntax.git
+	url = https://github.com/davenquinn/perplex-syntax.git
 [submodule "dotfiles/vim-plugins/vim-node"]
 	path = dotfiles/vim-plugins/vim-node
-	url = git://github.com/moll/vim-node.git
+	url = https://github.com/moll/vim-node.git
 [submodule "git-annex-remote-rclone"]
 	path = bin/annex-remote-rclone
-	url = git://github.com/DanielDent/git-annex-remote-rclone.git
+	url = https://github.com/DanielDent/git-annex-remote-rclone.git
 [submodule "deps/docker-safe-clean"]
 	path = deps/docker-safe-clean
-	url = git://github.com/davenquinn/docker-safe-clean.git
+	url = https://github.com/davenquinn/docker-safe-clean.git
 [submodule "core"]
 	path = core
-	url = git://github.com/davenquinn/core-shell-config.git
+	url = https://github.com/davenquinn/core-shell-config.git
 [submodule "deps/compare-documents"]
 	path = deps/compare-documents
-	url = git://github.com/davenquinn/compare-documents.git
+	url = https://github.com/davenquinn/compare-documents.git
+[submodule "dotfiles/vim-plugins/vim-prettier"]
+	path = dotfiles/vim-plugins/vim-prettier
+	url = https://github.com/prettier/vim-prettier.git
