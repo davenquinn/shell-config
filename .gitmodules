@@ -94,9 +94,6 @@
 [submodule "dotfiles/vim-plugins/python-syntax"]
 	path = dotfiles/vim-plugins/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
-[submodule "atom-themes/perplex-syntax"]
-	path = atom-themes/perplex-syntax
-	url = https://github.com/davenquinn/perplex-syntax.git
 [submodule "dotfiles/vim-plugins/vim-stylus"]
 	path = dotfiles/vim-plugins/vim-stylus
 	url = https://github.com/iloginow/vim-stylus.git
@@ -106,9 +103,6 @@
 [submodule "dotfiles/vim-plugins/vim-mdx-js"]
 	path = dotfiles/vim-plugins/vim-mdx-js
 	url = https://github.com/jxnblk/vim-mdx-js.git
-[submodule "atom-themes/perplex-light-syntax"]
-	path = atom-themes/perplex-light-syntax
-	url = https://github.com/davenquinn/perplex-syntax.git
 [submodule "dotfiles/vim-plugins/vim-node"]
 	path = dotfiles/vim-plugins/vim-node
 	url = https://github.com/moll/vim-node.git
