@@ -1,0 +1,18 @@
+# Load homebrew. This is important.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+## Android / Ionic development
+# See https://ionicframework.com/docs/developing/android for more info
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+# avdmanager, sdkmanager
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+# adb, logcat
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+# emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+
+# Scripts, etc. in this repository
+# NOTE: should move this to a set of homebrew packages
+export DOTFILES="$HOME/Environment/shell-config"
+export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
+export PATH="$LOCALBIN:$PATH"

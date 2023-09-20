@@ -10,15 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Setup path (maybe should go in zshenv)
-
-export LDFLAGS="-L/usr/local/lib"
-# People suck
-export QUOTING_STYLE=literal
-
   # Initialize local zshrc
 _local="${ZDOTDIR:-$HOME}/.zshrc.local"
-if [ -s $_local ]; then
+if [[ -f $_local ]]; then
   source $_local
 fi
 
@@ -225,8 +219,7 @@ unalias tab 2> /dev/null
 # This creates some confusing problems sometimes
 unsetopt auto_cd
 
-# Pipenv configuration
-export PIPENV_IGNORE_VIRTUALENVS=1
+
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -238,7 +231,4 @@ fi
 
 # Starship shell prompt
 eval "$(starship init zsh)"
-# Run `starship timings` to check what's making things slow
 
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH=/Users/Daven/.meteor:$PATH

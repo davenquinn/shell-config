@@ -7,35 +7,29 @@
 # Pyenv seems to have a hard time with tmux on Macs..
 # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
 # system-wide environment settings for zsh(1)
-if [[ -z $TMUX ]]; then
-  export PATH=""
-  if [ -f /etc/zprofile ]; then
-    source /etc/zprofile
-  fi
-
-  export PATH="$HOME/.poetry/bin:$PATH"
-
-  #
-  # Paths
-  #
-
-  # Ensure path arrays do not contain duplicates.
-  typeset -gU cdpath fpath mailpath path
-
-  # Set the the list of directories that cd searches.
-  # cdpath=(
-  #   $cdpath
-  # )
-
-  # Set the list of directories that Zsh searches for programs.
-  path=(
-    /usr/local/{bin,sbin}
-    $path
-    .
-  )
-
-
+export PATH=""
+if [ -f /etc/zprofile ]; then
+  source /etc/zprofile
 fi
+
+#
+# Paths
+#
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+
+# Set the the list of directories that cd searches.
+# cdpath=(
+#   $cdpath
+# )
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  /usr/local/{bin,sbin}
+  $path
+  .
+)
 
 #
 # Browser
@@ -95,13 +89,10 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
-### Setup pipenv ###
-export PIPENV_VENV_IN_PROJECT=1
-export PIPENV_SKIP_LOCK=true
-### AWESOME PLOTS ###
-## This should be done in Python until a better way is figured out;
-## exporting this variable requires us to constantly define 'normal'
-## backends in code that is initialized from the command line.
-#export MPLBACKEND="module://itermplot"
-export ITERMPLOT=rv
+_local="${ZDOTDIR:-$HOME}/.zprofile.local"
+if [ -f $_local ]; then
+  source $_local
+fi
 
+# Setup environment. We always source this from Zshenv for non-login shells
+# so we can make sure that things work the same.

@@ -4,22 +4,17 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 
-_local="${ZDOTDIR:-$HOME}/.zshenv.local"
+# .zshenv → [.zprofile if login] → [.zshrc if interactive] → [.zlogin if login] → [.zlogout sometimes]
 
+
+# Note: we disable this to make sure things are working right.
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
-  if [ -f $_local ]; then
-    source $_local
-  fi
+fi
 
-  export DOTFILES="$HOME/Environment/shell-config"
-  export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
-  export PATH="$LOCALBIN:$PATH"
-  export PATH="$HOME/.poetry/bin:$PATH"
-  export PATH="/usr/local/opt/sqlite/bin:$PATH"
-  export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-  ## make sure proj and gdal tools come before their Postgres-app provided versions in the path.
-  export PATH=$(brew --prefix proj)/bin:$(brew --prefix gdal)/bin:$PATH
+_local="${ZDOTDIR:-$HOME}/.zshenv.local"
+if [ -f $_local ]; then
+  source $_local
 fi
 

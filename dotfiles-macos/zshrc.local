@@ -6,9 +6,6 @@ COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
 SED=$(brew --prefix gnu-sed)/libexec/gnubin
 export PATH="$SED:$COREUTILS:$PATH"
 
-## Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications";
-
 export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
 
 export PYTHONDONTWRITEBYTECODE=True
@@ -24,12 +21,6 @@ for fn in $arr; do
     break
   fi
 done
-
-# Python virtualenvs
-export WORKON_HOME="$HOME/Environment/Python-virtualenvs"
-export PROJECT_HOME="$HOME/Projects"
-
-#export PYENV_ROOT="/usr/local/var/pyenv"
 
 # Setup `z` command line switcher
 . $(brew --prefix)/etc/profile.d/z.sh
@@ -92,12 +83,3 @@ function sst {
   ssh -t $@ "tmux -CC";
 }
 
-## Android / Ionic development
-# See https://ionicframework.com/docs/developing/android for more info
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-# avdmanager, sdkmanager
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
-# adb, logcat
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-# emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
