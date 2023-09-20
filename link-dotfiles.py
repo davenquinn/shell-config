@@ -31,8 +31,8 @@ def symlink_path(p):
     echo(s)
     loc.symlink_to(p)
 
-def make_symlinks(dir):
-    results = (symlink_path(i) for i in  dir.iterdir())
+def make_symlinks(*files):
+    results = (symlink_path(i) for i in files)
     remainders = list(filter(lambda x: x is not None, results))
     if len(remainders) == 0: return
     linkfiles = list(map(linkfile, remainders))
@@ -47,7 +47,7 @@ def make_symlinks(dir):
         for loc in linkfiles:
             echo("Removing {0}".format(loc))
             call(["rm","-rf",str(loc)])
-        make_symlinks(remainders)
+        make_symlinks(*remainders)
 
 @click.command()
 @click.option('--profile','-p',
@@ -66,8 +66,8 @@ def dotfile_cmd(profile,list):
             magenta(i)
         return
 
-    make_symlinks(core_dotfiles)
-    make_symlinks(local_dotfiles)
+    make_symlinks(*core_dotfiles.iterdir())
+    make_symlinks(*local_dotfiles.iterdir())
 
     if profile is None:
         echo("No profile-specific dotfiles were linked. "
@@ -75,7 +75,7 @@ def dotfile_cmd(profile,list):
              "`-l/--list` shows the possible profiles.")
         return
     dn = here/"dotfiles-{}".format(profile)
-    make_symlinks(dn.iterdir())
+    make_symlinks(*dn.iterdir())
 
 
 if __name__ == "__main__":

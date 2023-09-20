@@ -9,7 +9,7 @@
         url = https://github.com/vim-pandoc/vim-pandoc.git
 [submodule "bin/prm"]
         path = bin/prm
-        url = https://github.com/eivind88/prm
+        url = https://github.com/eivind88/prm.git
 [submodule "dotfiles/vim"]
         path = dotfiles/vim
         url = https://github.com/carlhuda/janus.git
