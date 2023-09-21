@@ -10,10 +10,10 @@
 # JUST DEFINING `PYENV_ROOT` leads to subshell failure?
 #   Doesn't matter if we refrain from running when subshells
 #   are opened
-export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-#export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+# export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
+# export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Alias to get bundle id
 function bundle-id() {

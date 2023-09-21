@@ -5,6 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -80,10 +82,6 @@ function edit-env() {
   mvim ~/Environment/shell-config
 }
 
-# Add a newline before commands
-precmd() { print "" }
-
-
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -107,9 +105,11 @@ function fd() {
 
 zstyle ':completion:*' menu select
 
+unalias z 2> /dev/null
+
 function z() {
   [ $# -gt 0 ] && zshz "$*" && return
-  cd "$(zshz -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+  cd "$(zshz -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf-tmux +s --tac --query "$*")"
 }
 
 function get_in_project {
@@ -157,7 +157,7 @@ function git-fix() {
   git commit --fixup="$commit"
 }
 
-alias ls='ls --color'
+# alias ls='ls --color'
 
 # Enables moving with wildcards *.c.orig orig/*.c
 alias mmv='noglob zmv -W'
@@ -170,12 +170,14 @@ fi
 
 alias cdenv="cd $DOTFILES"
 
-# Use our custom implementation of `tab`
-unalias tab 2> /dev/null
-
 # This creates some confusing problems sometimes
 unsetopt auto_cd
 
+# Zsh autocomplete
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# Install the spaceship prompt
+# This is roughly equivalent to starship
+# but optimized for zsh
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 # Starship shell prompt
-eval "$(starship init zsh)"
-
+# eval "$(starship init zsh)"

@@ -35,18 +35,19 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'history-substring-search' \
+  'completion' \
   'command-not-found' \
-  'autosuggestions' \
   'directory' \
   'spectrum' \
   'utility' \
   'homebrew' \
   'osx' \
   'git' \
+  'python' \
   'gnu-utility' \
+  'history-substring-search' \
   'syntax-highlighting' \
-  'completion' \
+  'autosuggestions' \
   'zsh-z'
 
 #
@@ -56,6 +57,18 @@ zstyle ':prezto:load' pmodule \
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
+# Autosuggestions
+zstyle ':prezto:module:autosuggestions' color 'yes'
+# bindkey '^I'   complete-word       # tab          | complete
+# bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+# Bind the tab key to autosuggest-accept or complete-word
+# bindkey '\t' autosuggest-accept
+# bindkey '\t\t' complete-word
+
+bindkey '^[[Z' autosuggest-accept
+bindkey '^I'   complete-word
+
+# zstyle ':autocomplete:tab:' widget-style autosuggest-accept
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
 
