@@ -1,32 +1,9 @@
-# Subshells inherit already-declared variables so we
-# don't want to add to path etc.
-
-
-COREUTILS=$(brew --prefix coreutils)/libexec/gnubin
-SED=$(brew --prefix gnu-sed)/libexec/gnubin
-export PATH="$SED:$COREUTILS:$PATH"
-
-export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:/usr/lib/pkgconfig:/opt/X11/lib/pkgconfig";
-
-export PYTHONDONTWRITEBYTECODE=True
-
-export OSG_LIBRARY_PATH=/usr/local/lib/osgPlugins-3.7.0
-export IDL_PATH=/Applications/exelis/CAT_ENVI
-
-# PostgreSQL
-arr=($HOME/Library/Databases/PostgreSQL $HOME/Library/PostgreSQL)
-for fn in $arr; do
-  if [ -d $fn ]; then
-    export PGDATA=$fn
-    break
-  fi
-done
 
 # Setup `z` command line switcher
-. $(brew --prefix)/etc/profile.d/z.sh
+#. $(brew --prefix)/etc/profile.d/z.sh
 
 #export CLICOLOR=1
-alias ls='ls --color'
+#alias ls='ls --color'
 
 ### SOMETHING below this line causes subshells to not work ####
 # pyenv
@@ -38,42 +15,18 @@ export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# nodenv... but your days are numbered
-export NODENV_ROOT="$(brew --prefix)/var/nodenv"
-if [[ -d $NODENV_ROOT ]];then
-    if which nodenv > /dev/null; then
-      # initialize nodeenv
-      eval "$(nodenv init -)"
-      export PATH="$NODENV_ROOT/bin:$PATH"
-    fi
-fi
-
-#export PYENV_ROOT="$(brew --prefix)/var/pyenv"
-## Add pyenv root to PATH
-## and initialize pyenv
-#if [[ -d $PYENV_ROOT ]];then
-    ## initialize pyenv
-    #if which pyenv > /dev/null; then
-      #export PATH="$PYENV_ROOT/bin:$PATH"
-      #eval "$(pyenv init -)";
-      ## initialize pyenv virtualenv
-      #eval "$(pyenv virtualenv-init -)"
-    #fi
-    ## We're not using virtualenvwrapper
-#fi
-
 # Alias to get bundle id
 function bundle-id() {
   osascript -e "id of app \"${1}\""
 }
 
 # AlphaMELTS
-alias run-alphamelts='/Applications/alphamelts/run_alphamelts.command'
+# alias run-alphamelts='/Applications/alphamelts/run_alphamelts.command'
 
-alias steno-tunnel="ssh -p 22 -L 5439:127.0.0.1:5432 steno"
-function steno-tunnel-web() {
-  ssh -p 22 -L 5439:127.0.0.1:5432 -L ${1}:localhost:80 steno
-}
+# alias steno-tunnel="ssh -p 22 -L 5439:127.0.0.1:5432 steno"
+# function steno-tunnel-web() {
+#   ssh -p 22 -L 5439:127.0.0.1:5432 -L ${1}:localhost:80 steno
+# }
 
 function docker-killall {
   docker stop $(docker ps -a -q)

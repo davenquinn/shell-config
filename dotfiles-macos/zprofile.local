@@ -16,3 +16,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export DOTFILES="$HOME/Environment/shell-config"
 export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
 export PATH="$LOCALBIN:$PATH"
+
+# Add ASDF package management (Pyenv and Nodenv replacement) to path
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
