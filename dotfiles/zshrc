@@ -34,15 +34,8 @@ else
   export LS_COLORS="di=1;36:ln=1;32:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 fi
 
-# Customize to your needs...
 if [[ $SHLVL -eq 1 ]] ; then
-  if [[ $(uname) == 'Linux' ]]; then
-    neofetch --image "$HOME/Environment/startup-image.jpg"
-  fi
-
-  if [[ $(uname) == 'Darwin' ]]; then
-    neofetch
-  fi
+  macchina 
 fi
 
 autoload -U zmv
@@ -90,31 +83,7 @@ function edit-env() {
 # Add a newline before commands
 precmd() { print "" }
 
-# Desk environment setup
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
-# Fuzzy project finder
-pr() {
-  # Go directly to project
-  if [ "$#" -eq 1 ]; then
-    desk . "$1"
-    return
-  fi
-  vm=$(desk ls 2> /dev/null | grep --invert-match "{text}" | fzf | grep -o -e '^[A-Za-z0-9_-]\+')
-  desk . "$vm"
-}
-alias prl='desk ls'
-
-function wr() {
-  # Writing projects only
-  # Go directly to project
-  if [ "$#" -eq 1 ]; then
-    desk . "$1"
-    return
-  fi
-  vm=$(desk ls 2> /dev/null | grep "{text}" | fzf | grep -o -e '^[A-Za-z0-9_-]\+')
-  desk . "$vm"
-}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -134,25 +103,13 @@ function fd() {
   cd "$dir"
 }
 
-if command -v brew >/dev/null 2>&1 ; then
-  # Setup `z` command line switcher
-  . $(brew --prefix)/etc/profile.d/z.sh
+# Zsh Z
 
-  # z replacement that does fuzzy finding
-  unalias z 2> /dev/null
+zstyle ':completion:*' menu select
 
-  function z() {
-    [ $# -gt 0 ] && _z "$*" && return
-    cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
-  }
-fi
-
-# Function to redo all *do files in directory
-function ra {
-  for f in *.do; do
-    # Redo each target
-    redo ${f:r}
-  done
+function z() {
+  [ $# -gt 0 ] && zshz "$*" && return
+  cd "$(zshz -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
 }
 
 function get_in_project {
@@ -218,16 +175,6 @@ unalias tab 2> /dev/null
 
 # This creates some confusing problems sometimes
 unsetopt auto_cd
-
-
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-if command -v pyenv > /dev/null ; then
-  eval "$(pyenv init -)"
-fi
 
 # Starship shell prompt
 eval "$(starship init zsh)"

@@ -121,3 +121,6 @@
 [submodule "dotfiles/vim-plugins/vim-prettier"]
 	path = dotfiles/vim-plugins/vim-prettier
 	url = https://github.com/prettier/vim-prettier.git
+[submodule "dotfiles/zprezto-contrib/zsh-z"]
+	path = dotfiles/zprezto-contrib/zsh-z
+	url = https://github.com/agkozak/zsh-z.git
