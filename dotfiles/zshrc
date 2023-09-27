@@ -18,6 +18,13 @@ if [[ -f $_local ]]; then
   source $_local
 fi
 
+# ZSH additional completions for tools like git, yarn, etc.
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
 # Environment setup
 export DESK_DESKS_DIR="$HOME/Environment/Desks"
 export PIP_RESPECT_VIRTUALENV=true
