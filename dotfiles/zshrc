@@ -18,12 +18,18 @@ if [[ -f $_local ]]; then
   source $_local
 fi
 
-# ZSH additional completions for tools like git, yarn, etc.
 if type brew &>/dev/null; then
+  # ZSH additional completions for tools like git, yarn, etc.
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
   autoload -Uz compinit
   compinit
+
+  # ZSH autosuggestions
+  # We integrate autosuggestions outside of ZPrezto
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+
+
 
 # Environment setup
 export DESK_DESKS_DIR="$HOME/Environment/Desks"

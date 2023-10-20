@@ -46,7 +46,6 @@ zstyle ':prezto:load' pmodule \
   'gnu-utility' \
   'history-substring-search' \
   'syntax-highlighting' \
-  'autosuggestions' \
   'zsh-z'
 
 #
@@ -57,12 +56,17 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Autosuggestions
-zstyle ':prezto:module:autosuggestions' color 'yes'
+# zstyle ':prezto:module:autosuggestions' color 'yes'
 # bindkey '^I'   complete-word       # tab          | complete
 # bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 # Bind the tab key to autosuggest-accept or complete-word
 # bindkey '\t' autosuggest-accept
 # bindkey '\t\t' complete-word
+
+
+# We integrate autosuggestions outside of ZPrezto
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 bindkey '^[[Z' autosuggest-accept
 bindkey '^I'   complete-word
