@@ -194,3 +194,13 @@ source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 # Starship shell prompt
 # eval "$(starship init zsh)"
+#
+
+# Docker volume backup and restore
+function backup-volume() {
+  docker run --rm -v $1:/$1 alpine tar -c --to-stdout -C /$1 . | pv > $1.tar
+}
+
+function restore-volume() {
+  cat $1.tar | pv | docker run --rm -i -v $1:/$1 alpine tar xf - -C /$1
+}
