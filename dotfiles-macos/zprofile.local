@@ -19,3 +19,8 @@ export PATH="$LOCALBIN:$PATH"
 
 # Add ASDF package management (Pyenv and Nodenv replacement) to path
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Compatibility fixes for Colima
+# Instead of using the standard Docker host address, Colima puts this
+# in a different place.
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
