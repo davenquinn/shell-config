@@ -24,3 +24,8 @@ export PATH="$LOCALBIN:$PATH"
 # Instead of using the standard Docker host address, Colima puts this
 # in a different place.
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
+# Put at least one version of PostgreSQL on the system path
+# This is important as it allows `pg_config` and other executables
+# tb be referenced so that `psycopg2` and other libraries can be built.
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
