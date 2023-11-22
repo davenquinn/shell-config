@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# This script will show you the diff between the merge base of the current ref
+# and the specified ref, optionally saving it to an appropriately-named file.
+# Usage: git-merge-diff [filename]
+
+save=0
+
+if [ "$1" == "--save" ]; then
+    save=1
+    shift
+fi
+
+if [ $# -eq 1 ]; then
+  # Get the merge commit between the branch and HEAD
+  target=$1
+  relative_to=$(git merge-base HEAD "$target")
+elif [ $# -eq 2 ]; then
+  relative_to=$1
+  target=$2
+else
+  if [ $# -gt 2 ]; then
+    echo "Too many arguments"
+  else
+    echo "Find the diff between the specified branch and the last common commit with HEAD"
+  fi
+  echo "Usage: git merge-diff [--save] [from-ref]? [to-ref]"
+  exit 1
+fi
+
+# Get the diff between the merge commit and the branch
+diff=$(git diff "$relative_to" "$target")
+
+# Ouput to stdout or file
+outfile=/dev/stdout
+
+if [ $save -eq 1 ]; then
+    # Save the diff to a file instead of stdout
+    outfile="$relative_to..$target.diff"
+fi
+
+git diff "$relative_to" "$target" > "$outfile"
+
+
