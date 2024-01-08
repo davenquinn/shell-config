@@ -202,5 +202,39 @@ function backup-volume() {
 }
 
 function restore-volume() {
-  cat $1.tar | pv | docker run --rm -i -v $1:/$1 alpine tar xf - -C /$1
+  filename=$1
+  tar_args=xf
+  # Look for bare slug, tar, and tar.gz
+  if [[ ! -f $filename ]]; then
+    echo "File not found: $filename" >&2
+    filename="$filename.tar"
+  fi
+  if [[ ! -f $filename ]]; then
+    echo "File not found: $filename" >&2
+    filename="$filename.gz"
+    tar_args=xzf
+  fi
+
+  if [[ ! -f $filename ]]; then
+    echo "File not found: $filename" >&2
+    return 1
+  fi
+
+  volume_name="${filename:r:r}"
+
+  echo "Restoring $filename to $volume_name" >&2
+
+  root_path="/$volume_name"
+  mount_path="$root_path"
+  # Check if we've specified a subfolder to extract (for weirdly set up archives)
+
+  if [[ -n $2 ]]; then
+    mount_path="$root_path/$2"
+    echo "Extracting subfolder $2" >&2
+  fi
+
+  cat $filename | pv | docker run --rm -v $volume_name:$mount_path -i alpine tar $tar_args - -C $root_path
+
+  # Run du to get details about files
+  docker run --rm -v $volume_name:/$volume_name alpine du -h -d 2 $volume_name
 }
