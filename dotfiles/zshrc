@@ -29,7 +29,9 @@ if type brew &>/dev/null; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-
+# Mint Swift package manager
+mintdir="$HOME/.mint/bin"
+export PATH="$mintdir:$PATH"
 
 # Environment setup
 export DESK_DESKS_DIR="$HOME/Environment/Desks"
@@ -50,6 +52,7 @@ else
 fi
 
 if [[ $SHLVL -eq 1 ]] ; then
+  # Show environment
   macchina 
 fi
 
@@ -238,3 +241,7 @@ function restore-volume() {
   # Run du to get details about files
   docker run --rm -v $volume_name:/$volume_name alpine du -h -d 2 $volume_name
 }
+
+# Add directory to fpath to store custom completions
+fpath+=~/.zfunc
+
