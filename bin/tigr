@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+# Kubectl wrapper to control the Tiger cluster
+
+# Set up the socks proxy
+eval $(uwmadison-vpn activate)
+
+# Connect to the cluster
+kubectl $@

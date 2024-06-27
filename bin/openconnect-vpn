@@ -29,6 +29,17 @@ if [ $command = "status" ]; then
   exit 0
 fi
 
+if [ $command = "activate" ]; then
+  if [[ -z "$proxy_pid" ]] ; then
+    exit 1
+  fi
+  # Sets up shell environment for VPN proxy
+  # (run with `eval $(openconnect-vpn activate)` or similar
+  echo "export HTTP_PROXY=socks5://localhost:$port"
+  echo "export HTTPS_PROXY=socks5://localhost:$port"
+  exit 0
+fi
+
 
 function cleanup {
   #$0 status
