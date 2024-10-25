@@ -17,15 +17,22 @@ export DOTFILES="$HOME/Environment/shell-config"
 export LOCALBIN="$HOME/.bin:$DOTFILES/bin:$DOTFILES/core/bin:$HOME/Library/Haskell/bin"
 export PATH="$LOCALBIN:$PATH"
 
-# Add ASDF package management (Pyenv and Nodenv replacement) to path
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+## Docker container management ##
 
 # Compatibility fixes for Colima
 # Instead of using the standard Docker host address, Colima puts this
 # in a different place.
-export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+# export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
+## PostgreSQL ##
 
 # Put at least one version of PostgreSQL on the system path
 # This is important as it allows `pg_config` and other executables
 # tb be referenced so that `psycopg2` and other libraries can be built.
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Add PGPASSFILE to the environment
+export PGPASSFILE="$HOME/.pgpass"
+
+## Custom Macrostrat configuration ##
+export MACROSTRAT_PYROOT="$HOME/Projects/Macrostrat/Infrastructure/macrostrat-pyroot"

@@ -97,3 +97,13 @@ fi
 
 # Setup environment. We always source this from Zshenv for non-login shells
 # so we can make sure that things work the same.
+
+# Set up Mise en Place, if available.
+# Sets default local shims for Python, Node, etc.
+# https://mise.jdx.dev/ide-integration.html
+if which mise &> /dev/null; then
+  eval "$(mise activate zsh --shims)"
+fi
+# Added by OrbStack: command-line tools and integration
+# Comment this line if you don't want it to be added again.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

@@ -20,22 +20,18 @@ fi
 
 if type brew &>/dev/null; then
   # ZSH additional completions for tools like git, yarn, etc.
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  autoload -Uz compinit
-  compinit
+  # FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  # autoload -Uz compinit
+  # compinit
 
   # ZSH autosuggestions
   # We integrate autosuggestions outside of ZPrezto
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Mint Swift package manager
 mintdir="$HOME/.mint/bin"
 export PATH="$mintdir:$PATH"
-
-# Environment setup
-export DESK_DESKS_DIR="$HOME/Environment/Desks"
-export PIP_RESPECT_VIRTUALENV=true
 
 if type "dircolors" > /dev/null; then
   # GNU dircolors is installed
@@ -53,7 +49,7 @@ fi
 
 if [[ $SHLVL -eq 1 ]] ; then
   # Show environment
-  macchina 
+  macchina
 fi
 
 autoload -U zmv
@@ -61,16 +57,12 @@ autoload -U zmv
 bindkey -v
 
 # Enable back-i-search
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
 
 # Edit command line on ^E^V (normal mode) or ESC v (vim mode)
 autoload -U edit-command-line
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
@@ -80,14 +72,6 @@ export GREP_OPTIONS="--color=auto";
 
 function killport () {
   kill -9 `lsof -t -i :$1`
-}
-
-function pyview() {
-  mvim -R `python -c "import os, $1; print os.path.dirname($1.__file__)"`
-}
-
-function diff() {
-  git diff --color=always $1 $2 | less -r
 }
 
 function reload() {
@@ -101,7 +85,7 @@ function edit-env() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Doesn't seem to work under zsh, maybe should fix...
  #Shims for `fzf` cli tool
@@ -190,11 +174,11 @@ alias cdenv="cd $DOTFILES"
 unsetopt auto_cd
 
 # Zsh autocomplete
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source "$(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 # Install the spaceship prompt
 # This is roughly equivalent to starship
 # but optimized for zsh
-source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 # Starship shell prompt
 # eval "$(starship init zsh)"
 #
@@ -244,4 +228,5 @@ function restore-volume() {
 
 # Add directory to fpath to store custom completions
 fpath+=~/.zfunc
+
 

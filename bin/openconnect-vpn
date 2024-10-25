@@ -67,14 +67,12 @@ if [[ -z "$proxy_pid" ]] ; then
       -l $login_key -w && echo "\n" && sleep 1 && echo "1") \
     | openconnect \
       --protocol=gp \
-      --no-dtls \
       --user=$username \
       --script-tun \
       --script "ocproxy -D $port" \
       --usergroup ${VPN_USERGROUP:-"ssl-vpn"} \
       --csd-wrapper="$(which openconnect-hipreport)" \
       --background \
-      --quiet \
       $vpn_address
 
     vpn_pid=$!
