@@ -45,9 +45,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'gnu-utility' \
   'syntax-highlighting' \
-  'zsh-z'
-
-#  'history-substring-search' \
+  'zsh-z' \
+  'history-substring-search'
 
 #
 # Editor

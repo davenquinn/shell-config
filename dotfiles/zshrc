@@ -54,10 +54,10 @@ fi
 
 autoload -U zmv
 # Use vim key bindings
-bindkey -v
 
-# Enable back-i-search
-# bindkey '^R' history-incremental-search-backward
+# Enable back-i-search (ctrl-r).
+# This is the same as the 'history-substring-search' plugin in prezto, I think.
+# But it seems like we explicitly have to initialize it after we do bindkey -v
 
 # Edit command line on ^E^V (normal mode) or ESC v (vim mode)
 autoload -U edit-command-line

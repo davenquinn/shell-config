@@ -124,3 +124,6 @@
 [submodule "dotfiles/zprezto-contrib/zsh-z"]
 	path = dotfiles/zprezto-contrib/zsh-z
 	url = https://github.com/agkozak/zsh-z.git
+[submodule "dotfiles/vim-plugins/copilot.vim"]
+	path = dotfiles/vim-plugins/copilot.vim
+	url = https://github.com/github/copilot.vim.git

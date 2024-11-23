@@ -2,17 +2,42 @@
 
 # Migrate docker volumes from Colima to OrbStack
 
+vol_name=$1
+new_vol_name=$2
+
+if [ -z $vol_name ]; then
+  echo "Usage: migrate-volumes <volume-name> [new-volume-name]"
+  exit 1
+fi
+
+if [ -z $new_vol_name ]; then
+  new_vol_name=$vol_name
+fi
+
+echo "Migrating volume $vol_name (Colima) to $new_vol_name (OrbStack)"
+
 unset DOCKER_HOST
 docker context use orbstack
-vol_name=$1
+if [ $? -ne 0 ]; then
+  echo "Failed to activate OrbStack context"
+  exit 1
+fi
+
+# Check if the volume already exists
+if docker volume inspect $new_vol_name > /dev/null 2>&1; then
+  echo "Volume $new_vol_name already exists"
+  exit 1
+fi
+
 colima="unix:///Users/Daven/.colima/docker.sock"
 
 # Print the volume name and size that would be migrated
 docker -H $colima volume inspect $vol_name | jq '.[]'
 
-docker volume create --name $vol_name
+docker volume create --name $new_vol_name
 
 # Tar the volume and pipe it to the new volume
 
 docker -H $colima run --rm -v $vol_name:/from alpine tar -cC /from . \
-| docker run --rm -i -v $vol_name:/to alpine tar -xC /to
+| pv \
+| docker run --rm -i -v $new_vol_name:/to alpine tar -xC /to
