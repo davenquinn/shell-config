@@ -85,6 +85,7 @@
     <mapping directory="$PROJECT_DIR$/dotfiles/pandoc/templates/pandoc-letter" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotfiles/vim" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotfiles/vim-plugins/ack.vim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotfiles/vim-plugins/copilot.vim" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotfiles/vim-plugins/csapprox" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotfiles/vim-plugins/fzf" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotfiles/vim-plugins/fzf.vim" vcs="Git" />
